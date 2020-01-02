@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **addons_addon_id_coupons_get**
-> InlineResponse2002 addons_addon_id_coupons_get(addon_id, _with=_with)
+> InlineResponse2003 addons_addon_id_coupons_get(addon_id, _with=_with)
 
 Fetch all the coupons for an addon
 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 

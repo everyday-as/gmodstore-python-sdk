@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import gmodstore_sdk
-from models.order_item_price import OrderItemPrice  # noqa: E501
+from models.money import Money  # noqa: E501
 from gmodstore_sdk.rest import ApiException
 
 
-class TestOrderItemPrice(unittest.TestCase):
-    """OrderItemPrice unit test stubs"""
+class TestMoney(unittest.TestCase):
+    """Money unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestOrderItemPrice(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testOrderItemPrice(self):
-        """Test OrderItemPrice"""
+    def testMoney(self):
+        """Test Money"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = gmodstore_sdk.models.order_item_price.OrderItemPrice()  # noqa: E501
+        # model = gmodstore_sdk.models.money.Money()  # noqa: E501
         pass
 
 

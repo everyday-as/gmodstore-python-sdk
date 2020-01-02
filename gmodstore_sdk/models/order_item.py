@@ -30,7 +30,7 @@ class OrderItem(object):
     """
     swagger_types = {
         'id': 'str',
-        'price': 'OrderItemPrice',
+        'price': 'Money',
         'reversed_at': 'datetime'
     }
 
@@ -80,7 +80,7 @@ class OrderItem(object):
 
 
         :return: The price of this OrderItem.  # noqa: E501
-        :rtype: OrderItemPrice
+        :rtype: Money
         """
         return self._price
 
@@ -90,7 +90,7 @@ class OrderItem(object):
 
 
         :param price: The price of this OrderItem.  # noqa: E501
-        :type: OrderItemPrice
+        :type: Money
         """
         if price is None:
             raise ValueError("Invalid value for `price`, must not be `None`")  # noqa: E501

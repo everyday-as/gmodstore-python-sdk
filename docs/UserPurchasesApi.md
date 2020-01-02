@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**users_user_id_purchases_get**](UserPurchasesApi.md#users_user_id_purchases_get) | **GET** /users/{user_id}/purchases | Fetch all purchases a user has made
 
 # **users_user_id_purchases_get**
-> InlineResponse2003 users_user_id_purchases_get(user_id, _with=_with)
+> InlineResponse2004 users_user_id_purchases_get(user_id, _with=_with)
 
 Fetch all purchases a user has made
 
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 

@@ -43,7 +43,7 @@ class TeamUsersApi(object):
         :param async_req bool
         :param int team_id: Id of the team (required)
         :param list[str] _with: The relations you want to fetch with the TeamUser schema
-        :return: InlineResponse2009
+        :return: InlineResponse20010
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -65,7 +65,7 @@ class TeamUsersApi(object):
         :param async_req bool
         :param int team_id: Id of the team (required)
         :param list[str] _with: The relations you want to fetch with the TeamUser schema
-        :return: InlineResponse2009
+        :return: InlineResponse20010
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -122,7 +122,7 @@ class TeamUsersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2009',  # noqa: E501
+            response_type='InlineResponse20010',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

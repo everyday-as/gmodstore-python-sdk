@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**users_user_id_teams_get**](UserTeamsApi.md#users_user_id_teams_get) | **GET** /users/{user_id}/teams | Fetch all the teams of a user
 
 # **users_user_id_teams_get**
-> InlineResponse20011 users_user_id_teams_get(user_id, _with=_with)
+> InlineResponse20012 users_user_id_teams_get(user_id, _with=_with)
 
 Fetch all the teams of a user
 
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 

@@ -29,7 +29,7 @@ class InlineResponse2007(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'data': 'AddonDownload'
+        'data': 'list[AddonVersion]'
     }
 
     attribute_map = {
@@ -49,7 +49,7 @@ class InlineResponse2007(object):
 
 
         :return: The data of this InlineResponse2007.  # noqa: E501
-        :rtype: AddonDownload
+        :rtype: list[AddonVersion]
         """
         return self._data
 
@@ -59,7 +59,7 @@ class InlineResponse2007(object):
 
 
         :param data: The data of this InlineResponse2007.  # noqa: E501
-        :type: AddonDownload
+        :type: list[AddonVersion]
         """
 
         self._data = data

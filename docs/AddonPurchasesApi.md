@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**addons_addon_id_purchases_user_id_put**](AddonPurchasesApi.md#addons_addon_id_purchases_user_id_put) | **PUT** /addons/{addon_id}/purchases/{user_id} | Update a purchase for an addon
 
 # **addons_addon_id_purchases_get**
-> InlineResponse2003 addons_addon_id_purchases_get(addon_id, _with=_with)
+> InlineResponse2004 addons_addon_id_purchases_get(addon_id, _with=_with)
 
 Fetch all purchases of an addon
 
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 

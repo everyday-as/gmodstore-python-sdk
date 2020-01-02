@@ -18,6 +18,7 @@ from __future__ import absolute_import
 from gmodstore_sdk.api.addon_coupons_api import AddonCouponsApi
 from gmodstore_sdk.api.addon_purchases_api import AddonPurchasesApi
 from gmodstore_sdk.api.addon_reviews_api import AddonReviewsApi
+from gmodstore_sdk.api.addon_stats_api import AddonStatsApi
 from gmodstore_sdk.api.addon_versions_api import AddonVersionsApi
 from gmodstore_sdk.api.addons_api import AddonsApi
 from gmodstore_sdk.api.team_users_api import TeamUsersApi
@@ -37,9 +38,15 @@ from gmodstore_sdk.models.addon_coupon import AddonCoupon
 from gmodstore_sdk.models.addon_download import AddonDownload
 from gmodstore_sdk.models.addon_images import AddonImages
 from gmodstore_sdk.models.addon_price import AddonPrice
-from gmodstore_sdk.models.addon_price_original import AddonPriceOriginal
 from gmodstore_sdk.models.addon_purchase import AddonPurchase
 from gmodstore_sdk.models.addon_review import AddonReview
+from gmodstore_sdk.models.addon_stats import AddonStats
+from gmodstore_sdk.models.addon_stats_revenue import AddonStatsRevenue
+from gmodstore_sdk.models.addon_stats_revenue_current import AddonStatsRevenueCurrent
+from gmodstore_sdk.models.addon_stats_sales import AddonStatsSales
+from gmodstore_sdk.models.addon_stats_sales_current import AddonStatsSalesCurrent
+from gmodstore_sdk.models.addon_stats_views import AddonStatsViews
+from gmodstore_sdk.models.addon_stats_views_current import AddonStatsViewsCurrent
 from gmodstore_sdk.models.addon_version import AddonVersion
 from gmodstore_sdk.models.ban import Ban
 from gmodstore_sdk.models.error import Error
@@ -49,6 +56,7 @@ from gmodstore_sdk.models.inline_response20010 import InlineResponse20010
 from gmodstore_sdk.models.inline_response20011 import InlineResponse20011
 from gmodstore_sdk.models.inline_response20012 import InlineResponse20012
 from gmodstore_sdk.models.inline_response20013 import InlineResponse20013
+from gmodstore_sdk.models.inline_response20014 import InlineResponse20014
 from gmodstore_sdk.models.inline_response2002 import InlineResponse2002
 from gmodstore_sdk.models.inline_response2003 import InlineResponse2003
 from gmodstore_sdk.models.inline_response2004 import InlineResponse2004
@@ -62,8 +70,8 @@ from gmodstore_sdk.models.inline_response2011 import InlineResponse2011
 from gmodstore_sdk.models.inline_response2012 import InlineResponse2012
 from gmodstore_sdk.models.inline_response2013 import InlineResponse2013
 from gmodstore_sdk.models.inline_response_default import InlineResponseDefault
+from gmodstore_sdk.models.money import Money
 from gmodstore_sdk.models.order_item import OrderItem
-from gmodstore_sdk.models.order_item_price import OrderItemPrice
 from gmodstore_sdk.models.permission_group import PermissionGroup
 from gmodstore_sdk.models.team import Team
 from gmodstore_sdk.models.team_user import TeamUser

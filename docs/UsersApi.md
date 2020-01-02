@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**users_user_id_get**](UsersApi.md#users_user_id_get) | **GET** /users/{user_id} | Fetch a single user
 
 # **users_me_get**
-> InlineResponse20010 users_me_get(_with=_with)
+> InlineResponse20011 users_me_get(_with=_with)
 
 Fetches the current user (API Key Owner)
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **users_user_id_get**
-> InlineResponse20010 users_user_id_get(user_id, _with=_with)
+> InlineResponse20011 users_user_id_get(user_id, _with=_with)
 
 Fetch a single user
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 

@@ -29,8 +29,8 @@ class AddonPrice(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'original': 'AddonPriceOriginal',
-        'purchase': 'AddonPriceOriginal'
+        'original': 'Money',
+        'purchase': 'Money'
     }
 
     attribute_map = {
@@ -54,7 +54,7 @@ class AddonPrice(object):
 
 
         :return: The original of this AddonPrice.  # noqa: E501
-        :rtype: AddonPriceOriginal
+        :rtype: Money
         """
         return self._original
 
@@ -64,7 +64,7 @@ class AddonPrice(object):
 
 
         :param original: The original of this AddonPrice.  # noqa: E501
-        :type: AddonPriceOriginal
+        :type: Money
         """
 
         self._original = original
@@ -75,7 +75,7 @@ class AddonPrice(object):
 
 
         :return: The purchase of this AddonPrice.  # noqa: E501
-        :rtype: AddonPriceOriginal
+        :rtype: Money
         """
         return self._purchase
 
@@ -85,7 +85,7 @@ class AddonPrice(object):
 
 
         :param purchase: The purchase of this AddonPrice.  # noqa: E501
-        :type: AddonPriceOriginal
+        :type: Money
         """
 
         self._purchase = purchase

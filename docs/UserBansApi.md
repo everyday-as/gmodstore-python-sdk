@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**users_user_id_bans_get**](UserBansApi.md#users_user_id_bans_get) | **GET** /users/{user_id}/bans | Fetch all active bans associated with this user
 
 # **users_user_id_bans_get**
-> InlineResponse20012 users_user_id_bans_get(user_id)
+> InlineResponse20013 users_user_id_bans_get(user_id)
 
 Fetch all active bans associated with this user
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 

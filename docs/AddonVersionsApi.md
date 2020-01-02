@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**addons_addon_id_versions_version_id_put**](AddonVersionsApi.md#addons_addon_id_versions_version_id_put) | **PUT** /addons/{addon_id}/versions/{version_id} | Update a version of an addon
 
 # **addons_addon_id_versions_get**
-> InlineResponse2006 addons_addon_id_versions_get(addon_id, _with=_with)
+> InlineResponse2007 addons_addon_id_versions_get(addon_id, _with=_with)
 
 Fetch all the versions of an addon
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **addons_addon_id_versions_version_id_download_get**
-> InlineResponse2007 addons_addon_id_versions_version_id_download_get(addon_id, version_id)
+> InlineResponse2008 addons_addon_id_versions_version_id_download_get(addon_id, version_id)
 
 Generate a download token for a specific version of an addon
 
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
