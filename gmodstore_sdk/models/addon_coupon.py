@@ -35,7 +35,7 @@ class AddonCoupon(object):
         'max_uses': 'int',
         'expires_at': 'datetime',
         'created_at': 'datetime',
-        'updated_at': 'int',
+        'updated_at': 'datetime',
         'addon': 'Addon'
     }
 
@@ -215,7 +215,7 @@ class AddonCoupon(object):
 
 
         :return: The updated_at of this AddonCoupon.  # noqa: E501
-        :rtype: int
+        :rtype: datetime
         """
         return self._updated_at
 
@@ -225,7 +225,7 @@ class AddonCoupon(object):
 
 
         :param updated_at: The updated_at of this AddonCoupon.  # noqa: E501
-        :type: int
+        :type: datetime
         """
         if updated_at is None:
             raise ValueError("Invalid value for `updated_at`, must not be `None`")  # noqa: E501
