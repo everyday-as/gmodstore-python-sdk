@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **addons_addon_id_versions_post**
-> InlineResponse2012 addons_addon_id_versions_post(name, changelog, file, addon_id, _with=_with)
+> InlineResponse2012 addons_addon_id_versions_post(name, changelog, file, release_type, addon_id, _with=_with)
 
 Create a new version for an addon
 
@@ -88,12 +88,13 @@ api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configurat
 name = 'name_example' # str | 
 changelog = 'changelog_example' # str | 
 file = 'file_example' # str | 
+release_type = 'release_type_example' # str | 
 addon_id = 789 # int | Id of the addon
 _with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonVersion schema (optional)
 
 try:
     # Create a new version for an addon
-    api_response = api_instance.addons_addon_id_versions_post(name, changelog, file, addon_id, _with=_with)
+    api_response = api_instance.addons_addon_id_versions_post(name, changelog, file, release_type, addon_id, _with=_with)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AddonVersionsApi->addons_addon_id_versions_post: %s\n" % e)
@@ -106,6 +107,7 @@ Name | Type | Description  | Notes
  **name** | **str**|  | 
  **changelog** | **str**|  | 
  **file** | **str**|  | 
+ **release_type** | **str**|  | 
  **addon_id** | **int**| Id of the addon | 
  **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonVersion schema | [optional] 
 
@@ -235,7 +237,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **addons_addon_id_versions_version_id_put**
-> InlineResponse2012 addons_addon_id_versions_version_id_put(name, changelog, file, addon_id, version_id, _with=_with)
+> InlineResponse2012 addons_addon_id_versions_version_id_put(name, changelog, release_type, addon_id, version_id, _with=_with)
 
 Update a version of an addon
 
@@ -257,14 +259,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configuration))
 name = 'name_example' # str | 
 changelog = 'changelog_example' # str | 
-file = 'file_example' # str | 
+release_type = 'release_type_example' # str | 
 addon_id = 789 # int | Id of the addon
 version_id = 789 # int | Id of the version
 _with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonVersion schema (optional)
 
 try:
     # Update a version of an addon
-    api_response = api_instance.addons_addon_id_versions_version_id_put(name, changelog, file, addon_id, version_id, _with=_with)
+    api_response = api_instance.addons_addon_id_versions_version_id_put(name, changelog, release_type, addon_id, version_id, _with=_with)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AddonVersionsApi->addons_addon_id_versions_version_id_put: %s\n" % e)
@@ -276,7 +278,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **str**|  | 
  **changelog** | **str**|  | 
- **file** | **str**|  | 
+ **release_type** | **str**|  | 
  **addon_id** | **int**| Id of the addon | 
  **version_id** | **int**| Id of the version | 
  **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonVersion schema | [optional] 

@@ -130,18 +130,19 @@ class AddonVersionsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def addons_addon_id_versions_post(self, name, changelog, file, addon_id, **kwargs):  # noqa: E501
+    def addons_addon_id_versions_post(self, name, changelog, file, release_type, addon_id, **kwargs):  # noqa: E501
         """Create a new version for an addon  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_versions_post(name, changelog, file, addon_id, async_req=True)
+        >>> thread = api.addons_addon_id_versions_post(name, changelog, file, release_type, addon_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str name: (required)
         :param str changelog: (required)
         :param str file: (required)
+        :param str release_type: (required)
         :param int addon_id: Id of the addon (required)
         :param list[str] _with: The relations you want to fetch with the AddonVersion schema
         :return: InlineResponse2012
@@ -150,23 +151,24 @@ class AddonVersionsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.addons_addon_id_versions_post_with_http_info(name, changelog, file, addon_id, **kwargs)  # noqa: E501
+            return self.addons_addon_id_versions_post_with_http_info(name, changelog, file, release_type, addon_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.addons_addon_id_versions_post_with_http_info(name, changelog, file, addon_id, **kwargs)  # noqa: E501
+            (data) = self.addons_addon_id_versions_post_with_http_info(name, changelog, file, release_type, addon_id, **kwargs)  # noqa: E501
             return data
 
-    def addons_addon_id_versions_post_with_http_info(self, name, changelog, file, addon_id, **kwargs):  # noqa: E501
+    def addons_addon_id_versions_post_with_http_info(self, name, changelog, file, release_type, addon_id, **kwargs):  # noqa: E501
         """Create a new version for an addon  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_versions_post_with_http_info(name, changelog, file, addon_id, async_req=True)
+        >>> thread = api.addons_addon_id_versions_post_with_http_info(name, changelog, file, release_type, addon_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str name: (required)
         :param str changelog: (required)
         :param str file: (required)
+        :param str release_type: (required)
         :param int addon_id: Id of the addon (required)
         :param list[str] _with: The relations you want to fetch with the AddonVersion schema
         :return: InlineResponse2012
@@ -174,7 +176,7 @@ class AddonVersionsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['name', 'changelog', 'file', 'addon_id', '_with']  # noqa: E501
+        all_params = ['name', 'changelog', 'file', 'release_type', 'addon_id', '_with']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -201,6 +203,10 @@ class AddonVersionsApi(object):
         if ('file' not in params or
                 params['file'] is None):
             raise ValueError("Missing the required parameter `file` when calling `addons_addon_id_versions_post`")  # noqa: E501
+        # verify the required parameter 'release_type' is set
+        if ('release_type' not in params or
+                params['release_type'] is None):
+            raise ValueError("Missing the required parameter `release_type` when calling `addons_addon_id_versions_post`")  # noqa: E501
         # verify the required parameter 'addon_id' is set
         if ('addon_id' not in params or
                 params['addon_id'] is None):
@@ -227,6 +233,8 @@ class AddonVersionsApi(object):
             form_params.append(('changelog', params['changelog']))  # noqa: E501
         if 'file' in params:
             local_var_files['file'] = params['file']  # noqa: E501
+        if 'release_type' in params:
+            form_params.append(('release_type', params['release_type']))  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`
@@ -463,18 +471,18 @@ class AddonVersionsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def addons_addon_id_versions_version_id_put(self, name, changelog, file, addon_id, version_id, **kwargs):  # noqa: E501
+    def addons_addon_id_versions_version_id_put(self, name, changelog, release_type, addon_id, version_id, **kwargs):  # noqa: E501
         """Update a version of an addon  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_versions_version_id_put(name, changelog, file, addon_id, version_id, async_req=True)
+        >>> thread = api.addons_addon_id_versions_version_id_put(name, changelog, release_type, addon_id, version_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str name: (required)
         :param str changelog: (required)
-        :param str file: (required)
+        :param str release_type: (required)
         :param int addon_id: Id of the addon (required)
         :param int version_id: Id of the version (required)
         :param list[str] _with: The relations you want to fetch with the AddonVersion schema
@@ -484,23 +492,23 @@ class AddonVersionsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.addons_addon_id_versions_version_id_put_with_http_info(name, changelog, file, addon_id, version_id, **kwargs)  # noqa: E501
+            return self.addons_addon_id_versions_version_id_put_with_http_info(name, changelog, release_type, addon_id, version_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.addons_addon_id_versions_version_id_put_with_http_info(name, changelog, file, addon_id, version_id, **kwargs)  # noqa: E501
+            (data) = self.addons_addon_id_versions_version_id_put_with_http_info(name, changelog, release_type, addon_id, version_id, **kwargs)  # noqa: E501
             return data
 
-    def addons_addon_id_versions_version_id_put_with_http_info(self, name, changelog, file, addon_id, version_id, **kwargs):  # noqa: E501
+    def addons_addon_id_versions_version_id_put_with_http_info(self, name, changelog, release_type, addon_id, version_id, **kwargs):  # noqa: E501
         """Update a version of an addon  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_versions_version_id_put_with_http_info(name, changelog, file, addon_id, version_id, async_req=True)
+        >>> thread = api.addons_addon_id_versions_version_id_put_with_http_info(name, changelog, release_type, addon_id, version_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str name: (required)
         :param str changelog: (required)
-        :param str file: (required)
+        :param str release_type: (required)
         :param int addon_id: Id of the addon (required)
         :param int version_id: Id of the version (required)
         :param list[str] _with: The relations you want to fetch with the AddonVersion schema
@@ -509,7 +517,7 @@ class AddonVersionsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['name', 'changelog', 'file', 'addon_id', 'version_id', '_with']  # noqa: E501
+        all_params = ['name', 'changelog', 'release_type', 'addon_id', 'version_id', '_with']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -532,10 +540,10 @@ class AddonVersionsApi(object):
         if ('changelog' not in params or
                 params['changelog'] is None):
             raise ValueError("Missing the required parameter `changelog` when calling `addons_addon_id_versions_version_id_put`")  # noqa: E501
-        # verify the required parameter 'file' is set
-        if ('file' not in params or
-                params['file'] is None):
-            raise ValueError("Missing the required parameter `file` when calling `addons_addon_id_versions_version_id_put`")  # noqa: E501
+        # verify the required parameter 'release_type' is set
+        if ('release_type' not in params or
+                params['release_type'] is None):
+            raise ValueError("Missing the required parameter `release_type` when calling `addons_addon_id_versions_version_id_put`")  # noqa: E501
         # verify the required parameter 'addon_id' is set
         if ('addon_id' not in params or
                 params['addon_id'] is None):
@@ -566,8 +574,8 @@ class AddonVersionsApi(object):
             form_params.append(('name', params['name']))  # noqa: E501
         if 'changelog' in params:
             form_params.append(('changelog', params['changelog']))  # noqa: E501
-        if 'file' in params:
-            local_var_files['file'] = params['file']  # noqa: E501
+        if 'release_type' in params:
+            form_params.append(('release_type', params['release_type']))  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`
