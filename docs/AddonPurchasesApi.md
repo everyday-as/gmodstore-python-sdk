@@ -27,7 +27,7 @@ from pprint import pprint
 api_instance = gmodstore_sdk.AddonPurchasesApi(gmodstore_sdk.ApiClient(configuration))
 body = gmodstore_sdk.NewAddonPurchase() # NewAddonPurchase | 
 addon_id = 789 # int | Id of the addon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonPurchase schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonPurchase` (optional)
 
 try:
     # Create a purchase for an addon
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**NewAddonPurchase**](NewAddonPurchase.md)|  | 
  **addon_id** | **int**| Id of the addon | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonPurchase schema | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonPurchase&#x60; | [optional] 
 
 ### Return type
 
@@ -77,8 +77,8 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonPurchasesApi(gmodstore_sdk.ApiClient(configuration))
 addon_id = 789 # int | Id of the addon
-user_id = 'user_id_example' # str | Id of the user
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonPurchase schema (optional)
+user_id = 789 # int | Id of the user
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonPurchase` (optional)
 
 try:
     # Get a purchase of an addon by user
@@ -93,8 +93,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addon_id** | **int**| Id of the addon | 
- **user_id** | **str**| Id of the user | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonPurchase schema | [optional] 
+ **user_id** | **int**| Id of the user | 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonPurchase&#x60; | [optional] 
 
 ### Return type
 
@@ -128,7 +128,7 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonPurchasesApi(gmodstore_sdk.ApiClient(configuration))
 addon_id = 789 # int | Id of the addon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonPurchase schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonPurchase` (optional)
 
 try:
     # Fetch all purchases of an addon
@@ -143,7 +143,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addon_id** | **int**| Id of the addon | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonPurchase schema | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonPurchase&#x60; | [optional] 
 
 ### Return type
 
@@ -176,10 +176,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonPurchasesApi(gmodstore_sdk.ApiClient(configuration))
-body = gmodstore_sdk.UpdateAddonPurchase() # UpdateAddonPurchase | 
+body = gmodstore_sdk.AddonPurchase() # AddonPurchase | 
 addon_id = 789 # int | Id of the addon
-user_id = 'user_id_example' # str | Id of the user
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonPurchase schema (optional)
+user_id = 789 # int | Id of the user
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonPurchase` (optional)
 
 try:
     # Update a purchase for an addon
@@ -193,10 +193,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UpdateAddonPurchase**](UpdateAddonPurchase.md)|  | 
+ **body** | [**AddonPurchase**](AddonPurchase.md)|  | 
  **addon_id** | **int**| Id of the addon | 
- **user_id** | **str**| Id of the user | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonPurchase schema | [optional] 
+ **user_id** | **int**| Id of the user | 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonPurchase&#x60; | [optional] 
 
 ### Return type
 

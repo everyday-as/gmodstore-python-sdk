@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import gmodstore_sdk
-from models.update_addon_coupon import UpdateAddonCoupon  # noqa: E501
+from models.user_ban import UserBan  # noqa: E501
 from gmodstore_sdk.rest import ApiException
 
 
-class TestUpdateAddonCoupon(unittest.TestCase):
-    """UpdateAddonCoupon unit test stubs"""
+class TestUserBan(unittest.TestCase):
+    """UserBan unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestUpdateAddonCoupon(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testUpdateAddonCoupon(self):
-        """Test UpdateAddonCoupon"""
+    def testUserBan(self):
+        """Test UserBan"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = gmodstore_sdk.models.update_addon_coupon.UpdateAddonCoupon()  # noqa: E501
+        # model = gmodstore_sdk.models.user_ban.UserBan()  # noqa: E501
         pass
 
 

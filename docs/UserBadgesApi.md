@@ -24,8 +24,8 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.UserBadgesApi(gmodstore_sdk.ApiClient(configuration))
-body = gmodstore_sdk.NewUserBadge() # NewUserBadge | 
-user_id = 'user_id_example' # str | Id of the user
+body = gmodstore_sdk.UserBadge() # UserBadge | 
+user_id = 789 # int | Id of the user
 
 try:
     # Give a user a badge
@@ -39,8 +39,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**NewUserBadge**](NewUserBadge.md)|  | 
- **user_id** | **str**| Id of the user | 
+ **body** | [**UserBadge**](UserBadge.md)|  | 
+ **user_id** | **int**| Id of the user | 
 
 ### Return type
 
@@ -73,7 +73,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.UserBadgesApi(gmodstore_sdk.ApiClient(configuration))
-user_id = 'user_id_example' # str | Id of the user
+user_id = 789 # int | Id of the user
 badge_id = 789 # int | Id of the badge
 
 try:
@@ -87,7 +87,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**| Id of the user | 
+ **user_id** | **int**| Id of the user | 
  **badge_id** | **int**| Id of the badge | 
 
 ### Return type
@@ -121,7 +121,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.UserBadgesApi(gmodstore_sdk.ApiClient(configuration))
-user_id = 'user_id_example' # str | Id of the user
+user_id = 789 # int | Id of the user
 
 try:
     # Fetch all the badges a user has
@@ -135,7 +135,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**| Id of the user | 
+ **user_id** | **int**| Id of the user | 
 
 ### Return type
 

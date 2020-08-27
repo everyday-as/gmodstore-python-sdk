@@ -3,12 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**name** | **str** |  | 
-**avatar** | **str** |  | 
+**id** | **int** |  | [optional] 
+**name** | **str** |  | [optional] 
+**avatar** | **str** |  | [optional] 
 **country_code** | **str** |  | [optional] 
-**slug** | **str** |  | 
-**ban_properties** | **list[str]** |  | 
+**slug** | **str** |  | [optional] 
+**ban_properties** | [**UserBanProperties**](UserBanProperties.md) |  | [optional] 
 **group** | [**PermissionGroup**](PermissionGroup.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

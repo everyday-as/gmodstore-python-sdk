@@ -22,8 +22,8 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.UserAddonsApi(gmodstore_sdk.ApiClient(configuration))
-user_id = 'user_id_example' # str | Id of the user
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the Addon schema (optional)
+user_id = 789 # int | Id of the user
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `Addon` (optional)
 
 try:
     # Fetch all the addons authored / co-authored by a user
@@ -37,8 +37,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**| Id of the user | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the Addon schema | [optional] 
+ **user_id** | **int**| Id of the user | 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;Addon&#x60; | [optional] 
 
 ### Return type
 

@@ -66,8 +66,10 @@ class AddonCoupon(object):
         self.percent = percent
         self.max_uses = max_uses
         self.expires_at = expires_at
-        self.created_at = created_at
-        self.updated_at = updated_at
+        if created_at is not None:
+            self.created_at = created_at
+        if updated_at is not None:
+            self.updated_at = updated_at
         if addon is not None:
             self.addon = addon
 
@@ -167,6 +169,7 @@ class AddonCoupon(object):
     def expires_at(self):
         """Gets the expires_at of this AddonCoupon.  # noqa: E501
 
+        A future date less than 2 weeks from today  # noqa: E501
 
         :return: The expires_at of this AddonCoupon.  # noqa: E501
         :rtype: datetime
@@ -177,6 +180,7 @@ class AddonCoupon(object):
     def expires_at(self, expires_at):
         """Sets the expires_at of this AddonCoupon.
 
+        A future date less than 2 weeks from today  # noqa: E501
 
         :param expires_at: The expires_at of this AddonCoupon.  # noqa: E501
         :type: datetime
@@ -204,8 +208,6 @@ class AddonCoupon(object):
         :param created_at: The created_at of this AddonCoupon.  # noqa: E501
         :type: datetime
         """
-        if created_at is None:
-            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
 
         self._created_at = created_at
 
@@ -227,8 +229,6 @@ class AddonCoupon(object):
         :param updated_at: The updated_at of this AddonCoupon.  # noqa: E501
         :type: datetime
         """
-        if updated_at is None:
-            raise ValueError("Invalid value for `updated_at`, must not be `None`")  # noqa: E501
 
         self._updated_at = updated_at
 

@@ -43,7 +43,7 @@ class AddonPurchasesApi(object):
         :param async_req bool
         :param NewAddonPurchase body: (required)
         :param int addon_id: Id of the addon (required)
-        :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
+        :param list[str] _with: The relations you want to fetch with the `AddonPurchase`
         :return: AddonPurchaseResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -66,7 +66,7 @@ class AddonPurchasesApi(object):
         :param async_req bool
         :param NewAddonPurchase body: (required)
         :param int addon_id: Id of the addon (required)
-        :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
+        :param list[str] _with: The relations you want to fetch with the `AddonPurchase`
         :return: AddonPurchaseResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -152,8 +152,8 @@ class AddonPurchasesApi(object):
 
         :param async_req bool
         :param int addon_id: Id of the addon (required)
-        :param str user_id: Id of the user (required)
-        :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
+        :param int user_id: Id of the user (required)
+        :param list[str] _with: The relations you want to fetch with the `AddonPurchase`
         :return: AddonPurchaseResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -175,8 +175,8 @@ class AddonPurchasesApi(object):
 
         :param async_req bool
         :param int addon_id: Id of the addon (required)
-        :param str user_id: Id of the user (required)
-        :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
+        :param int user_id: Id of the user (required)
+        :param list[str] _with: The relations you want to fetch with the `AddonPurchase`
         :return: AddonPurchaseResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -258,7 +258,7 @@ class AddonPurchasesApi(object):
 
         :param async_req bool
         :param int addon_id: Id of the addon (required)
-        :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
+        :param list[str] _with: The relations you want to fetch with the `AddonPurchase`
         :return: AddonPurchaseListResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -280,7 +280,7 @@ class AddonPurchasesApi(object):
 
         :param async_req bool
         :param int addon_id: Id of the addon (required)
-        :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
+        :param list[str] _with: The relations you want to fetch with the `AddonPurchase`
         :return: AddonPurchaseListResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -355,10 +355,10 @@ class AddonPurchasesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UpdateAddonPurchase body: (required)
+        :param AddonPurchase body: (required)
         :param int addon_id: Id of the addon (required)
-        :param str user_id: Id of the user (required)
-        :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
+        :param int user_id: Id of the user (required)
+        :param list[str] _with: The relations you want to fetch with the `AddonPurchase`
         :return: AddonPurchaseResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -379,10 +379,10 @@ class AddonPurchasesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UpdateAddonPurchase body: (required)
+        :param AddonPurchase body: (required)
         :param int addon_id: Id of the addon (required)
-        :param str user_id: Id of the user (required)
-        :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
+        :param int user_id: Id of the user (required)
+        :param list[str] _with: The relations you want to fetch with the `AddonPurchase`
         :return: AddonPurchaseResponse
                  If the method is called asynchronously,
                  returns the request thread.

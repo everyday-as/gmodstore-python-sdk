@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import gmodstore_sdk
-from models.ban_list_response import BanListResponse  # noqa: E501
+from models.user_ban_list_response import UserBanListResponse  # noqa: E501
 from gmodstore_sdk.rest import ApiException
 
 
-class TestBanListResponse(unittest.TestCase):
-    """BanListResponse unit test stubs"""
+class TestUserBanListResponse(unittest.TestCase):
+    """UserBanListResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestBanListResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testBanListResponse(self):
-        """Test BanListResponse"""
+    def testUserBanListResponse(self):
+        """Test UserBanListResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = gmodstore_sdk.models.ban_list_response.BanListResponse()  # noqa: E501
+        # model = gmodstore_sdk.models.user_ban_list_response.UserBanListResponse()  # noqa: E501
         pass
 
 

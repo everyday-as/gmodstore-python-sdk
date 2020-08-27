@@ -58,11 +58,16 @@ class AddonReview(object):
         self._addon = None
         self._author = None
         self.discriminator = None
-        self.id = id
-        self.title = title
-        self.version = version
-        self.body = body
-        self.rating = rating
+        if id is not None:
+            self.id = id
+        if title is not None:
+            self.title = title
+        if version is not None:
+            self.version = version
+        if body is not None:
+            self.body = body
+        if rating is not None:
+            self.rating = rating
         if addon is not None:
             self.addon = addon
         if author is not None:
@@ -86,8 +91,6 @@ class AddonReview(object):
         :param id: The id of this AddonReview.  # noqa: E501
         :type: int
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -109,8 +112,6 @@ class AddonReview(object):
         :param title: The title of this AddonReview.  # noqa: E501
         :type: str
         """
-        if title is None:
-            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
 
         self._title = title
 
@@ -132,8 +133,6 @@ class AddonReview(object):
         :param version: The version of this AddonReview.  # noqa: E501
         :type: str
         """
-        if version is None:
-            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
 
         self._version = version
 
@@ -155,8 +154,6 @@ class AddonReview(object):
         :param body: The body of this AddonReview.  # noqa: E501
         :type: str
         """
-        if body is None:
-            raise ValueError("Invalid value for `body`, must not be `None`")  # noqa: E501
 
         self._body = body
 
@@ -178,8 +175,6 @@ class AddonReview(object):
         :param rating: The rating of this AddonReview.  # noqa: E501
         :type: float
         """
-        if rating is None:
-            raise ValueError("Invalid value for `rating`, must not be `None`")  # noqa: E501
 
         self._rating = rating
 

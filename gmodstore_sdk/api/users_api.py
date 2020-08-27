@@ -41,7 +41,7 @@ class UsersApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[str] _with: The relations you want to fetch with the User schema
+        :param list[str] _with: The relations you want to fetch with the `User`
         :return: UserResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -62,7 +62,7 @@ class UsersApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[str] _with: The relations you want to fetch with the User schema
+        :param list[str] _with: The relations you want to fetch with the `User`
         :return: UserResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -131,8 +131,8 @@ class UsersApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str user_id: Id of the user (required)
-        :param list[str] _with: The relations you want to fetch with the User schema
+        :param int user_id: Id of the user (required)
+        :param list[str] _with: The relations you want to fetch with the `User`
         :return: UserResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -153,8 +153,8 @@ class UsersApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str user_id: Id of the user (required)
-        :param list[str] _with: The relations you want to fetch with the User schema
+        :param int user_id: Id of the user (required)
+        :param list[str] _with: The relations you want to fetch with the `User`
         :return: UserResponse
                  If the method is called asynchronously,
                  returns the request thread.

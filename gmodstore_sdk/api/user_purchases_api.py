@@ -41,8 +41,8 @@ class UserPurchasesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str user_id: Id of the user (required)
-        :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
+        :param int user_id: Id of the user (required)
+        :param list[str] _with: The relations you want to fetch with the `AddonPurchase`
         :return: AddonPurchaseListResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -63,8 +63,8 @@ class UserPurchasesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str user_id: Id of the user (required)
-        :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
+        :param int user_id: Id of the user (required)
+        :param list[str] _with: The relations you want to fetch with the `AddonPurchase`
         :return: AddonPurchaseListResponse
                  If the method is called asynchronously,
                  returns the request thread.

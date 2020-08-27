@@ -56,8 +56,10 @@ class AddonPurchase(object):
         self._user = None
         self.discriminator = None
         self.revoked = revoked
-        self.created_at = created_at
-        self.updated_at = updated_at
+        if created_at is not None:
+            self.created_at = created_at
+        if updated_at is not None:
+            self.updated_at = updated_at
         if addon is not None:
             self.addon = addon
         if order_item is not None:
@@ -106,8 +108,6 @@ class AddonPurchase(object):
         :param created_at: The created_at of this AddonPurchase.  # noqa: E501
         :type: datetime
         """
-        if created_at is None:
-            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
 
         self._created_at = created_at
 
@@ -129,8 +129,6 @@ class AddonPurchase(object):
         :param updated_at: The updated_at of this AddonPurchase.  # noqa: E501
         :type: int
         """
-        if updated_at is None:
-            raise ValueError("Invalid value for `updated_at`, must not be `None`")  # noqa: E501
 
         self._updated_at = updated_at
 

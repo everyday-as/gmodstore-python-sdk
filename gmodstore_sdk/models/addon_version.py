@@ -34,7 +34,7 @@ class AddonVersion(object):
         'changelog': 'str',
         'file_hash': 'str',
         'file_size': 'int',
-        'release_type': 'str',
+        'release_type': 'AddonVersionReleaseType',
         'created_at': 'datetime',
         'updated_at': 'datetime',
         'addon': 'Addon'
@@ -64,15 +64,20 @@ class AddonVersion(object):
         self._updated_at = None
         self._addon = None
         self.discriminator = None
-        self.id = id
+        if id is not None:
+            self.id = id
         self.name = name
         self.changelog = changelog
-        self.file_hash = file_hash
-        self.file_size = file_size
+        if file_hash is not None:
+            self.file_hash = file_hash
+        if file_size is not None:
+            self.file_size = file_size
         if release_type is not None:
             self.release_type = release_type
-        self.created_at = created_at
-        self.updated_at = updated_at
+        if created_at is not None:
+            self.created_at = created_at
+        if updated_at is not None:
+            self.updated_at = updated_at
         if addon is not None:
             self.addon = addon
 
@@ -94,8 +99,6 @@ class AddonVersion(object):
         :param id: The id of this AddonVersion.  # noqa: E501
         :type: int
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -126,6 +129,7 @@ class AddonVersion(object):
     def changelog(self):
         """Gets the changelog of this AddonVersion.  # noqa: E501
 
+        You can pass in markdown here  # noqa: E501
 
         :return: The changelog of this AddonVersion.  # noqa: E501
         :rtype: str
@@ -136,6 +140,7 @@ class AddonVersion(object):
     def changelog(self, changelog):
         """Sets the changelog of this AddonVersion.
 
+        You can pass in markdown here  # noqa: E501
 
         :param changelog: The changelog of this AddonVersion.  # noqa: E501
         :type: str
@@ -163,8 +168,6 @@ class AddonVersion(object):
         :param file_hash: The file_hash of this AddonVersion.  # noqa: E501
         :type: str
         """
-        if file_hash is None:
-            raise ValueError("Invalid value for `file_hash`, must not be `None`")  # noqa: E501
 
         self._file_hash = file_hash
 
@@ -186,8 +189,6 @@ class AddonVersion(object):
         :param file_size: The file_size of this AddonVersion.  # noqa: E501
         :type: int
         """
-        if file_size is None:
-            raise ValueError("Invalid value for `file_size`, must not be `None`")  # noqa: E501
 
         self._file_size = file_size
 
@@ -197,7 +198,7 @@ class AddonVersion(object):
 
 
         :return: The release_type of this AddonVersion.  # noqa: E501
-        :rtype: str
+        :rtype: AddonVersionReleaseType
         """
         return self._release_type
 
@@ -207,14 +208,8 @@ class AddonVersion(object):
 
 
         :param release_type: The release_type of this AddonVersion.  # noqa: E501
-        :type: str
+        :type: AddonVersionReleaseType
         """
-        allowed_values = ["stable", "beta", "alpha", "private"]  # noqa: E501
-        if release_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `release_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(release_type, allowed_values)
-            )
 
         self._release_type = release_type
 
@@ -236,8 +231,6 @@ class AddonVersion(object):
         :param created_at: The created_at of this AddonVersion.  # noqa: E501
         :type: datetime
         """
-        if created_at is None:
-            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
 
         self._created_at = created_at
 
@@ -259,8 +252,6 @@ class AddonVersion(object):
         :param updated_at: The updated_at of this AddonVersion.  # noqa: E501
         :type: datetime
         """
-        if updated_at is None:
-            raise ValueError("Invalid value for `updated_at`, must not be `None`")  # noqa: E501
 
         self._updated_at = updated_at
 

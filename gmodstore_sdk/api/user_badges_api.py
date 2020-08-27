@@ -41,8 +41,8 @@ class UserBadgesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param NewUserBadge body: (required)
-        :param str user_id: Id of the user (required)
+        :param UserBadge body: (required)
+        :param int user_id: Id of the user (required)
         :return: BadgeResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -63,8 +63,8 @@ class UserBadgesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param NewUserBadge body: (required)
-        :param str user_id: Id of the user (required)
+        :param UserBadge body: (required)
+        :param int user_id: Id of the user (required)
         :return: BadgeResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -146,7 +146,7 @@ class UserBadgesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str user_id: Id of the user (required)
+        :param int user_id: Id of the user (required)
         :param int badge_id: Id of the badge (required)
         :return: None
                  If the method is called asynchronously,
@@ -168,7 +168,7 @@ class UserBadgesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str user_id: Id of the user (required)
+        :param int user_id: Id of the user (required)
         :param int badge_id: Id of the badge (required)
         :return: None
                  If the method is called asynchronously,
@@ -247,7 +247,7 @@ class UserBadgesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str user_id: Id of the user (required)
+        :param int user_id: Id of the user (required)
         :return: BadgeListResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -268,7 +268,7 @@ class UserBadgesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str user_id: Id of the user (required)
+        :param int user_id: Id of the user (required)
         :return: BadgeListResponse
                  If the method is called asynchronously,
                  returns the request thread.

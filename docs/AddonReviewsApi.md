@@ -25,7 +25,7 @@ from pprint import pprint
 api_instance = gmodstore_sdk.AddonReviewsApi(gmodstore_sdk.ApiClient(configuration))
 addon_id = 789 # int | Id of the addon
 review_id = 789 # int | Id of the review
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonReview schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonReview` (optional)
 
 try:
     # Fetch a review of an addon
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addon_id** | **int**| Id of the addon | 
  **review_id** | **int**| Id of the review | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonReview schema | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonReview&#x60; | [optional] 
 
 ### Return type
 
@@ -75,7 +75,7 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonReviewsApi(gmodstore_sdk.ApiClient(configuration))
 addon_id = 789 # int | Id of the addon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonReview schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonReview` (optional)
 
 try:
     # Fetch all the reviews of an addon
@@ -90,7 +90,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addon_id** | **int**| Id of the addon | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonReview schema | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonReview&#x60; | [optional] 
 
 ### Return type
 

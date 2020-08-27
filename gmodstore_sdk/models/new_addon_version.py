@@ -32,7 +32,7 @@ class NewAddonVersion(object):
         'name': 'str',
         'changelog': 'str',
         'file': 'str',
-        'release_type': 'str'
+        'release_type': 'AddonVersionReleaseType'
     }
 
     attribute_map = {
@@ -82,7 +82,7 @@ class NewAddonVersion(object):
     def changelog(self):
         """Gets the changelog of this NewAddonVersion.  # noqa: E501
 
-        You can pass in markdown here   # noqa: E501
+        You can pass in markdown here  # noqa: E501
 
         :return: The changelog of this NewAddonVersion.  # noqa: E501
         :rtype: str
@@ -93,7 +93,7 @@ class NewAddonVersion(object):
     def changelog(self, changelog):
         """Sets the changelog of this NewAddonVersion.
 
-        You can pass in markdown here   # noqa: E501
+        You can pass in markdown here  # noqa: E501
 
         :param changelog: The changelog of this NewAddonVersion.  # noqa: E501
         :type: str
@@ -130,10 +130,9 @@ class NewAddonVersion(object):
     def release_type(self):
         """Gets the release_type of this NewAddonVersion.  # noqa: E501
 
-        This can be a value of stable, beta, alpha, private or demo   # noqa: E501
 
         :return: The release_type of this NewAddonVersion.  # noqa: E501
-        :rtype: str
+        :rtype: AddonVersionReleaseType
         """
         return self._release_type
 
@@ -141,17 +140,10 @@ class NewAddonVersion(object):
     def release_type(self, release_type):
         """Sets the release_type of this NewAddonVersion.
 
-        This can be a value of stable, beta, alpha, private or demo   # noqa: E501
 
         :param release_type: The release_type of this NewAddonVersion.  # noqa: E501
-        :type: str
+        :type: AddonVersionReleaseType
         """
-        allowed_values = ["stable", "beta", "alpha", "private", "demo"]  # noqa: E501
-        if release_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `release_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(release_type, allowed_values)
-            )
 
         self._release_type = release_type
 

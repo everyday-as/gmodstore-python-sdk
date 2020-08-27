@@ -40,7 +40,8 @@ class AddonDownload(object):
         """AddonDownload - a model defined in Swagger"""  # noqa: E501
         self._url = None
         self.discriminator = None
-        self.url = url
+        if url is not None:
+            self.url = url
 
     @property
     def url(self):
@@ -60,8 +61,6 @@ class AddonDownload(object):
         :param url: The url of this AddonDownload.  # noqa: E501
         :type: str
         """
-        if url is None:
-            raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
 

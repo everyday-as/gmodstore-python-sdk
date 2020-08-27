@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import gmodstore_sdk
-from models.new_user_badge import NewUserBadge  # noqa: E501
+from models.addon_version_release_type import AddonVersionReleaseType  # noqa: E501
 from gmodstore_sdk.rest import ApiException
 
 
-class TestNewUserBadge(unittest.TestCase):
-    """NewUserBadge unit test stubs"""
+class TestAddonVersionReleaseType(unittest.TestCase):
+    """AddonVersionReleaseType unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestNewUserBadge(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testNewUserBadge(self):
-        """Test NewUserBadge"""
+    def testAddonVersionReleaseType(self):
+        """Test AddonVersionReleaseType"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = gmodstore_sdk.models.new_user_badge.NewUserBadge()  # noqa: E501
+        # model = gmodstore_sdk.models.addon_version_release_type.AddonVersionReleaseType()  # noqa: E501
         pass
 
 

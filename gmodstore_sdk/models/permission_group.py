@@ -46,9 +46,12 @@ class PermissionGroup(object):
         self._title = None
         self._display_order = None
         self.discriminator = None
-        self.id = id
-        self.title = title
-        self.display_order = display_order
+        if id is not None:
+            self.id = id
+        if title is not None:
+            self.title = title
+        if display_order is not None:
+            self.display_order = display_order
 
     @property
     def id(self):
@@ -68,8 +71,6 @@ class PermissionGroup(object):
         :param id: The id of this PermissionGroup.  # noqa: E501
         :type: int
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -91,8 +92,6 @@ class PermissionGroup(object):
         :param title: The title of this PermissionGroup.  # noqa: E501
         :type: str
         """
-        if title is None:
-            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
 
         self._title = title
 
@@ -114,8 +113,6 @@ class PermissionGroup(object):
         :param display_order: The display_order of this PermissionGroup.  # noqa: E501
         :type: int
         """
-        if display_order is None:
-            raise ValueError("Invalid value for `display_order`, must not be `None`")  # noqa: E501
 
         self._display_order = display_order
 

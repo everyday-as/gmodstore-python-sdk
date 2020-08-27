@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | 
-**title** | **str** |  | 
-**version** | **str** |  | 
-**body** | **str** |  | 
-**rating** | **float** |  | 
+**id** | **int** |  | [optional] 
+**title** | **str** |  | [optional] 
+**version** | **str** |  | [optional] 
+**body** | **str** |  | [optional] 
+**rating** | **float** |  | [optional] 
 **addon** | [**Addon**](Addon.md) |  | [optional] 
 **author** | [**User**](User.md) |  | [optional] 
 

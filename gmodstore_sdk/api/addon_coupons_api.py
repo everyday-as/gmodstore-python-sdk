@@ -41,9 +41,9 @@ class AddonCouponsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param NewAddonCoupon body: (required)
+        :param AddonCoupon body: (required)
         :param int addon_id: Id of the addon (required)
-        :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
+        :param list[str] _with: The relations you want to fetch with the `AddonCoupon`
         :return: AddonCouponResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -64,9 +64,9 @@ class AddonCouponsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param NewAddonCoupon body: (required)
+        :param AddonCoupon body: (required)
         :param int addon_id: Id of the addon (required)
-        :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
+        :param list[str] _with: The relations you want to fetch with the `AddonCoupon`
         :return: AddonCouponResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -254,7 +254,7 @@ class AddonCouponsApi(object):
         :param async_req bool
         :param int addon_id: Id of the addon (required)
         :param int coupon_id: Id of the coupon (required)
-        :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
+        :param list[str] _with: The relations you want to fetch with the `AddonCoupon`
         :return: AddonCouponResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -277,7 +277,7 @@ class AddonCouponsApi(object):
         :param async_req bool
         :param int addon_id: Id of the addon (required)
         :param int coupon_id: Id of the coupon (required)
-        :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
+        :param list[str] _with: The relations you want to fetch with the `AddonCoupon`
         :return: AddonCouponResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -359,7 +359,7 @@ class AddonCouponsApi(object):
 
         :param async_req bool
         :param int addon_id: Id of the addon (required)
-        :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
+        :param list[str] _with: The relations you want to fetch with the `AddonCoupon`
         :return: AddonCouponListResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -381,7 +381,7 @@ class AddonCouponsApi(object):
 
         :param async_req bool
         :param int addon_id: Id of the addon (required)
-        :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
+        :param list[str] _with: The relations you want to fetch with the `AddonCoupon`
         :return: AddonCouponListResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -456,10 +456,10 @@ class AddonCouponsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UpdateAddonCoupon body: (required)
+        :param AddonCoupon body: (required)
         :param int addon_id: Id of the addon (required)
         :param int coupon_id: Id of the coupon (required)
-        :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
+        :param list[str] _with: The relations you want to fetch with the `AddonCoupon`
         :return: AddonCouponResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -480,10 +480,10 @@ class AddonCouponsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UpdateAddonCoupon body: (required)
+        :param AddonCoupon body: (required)
         :param int addon_id: Id of the addon (required)
         :param int coupon_id: Id of the coupon (required)
-        :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
+        :param list[str] _with: The relations you want to fetch with the `AddonCoupon`
         :return: AddonCouponResponse
                  If the method is called asynchronously,
                  returns the request thread.

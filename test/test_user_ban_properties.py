@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import gmodstore_sdk
-from models.ban import Ban  # noqa: E501
+from models.user_ban_properties import UserBanProperties  # noqa: E501
 from gmodstore_sdk.rest import ApiException
 
 
-class TestBan(unittest.TestCase):
-    """Ban unit test stubs"""
+class TestUserBanProperties(unittest.TestCase):
+    """UserBanProperties unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestBan(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testBan(self):
-        """Test Ban"""
+    def testUserBanProperties(self):
+        """Test UserBanProperties"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = gmodstore_sdk.models.ban.Ban()  # noqa: E501
+        # model = gmodstore_sdk.models.user_ban_properties.UserBanProperties()  # noqa: E501
         pass
 
 

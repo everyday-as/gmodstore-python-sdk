@@ -29,7 +29,7 @@ class NewAddonPurchase(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'user_id': 'str'
+        'user_id': 'int'
     }
 
     attribute_map = {
@@ -48,7 +48,7 @@ class NewAddonPurchase(object):
 
 
         :return: The user_id of this NewAddonPurchase.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._user_id
 
@@ -58,7 +58,7 @@ class NewAddonPurchase(object):
 
 
         :param user_id: The user_id of this NewAddonPurchase.  # noqa: E501
-        :type: str
+        :type: int
         """
         if user_id is None:
             raise ValueError("Invalid value for `user_id`, must not be `None`")  # noqa: E501

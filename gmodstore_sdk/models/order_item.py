@@ -46,8 +46,10 @@ class OrderItem(object):
         self._price = None
         self._reversed_at = None
         self.discriminator = None
-        self.id = id
-        self.price = price
+        if id is not None:
+            self.id = id
+        if price is not None:
+            self.price = price
         if reversed_at is not None:
             self.reversed_at = reversed_at
 
@@ -69,8 +71,6 @@ class OrderItem(object):
         :param id: The id of this OrderItem.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -92,8 +92,6 @@ class OrderItem(object):
         :param price: The price of this OrderItem.  # noqa: E501
         :type: Money
         """
-        if price is None:
-            raise ValueError("Invalid value for `price`, must not be `None`")  # noqa: E501
 
         self._price = price
 

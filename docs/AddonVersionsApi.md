@@ -29,9 +29,9 @@ api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configurat
 name = 'name_example' # str | 
 changelog = 'changelog_example' # str | 
 file = 'file_example' # str | 
-release_type = 'release_type_example' # str | 
+release_type = gmodstore_sdk.AddonVersionReleaseType() # AddonVersionReleaseType | 
 addon_id = 789 # int | Id of the addon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonVersion schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonVersion` (optional)
 
 try:
     # Create a new version for an addon
@@ -48,9 +48,9 @@ Name | Type | Description  | Notes
  **name** | **str**|  | 
  **changelog** | **str**|  | 
  **file** | **str**|  | 
- **release_type** | **str**|  | 
+ **release_type** | [**AddonVersionReleaseType**](.md)|  | 
  **addon_id** | **int**| Id of the addon | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonVersion schema | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonVersion&#x60; | [optional] 
 
 ### Return type
 
@@ -134,7 +134,7 @@ from pprint import pprint
 api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configuration))
 addon_id = 789 # int | Id of the addon
 version_id = 789 # int | Id of the version
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonVersion schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonVersion` (optional)
 
 try:
     # Fetch a specific version of an addon
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addon_id** | **int**| Id of the addon | 
  **version_id** | **int**| Id of the version | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonVersion schema | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonVersion&#x60; | [optional] 
 
 ### Return type
 
@@ -184,7 +184,7 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configuration))
 addon_id = 789 # int | Id of the addon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonVersion schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonVersion` (optional)
 
 try:
     # Fetch all the versions of an addon
@@ -199,7 +199,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addon_id** | **int**| Id of the addon | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonVersion schema | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonVersion&#x60; | [optional] 
 
 ### Return type
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_addon_version**
-> AddonVersionResponse update_addon_version(name, changelog, release_type, addon_id, version_id, _with=_with)
+> AddonVersionResponse update_addon_version(id, name, changelog, file_hash, file_size, release_type, created_at, updated_at, addon, addon_id, version_id, _with=_with)
 
 Update a version of an addon
 
@@ -232,16 +232,22 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configuration))
+id = 56 # int | 
 name = 'name_example' # str | 
 changelog = 'changelog_example' # str | 
-release_type = 'release_type_example' # str | 
+file_hash = 'file_hash_example' # str | 
+file_size = 56 # int | 
+release_type = gmodstore_sdk.AddonVersionReleaseType() # AddonVersionReleaseType | 
+created_at = '2013-10-20T19:20:30+01:00' # datetime | 
+updated_at = '2013-10-20T19:20:30+01:00' # datetime | 
+addon = gmodstore_sdk.Addon() # Addon | 
 addon_id = 789 # int | Id of the addon
 version_id = 789 # int | Id of the version
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonVersion schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonVersion` (optional)
 
 try:
     # Update a version of an addon
-    api_response = api_instance.update_addon_version(name, changelog, release_type, addon_id, version_id, _with=_with)
+    api_response = api_instance.update_addon_version(id, name, changelog, file_hash, file_size, release_type, created_at, updated_at, addon, addon_id, version_id, _with=_with)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AddonVersionsApi->update_addon_version: %s\n" % e)
@@ -251,12 +257,18 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | 
  **name** | **str**|  | 
  **changelog** | **str**|  | 
- **release_type** | **str**|  | 
+ **file_hash** | **str**|  | 
+ **file_size** | **int**|  | 
+ **release_type** | [**AddonVersionReleaseType**](.md)|  | 
+ **created_at** | **datetime**|  | 
+ **updated_at** | **datetime**|  | 
+ **addon** | [**Addon**](.md)|  | 
  **addon_id** | **int**| Id of the addon | 
  **version_id** | **int**| Id of the version | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonVersion schema | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonVersion&#x60; | [optional] 
 
 ### Return type
 

@@ -23,7 +23,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.UsersApi(gmodstore_sdk.ApiClient(configuration))
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the User schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `User` (optional)
 
 try:
     # Fetches the current user (API Key Owner)
@@ -37,7 +37,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the User schema | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;User&#x60; | [optional] 
 
 ### Return type
 
@@ -70,8 +70,8 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.UsersApi(gmodstore_sdk.ApiClient(configuration))
-user_id = 'user_id_example' # str | Id of the user
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the User schema (optional)
+user_id = 789 # int | Id of the user
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `User` (optional)
 
 try:
     # Fetch a single user
@@ -85,8 +85,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**| Id of the user | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the User schema | [optional] 
+ **user_id** | **int**| Id of the user | 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;User&#x60; | [optional] 
 
 ### Return type
 

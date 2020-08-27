@@ -79,18 +79,30 @@ class Addon(object):
         self._latest_version = None
         self._team = None
         self.discriminator = None
-        self.id = id
-        self.active = active
-        self.name = name
-        self.short_description = short_description
-        self.description = description
-        self.requirements = requirements
-        self.price = price
-        self.images = images
-        self.slug = slug
-        self.route = route
-        self.created_at = created_at
-        self.updated_at = updated_at
+        if id is not None:
+            self.id = id
+        if active is not None:
+            self.active = active
+        if name is not None:
+            self.name = name
+        if short_description is not None:
+            self.short_description = short_description
+        if description is not None:
+            self.description = description
+        if requirements is not None:
+            self.requirements = requirements
+        if price is not None:
+            self.price = price
+        if images is not None:
+            self.images = images
+        if slug is not None:
+            self.slug = slug
+        if route is not None:
+            self.route = route
+        if created_at is not None:
+            self.created_at = created_at
+        if updated_at is not None:
+            self.updated_at = updated_at
         if latest_version is not None:
             self.latest_version = latest_version
         if team is not None:
@@ -114,8 +126,6 @@ class Addon(object):
         :param id: The id of this Addon.  # noqa: E501
         :type: int
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -137,8 +147,6 @@ class Addon(object):
         :param active: The active of this Addon.  # noqa: E501
         :type: bool
         """
-        if active is None:
-            raise ValueError("Invalid value for `active`, must not be `None`")  # noqa: E501
 
         self._active = active
 
@@ -160,8 +168,6 @@ class Addon(object):
         :param name: The name of this Addon.  # noqa: E501
         :type: str
         """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
@@ -183,8 +189,6 @@ class Addon(object):
         :param short_description: The short_description of this Addon.  # noqa: E501
         :type: str
         """
-        if short_description is None:
-            raise ValueError("Invalid value for `short_description`, must not be `None`")  # noqa: E501
 
         self._short_description = short_description
 
@@ -206,8 +210,6 @@ class Addon(object):
         :param description: The description of this Addon.  # noqa: E501
         :type: str
         """
-        if description is None:
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
 
@@ -229,8 +231,6 @@ class Addon(object):
         :param requirements: The requirements of this Addon.  # noqa: E501
         :type: list[str]
         """
-        if requirements is None:
-            raise ValueError("Invalid value for `requirements`, must not be `None`")  # noqa: E501
 
         self._requirements = requirements
 
@@ -252,8 +252,6 @@ class Addon(object):
         :param price: The price of this Addon.  # noqa: E501
         :type: AddonPrice
         """
-        if price is None:
-            raise ValueError("Invalid value for `price`, must not be `None`")  # noqa: E501
 
         self._price = price
 
@@ -275,8 +273,6 @@ class Addon(object):
         :param images: The images of this Addon.  # noqa: E501
         :type: AddonImages
         """
-        if images is None:
-            raise ValueError("Invalid value for `images`, must not be `None`")  # noqa: E501
 
         self._images = images
 
@@ -298,8 +294,6 @@ class Addon(object):
         :param slug: The slug of this Addon.  # noqa: E501
         :type: str
         """
-        if slug is None:
-            raise ValueError("Invalid value for `slug`, must not be `None`")  # noqa: E501
 
         self._slug = slug
 
@@ -321,8 +315,6 @@ class Addon(object):
         :param route: The route of this Addon.  # noqa: E501
         :type: str
         """
-        if route is None:
-            raise ValueError("Invalid value for `route`, must not be `None`")  # noqa: E501
 
         self._route = route
 
@@ -344,8 +336,6 @@ class Addon(object):
         :param created_at: The created_at of this Addon.  # noqa: E501
         :type: datetime
         """
-        if created_at is None:
-            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
 
         self._created_at = created_at
 
@@ -367,8 +357,6 @@ class Addon(object):
         :param updated_at: The updated_at of this Addon.  # noqa: E501
         :type: datetime
         """
-        if updated_at is None:
-            raise ValueError("Invalid value for `updated_at`, must not be `None`")  # noqa: E501
 
         self._updated_at = updated_at
 

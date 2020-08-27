@@ -54,9 +54,9 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonCouponsApi(gmodstore_sdk.ApiClient(configuration))
-body = gmodstore_sdk.NewAddonCoupon() # NewAddonCoupon | 
+body = gmodstore_sdk.AddonCoupon() # AddonCoupon | 
 addon_id = 789 # int | Id of the addon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonCoupon schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonCoupon` (optional)
 
 try:
     # Create an addon coupon
@@ -82,7 +82,7 @@ except ApiException as e:
 api_instance = gmodstore_sdk.AddonCouponsApi(gmodstore_sdk.ApiClient(configuration))
 addon_id = 789 # int | Id of the addon
 coupon_id = 789 # int | Id of the coupon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonCoupon schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonCoupon` (optional)
 
 try:
     # Fetch an addon's coupon
@@ -95,7 +95,7 @@ except ApiException as e:
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonCouponsApi(gmodstore_sdk.ApiClient(configuration))
 addon_id = 789 # int | Id of the addon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonCoupon schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonCoupon` (optional)
 
 try:
     # Fetch all the coupons for an addon
@@ -107,10 +107,10 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonCouponsApi(gmodstore_sdk.ApiClient(configuration))
-body = gmodstore_sdk.UpdateAddonCoupon() # UpdateAddonCoupon | 
+body = gmodstore_sdk.AddonCoupon() # AddonCoupon | 
 addon_id = 789 # int | Id of the addon
 coupon_id = 789 # int | Id of the coupon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonCoupon schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonCoupon` (optional)
 
 try:
     # Update an addon's coupon
@@ -185,18 +185,15 @@ Class | Method | HTTP request | Description
  - [AddonStatsViewsCurrent](docs/AddonStatsViewsCurrent.md)
  - [AddonVersion](docs/AddonVersion.md)
  - [AddonVersionListResponse](docs/AddonVersionListResponse.md)
+ - [AddonVersionReleaseType](docs/AddonVersionReleaseType.md)
  - [AddonVersionResponse](docs/AddonVersionResponse.md)
  - [BadgeListResponse](docs/BadgeListResponse.md)
  - [BadgeResponse](docs/BadgeResponse.md)
- - [Ban](docs/Ban.md)
- - [BanListResponse](docs/BanListResponse.md)
  - [Error](docs/Error.md)
  - [ErrorResponse](docs/ErrorResponse.md)
  - [Money](docs/Money.md)
- - [NewAddonCoupon](docs/NewAddonCoupon.md)
  - [NewAddonPurchase](docs/NewAddonPurchase.md)
  - [NewAddonVersion](docs/NewAddonVersion.md)
- - [NewUserBadge](docs/NewUserBadge.md)
  - [OrderItem](docs/OrderItem.md)
  - [PermissionGroup](docs/PermissionGroup.md)
  - [Team](docs/Team.md)
@@ -204,11 +201,12 @@ Class | Method | HTTP request | Description
  - [TeamResponse](docs/TeamResponse.md)
  - [TeamUser](docs/TeamUser.md)
  - [TeamUserListResponse](docs/TeamUserListResponse.md)
- - [UpdateAddonCoupon](docs/UpdateAddonCoupon.md)
- - [UpdateAddonPurchase](docs/UpdateAddonPurchase.md)
- - [UpdateAddonVersion](docs/UpdateAddonVersion.md)
  - [User](docs/User.md)
+ - [UserBadge](docs/UserBadge.md)
  - [UserBadgeLegend](docs/UserBadgeLegend.md)
+ - [UserBan](docs/UserBan.md)
+ - [UserBanListResponse](docs/UserBanListResponse.md)
+ - [UserBanProperties](docs/UserBanProperties.md)
  - [UserResponse](docs/UserResponse.md)
 
 ## Documentation For Authorization

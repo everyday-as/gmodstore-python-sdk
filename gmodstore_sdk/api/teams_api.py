@@ -42,7 +42,7 @@ class TeamsApi(object):
 
         :param async_req bool
         :param int team_id: Id of the team (required)
-        :param list[str] _with: The relations you want to fetch with the Team schema
+        :param list[str] _with: The relations you want to fetch with the `Team`
         :return: TeamResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -64,7 +64,7 @@ class TeamsApi(object):
 
         :param async_req bool
         :param int team_id: Id of the team (required)
-        :param list[str] _with: The relations you want to fetch with the Team schema
+        :param list[str] _with: The relations you want to fetch with the `Team`
         :return: TeamResponse
                  If the method is called asynchronously,
                  returns the request thread.

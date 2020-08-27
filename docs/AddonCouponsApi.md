@@ -26,9 +26,9 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonCouponsApi(gmodstore_sdk.ApiClient(configuration))
-body = gmodstore_sdk.NewAddonCoupon() # NewAddonCoupon | 
+body = gmodstore_sdk.AddonCoupon() # AddonCoupon | 
 addon_id = 789 # int | Id of the addon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonCoupon schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonCoupon` (optional)
 
 try:
     # Create an addon coupon
@@ -42,9 +42,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**NewAddonCoupon**](NewAddonCoupon.md)|  | 
+ **body** | [**AddonCoupon**](AddonCoupon.md)|  | 
  **addon_id** | **int**| Id of the addon | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonCoupon schema | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonCoupon&#x60; | [optional] 
 
 ### Return type
 
@@ -127,7 +127,7 @@ from pprint import pprint
 api_instance = gmodstore_sdk.AddonCouponsApi(gmodstore_sdk.ApiClient(configuration))
 addon_id = 789 # int | Id of the addon
 coupon_id = 789 # int | Id of the coupon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonCoupon schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonCoupon` (optional)
 
 try:
     # Fetch an addon's coupon
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addon_id** | **int**| Id of the addon | 
  **coupon_id** | **int**| Id of the coupon | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonCoupon schema | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonCoupon&#x60; | [optional] 
 
 ### Return type
 
@@ -177,7 +177,7 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonCouponsApi(gmodstore_sdk.ApiClient(configuration))
 addon_id = 789 # int | Id of the addon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonCoupon schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonCoupon` (optional)
 
 try:
     # Fetch all the coupons for an addon
@@ -192,7 +192,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addon_id** | **int**| Id of the addon | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonCoupon schema | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonCoupon&#x60; | [optional] 
 
 ### Return type
 
@@ -225,10 +225,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonCouponsApi(gmodstore_sdk.ApiClient(configuration))
-body = gmodstore_sdk.UpdateAddonCoupon() # UpdateAddonCoupon | 
+body = gmodstore_sdk.AddonCoupon() # AddonCoupon | 
 addon_id = 789 # int | Id of the addon
 coupon_id = 789 # int | Id of the coupon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonCoupon schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonCoupon` (optional)
 
 try:
     # Update an addon's coupon
@@ -242,10 +242,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UpdateAddonCoupon**](UpdateAddonCoupon.md)|  | 
+ **body** | [**AddonCoupon**](AddonCoupon.md)|  | 
  **addon_id** | **int**| Id of the addon | 
  **coupon_id** | **int**| Id of the coupon | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonCoupon schema | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonCoupon&#x60; | [optional] 
 
 ### Return type
 

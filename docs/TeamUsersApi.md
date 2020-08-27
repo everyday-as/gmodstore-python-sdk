@@ -23,7 +23,7 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = gmodstore_sdk.TeamUsersApi(gmodstore_sdk.ApiClient(configuration))
 team_id = 789 # int | Id of the team
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the TeamUser schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `TeamUser` (optional)
 
 try:
     # Fetch all the users in the given team
@@ -38,7 +38,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **team_id** | **int**| Id of the team | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the TeamUser schema | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;TeamUser&#x60; | [optional] 
 
 ### Return type
 

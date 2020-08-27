@@ -49,9 +49,12 @@ class UserBadgeLegend(object):
         self._description = None
         self._ext = None
         self.discriminator = None
-        self.id = id
-        self.name = name
-        self.description = description
+        if id is not None:
+            self.id = id
+        if name is not None:
+            self.name = name
+        if description is not None:
+            self.description = description
         if ext is not None:
             self.ext = ext
 
@@ -73,8 +76,6 @@ class UserBadgeLegend(object):
         :param id: The id of this UserBadgeLegend.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -96,8 +97,6 @@ class UserBadgeLegend(object):
         :param name: The name of this UserBadgeLegend.  # noqa: E501
         :type: str
         """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
@@ -119,8 +118,6 @@ class UserBadgeLegend(object):
         :param description: The description of this UserBadgeLegend.  # noqa: E501
         :type: str
         """
-        if description is None:
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
 

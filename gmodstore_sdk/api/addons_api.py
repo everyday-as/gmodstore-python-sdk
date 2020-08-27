@@ -42,7 +42,7 @@ class AddonsApi(object):
 
         :param async_req bool
         :param int addon_id: Id of the addon (required)
-        :param list[str] _with: The relations you want to fetch with the Addon schema
+        :param list[str] _with: The relations you want to fetch with the `Addon`
         :return: AddonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -64,7 +64,7 @@ class AddonsApi(object):
 
         :param async_req bool
         :param int addon_id: Id of the addon (required)
-        :param list[str] _with: The relations you want to fetch with the Addon schema
+        :param list[str] _with: The relations you want to fetch with the `Addon`
         :return: AddonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -139,7 +139,7 @@ class AddonsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[str] _with: The relations you want to fetch with the Addon schema
+        :param list[str] _with: The relations you want to fetch with the `Addon`
         :return: AddonListResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -160,7 +160,7 @@ class AddonsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[str] _with: The relations you want to fetch with the Addon schema
+        :param list[str] _with: The relations you want to fetch with the `Addon`
         :return: AddonListResponse
                  If the method is called asynchronously,
                  returns the request thread.

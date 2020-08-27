@@ -29,12 +29,12 @@ class User(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'str',
+        'id': 'int',
         'name': 'str',
         'avatar': 'str',
         'country_code': 'str',
         'slug': 'str',
-        'ban_properties': 'list[str]',
+        'ban_properties': 'UserBanProperties',
         'group': 'PermissionGroup'
     }
 
@@ -58,13 +58,18 @@ class User(object):
         self._ban_properties = None
         self._group = None
         self.discriminator = None
-        self.id = id
-        self.name = name
-        self.avatar = avatar
+        if id is not None:
+            self.id = id
+        if name is not None:
+            self.name = name
+        if avatar is not None:
+            self.avatar = avatar
         if country_code is not None:
             self.country_code = country_code
-        self.slug = slug
-        self.ban_properties = ban_properties
+        if slug is not None:
+            self.slug = slug
+        if ban_properties is not None:
+            self.ban_properties = ban_properties
         if group is not None:
             self.group = group
 
@@ -74,7 +79,7 @@ class User(object):
 
 
         :return: The id of this User.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._id
 
@@ -84,10 +89,8 @@ class User(object):
 
 
         :param id: The id of this User.  # noqa: E501
-        :type: str
+        :type: int
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -109,8 +112,6 @@ class User(object):
         :param name: The name of this User.  # noqa: E501
         :type: str
         """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
@@ -132,8 +133,6 @@ class User(object):
         :param avatar: The avatar of this User.  # noqa: E501
         :type: str
         """
-        if avatar is None:
-            raise ValueError("Invalid value for `avatar`, must not be `None`")  # noqa: E501
 
         self._avatar = avatar
 
@@ -176,8 +175,6 @@ class User(object):
         :param slug: The slug of this User.  # noqa: E501
         :type: str
         """
-        if slug is None:
-            raise ValueError("Invalid value for `slug`, must not be `None`")  # noqa: E501
 
         self._slug = slug
 
@@ -187,7 +184,7 @@ class User(object):
 
 
         :return: The ban_properties of this User.  # noqa: E501
-        :rtype: list[str]
+        :rtype: UserBanProperties
         """
         return self._ban_properties
 
@@ -197,17 +194,8 @@ class User(object):
 
 
         :param ban_properties: The ban_properties of this User.  # noqa: E501
-        :type: list[str]
+        :type: UserBanProperties
         """
-        if ban_properties is None:
-            raise ValueError("Invalid value for `ban_properties`, must not be `None`")  # noqa: E501
-        allowed_values = ["everything", "addon.create", "addon.purchase", "addon.download", "addon.review", "addon.comment", "job.create", "job.apply", "job.review", "job.comment", "ban.appeal"]  # noqa: E501
-        if not set(ban_properties).issubset(set(allowed_values)):
-            raise ValueError(
-                "Invalid values for `ban_properties` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(ban_properties) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
 
         self._ban_properties = ban_properties
 

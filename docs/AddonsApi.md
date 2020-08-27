@@ -24,7 +24,7 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonsApi(gmodstore_sdk.ApiClient(configuration))
 addon_id = 789 # int | Id of the addon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the Addon schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `Addon` (optional)
 
 try:
     # Fetch a single addon
@@ -39,7 +39,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **addon_id** | **int**| Id of the addon | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the Addon schema | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;Addon&#x60; | [optional] 
 
 ### Return type
 
@@ -72,7 +72,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonsApi(gmodstore_sdk.ApiClient(configuration))
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the Addon schema (optional)
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the `Addon` (optional)
 
 try:
     # Fetch all the addons that you have access to
@@ -86,7 +86,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the Addon schema | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;Addon&#x60; | [optional] 
 
 ### Return type
 

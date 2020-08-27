@@ -46,8 +46,10 @@ class TeamUser(object):
         self._primary = None
         self._user = None
         self.discriminator = None
-        self.team_id = team_id
-        self.primary = primary
+        if team_id is not None:
+            self.team_id = team_id
+        if primary is not None:
+            self.primary = primary
         if user is not None:
             self.user = user
 
@@ -69,8 +71,6 @@ class TeamUser(object):
         :param team_id: The team_id of this TeamUser.  # noqa: E501
         :type: int
         """
-        if team_id is None:
-            raise ValueError("Invalid value for `team_id`, must not be `None`")  # noqa: E501
 
         self._team_id = team_id
 
@@ -92,8 +92,6 @@ class TeamUser(object):
         :param primary: The primary of this TeamUser.  # noqa: E501
         :type: bool
         """
-        if primary is None:
-            raise ValueError("Invalid value for `primary`, must not be `None`")  # noqa: E501
 
         self._primary = primary
 

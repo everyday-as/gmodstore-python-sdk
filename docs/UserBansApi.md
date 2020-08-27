@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**list_user_bans**](UserBansApi.md#list_user_bans) | **GET** /users/{user_id}/bans | Fetch all active bans associated with this user
 
 # **list_user_bans**
-> BanListResponse list_user_bans(user_id)
+> UserBanListResponse list_user_bans(user_id)
 
 Fetch all active bans associated with this user
 
@@ -22,7 +22,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.UserBansApi(gmodstore_sdk.ApiClient(configuration))
-user_id = 'user_id_example' # str | Id of the user
+user_id = 789 # int | Id of the user
 
 try:
     # Fetch all active bans associated with this user
@@ -36,11 +36,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**| Id of the user | 
+ **user_id** | **int**| Id of the user | 
 
 ### Return type
 
-[**BanListResponse**](BanListResponse.md)
+[**UserBanListResponse**](UserBanListResponse.md)
 
 ### Authorization
 
