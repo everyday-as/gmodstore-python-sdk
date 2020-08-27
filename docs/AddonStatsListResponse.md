@@ -1,4 +1,4 @@
-# InlineResponse2002
+# AddonStatsListResponse
 
 ## Properties
 Name | Type | Description | Notes

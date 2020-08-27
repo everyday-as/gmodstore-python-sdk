@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**get_addon_stats**](AddonStatsApi.md#get_addon_stats) | **GET** /addons/{addon_id}/stats | Fetch all the stats for an addon
 
 # **get_addon_stats**
-> InlineResponse2002 get_addon_stats(addon_id)
+> AddonStatsListResponse get_addon_stats(addon_id)
 
 Fetch all the stats for an addon
 
@@ -40,7 +40,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**AddonStatsListResponse**](AddonStatsListResponse.md)
 
 ### Authorization
 

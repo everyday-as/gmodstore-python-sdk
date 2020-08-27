@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**list_self_addons**](AddonsApi.md#list_self_addons) | **GET** /addons | Fetch all the addons that you have access to
 
 # **get_addon**
-> InlineResponse2001 get_addon(addon_id, _with=_with)
+> AddonResponse get_addon(addon_id, _with=_with)
 
 Fetch a single addon
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**AddonResponse**](AddonResponse.md)
 
 ### Authorization
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_self_addons**
-> InlineResponse200 list_self_addons(_with=_with)
+> AddonListResponse list_self_addons(_with=_with)
 
 Fetch all the addons that you have access to
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**AddonListResponse**](AddonListResponse.md)
 
 ### Authorization
 

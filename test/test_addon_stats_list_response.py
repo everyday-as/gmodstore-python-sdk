@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import gmodstore_sdk
-from models.inline_response2001 import InlineResponse2001  # noqa: E501
+from models.addon_stats_list_response import AddonStatsListResponse  # noqa: E501
 from gmodstore_sdk.rest import ApiException
 
 
-class TestInlineResponse2001(unittest.TestCase):
-    """InlineResponse2001 unit test stubs"""
+class TestAddonStatsListResponse(unittest.TestCase):
+    """AddonStatsListResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestInlineResponse2001(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testInlineResponse2001(self):
-        """Test InlineResponse2001"""
+    def testAddonStatsListResponse(self):
+        """Test AddonStatsListResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = gmodstore_sdk.models.inline_response2001.InlineResponse2001()  # noqa: E501
+        # model = gmodstore_sdk.models.addon_stats_list_response.AddonStatsListResponse()  # noqa: E501
         pass
 
 
