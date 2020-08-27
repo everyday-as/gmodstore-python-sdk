@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import gmodstore_sdk
-from models.inline_response_default import InlineResponseDefault  # noqa: E501
+from models.error_response import ErrorResponse  # noqa: E501
 from gmodstore_sdk.rest import ApiException
 
 
-class TestInlineResponseDefault(unittest.TestCase):
-    """InlineResponseDefault unit test stubs"""
+class TestErrorResponse(unittest.TestCase):
+    """ErrorResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestInlineResponseDefault(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testInlineResponseDefault(self):
-        """Test InlineResponseDefault"""
+    def testErrorResponse(self):
+        """Test ErrorResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = gmodstore_sdk.models.inline_response_default.InlineResponseDefault()  # noqa: E501
+        # model = gmodstore_sdk.models.error_response.ErrorResponse()  # noqa: E501
         pass
 
 

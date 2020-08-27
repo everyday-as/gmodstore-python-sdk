@@ -191,7 +191,7 @@ Class | Method | HTTP request | Description
  - [Ban](docs/Ban.md)
  - [BanListResponse](docs/BanListResponse.md)
  - [Error](docs/Error.md)
- - [InlineResponseDefault](docs/InlineResponseDefault.md)
+ - [ErrorResponse](docs/ErrorResponse.md)
  - [Money](docs/Money.md)
  - [NewAddonCoupon](docs/NewAddonCoupon.md)
  - [NewAddonPurchase](docs/NewAddonPurchase.md)

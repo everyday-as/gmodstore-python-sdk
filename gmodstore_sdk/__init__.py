@@ -65,7 +65,7 @@ from gmodstore_sdk.models.badge_response import BadgeResponse
 from gmodstore_sdk.models.ban import Ban
 from gmodstore_sdk.models.ban_list_response import BanListResponse
 from gmodstore_sdk.models.error import Error
-from gmodstore_sdk.models.inline_response_default import InlineResponseDefault
+from gmodstore_sdk.models.error_response import ErrorResponse
 from gmodstore_sdk.models.money import Money
 from gmodstore_sdk.models.new_addon_coupon import NewAddonCoupon
 from gmodstore_sdk.models.new_addon_purchase import NewAddonPurchase
