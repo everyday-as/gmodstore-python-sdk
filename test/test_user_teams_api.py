@@ -28,8 +28,8 @@ class TestUserTeamsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_users_user_id_teams_get(self):
-        """Test case for users_user_id_teams_get
+    def test_list_user_teams(self):
+        """Test case for list_user_teams
 
         Fetch all the teams of a user  # noqa: E501
         """

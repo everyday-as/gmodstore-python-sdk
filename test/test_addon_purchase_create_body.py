@@ -15,24 +15,23 @@ from __future__ import absolute_import
 import unittest
 
 import gmodstore_sdk
-from api.user_purchases_api import UserPurchasesApi  # noqa: E501
+from models.addon_purchase_create_body import AddonPurchaseCreateBody  # noqa: E501
 from gmodstore_sdk.rest import ApiException
 
 
-class TestUserPurchasesApi(unittest.TestCase):
-    """UserPurchasesApi unit test stubs"""
+class TestAddonPurchaseCreateBody(unittest.TestCase):
+    """AddonPurchaseCreateBody unit test stubs"""
 
     def setUp(self):
-        self.api = api.user_purchases_api.UserPurchasesApi()  # noqa: E501
+        pass
 
     def tearDown(self):
         pass
 
-    def test_list_user_purchases(self):
-        """Test case for list_user_purchases
-
-        Fetch all purchases a user has made  # noqa: E501
-        """
+    def testAddonPurchaseCreateBody(self):
+        """Test AddonPurchaseCreateBody"""
+        # FIXME: construct object with mandatory attributes with example values
+        # model = gmodstore_sdk.models.addon_purchase_create_body.AddonPurchaseCreateBody()  # noqa: E501
         pass
 
 

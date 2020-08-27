@@ -28,15 +28,15 @@ class TestAddonsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_addons_addon_id_get(self):
-        """Test case for addons_addon_id_get
+    def test_get_addon(self):
+        """Test case for get_addon
 
         Fetch a single addon  # noqa: E501
         """
         pass
 
-    def test_addons_get(self):
-        """Test case for addons_get
+    def test_list_self_addons(self):
+        """Test case for list_self_addons
 
         Fetch all the addons that you have access to  # noqa: E501
         """

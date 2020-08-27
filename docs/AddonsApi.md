@@ -4,11 +4,11 @@ All URIs are relative to *https://api.gmodstore.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addons_addon_id_get**](AddonsApi.md#addons_addon_id_get) | **GET** /addons/{addon_id} | Fetch a single addon
-[**addons_get**](AddonsApi.md#addons_get) | **GET** /addons | Fetch all the addons that you have access to
+[**get_addon**](AddonsApi.md#get_addon) | **GET** /addons/{addon_id} | Fetch a single addon
+[**list_self_addons**](AddonsApi.md#list_self_addons) | **GET** /addons | Fetch all the addons that you have access to
 
-# **addons_addon_id_get**
-> InlineResponse2001 addons_addon_id_get(addon_id, _with=_with)
+# **get_addon**
+> InlineResponse2001 get_addon(addon_id, _with=_with)
 
 Fetch a single addon
 
@@ -20,11 +20,6 @@ import gmodstore_sdk
 from gmodstore_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonsApi(gmodstore_sdk.ApiClient(configuration))
@@ -33,10 +28,10 @@ _with = ['_with_example'] # list[str] | The relations you want to fetch with the
 
 try:
     # Fetch a single addon
-    api_response = api_instance.addons_addon_id_get(addon_id, _with=_with)
+    api_response = api_instance.get_addon(addon_id, _with=_with)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AddonsApi->addons_addon_id_get: %s\n" % e)
+    print("Exception when calling AddonsApi->get_addon: %s\n" % e)
 ```
 
 ### Parameters
@@ -52,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -61,8 +56,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addons_get**
-> InlineResponse200 addons_get(_with=_with)
+# **list_self_addons**
+> InlineResponse200 list_self_addons(_with=_with)
 
 Fetch all the addons that you have access to
 
@@ -74,11 +69,6 @@ import gmodstore_sdk
 from gmodstore_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonsApi(gmodstore_sdk.ApiClient(configuration))
@@ -86,10 +76,10 @@ _with = ['_with_example'] # list[str] | The relations you want to fetch with the
 
 try:
     # Fetch all the addons that you have access to
-    api_response = api_instance.addons_get(_with=_with)
+    api_response = api_instance.list_self_addons(_with=_with)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AddonsApi->addons_get: %s\n" % e)
+    print("Exception when calling AddonsApi->list_self_addons: %s\n" % e)
 ```
 
 ### Parameters
@@ -104,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

@@ -28,8 +28,8 @@ class TestUserAddonsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_users_user_id_addons_get(self):
-        """Test case for users_user_id_addons_get
+    def test_list_user_addons(self):
+        """Test case for list_user_addons
 
         Fetch all the addons authored / co-authored by a user  # noqa: E501
         """

@@ -4,10 +4,10 @@ All URIs are relative to *https://api.gmodstore.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**users_user_id_purchases_get**](UserPurchasesApi.md#users_user_id_purchases_get) | **GET** /users/{user_id}/purchases | Fetch all purchases a user has made
+[**list_user_purchases**](UserPurchasesApi.md#list_user_purchases) | **GET** /users/{user_id}/purchases | Fetch all purchases a user has made
 
-# **users_user_id_purchases_get**
-> InlineResponse2004 users_user_id_purchases_get(user_id, _with=_with)
+# **list_user_purchases**
+> InlineResponse2004 list_user_purchases(user_id, _with=_with)
 
 Fetch all purchases a user has made
 
@@ -19,11 +19,6 @@ import gmodstore_sdk
 from gmodstore_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.UserPurchasesApi(gmodstore_sdk.ApiClient(configuration))
@@ -32,10 +27,10 @@ _with = ['_with_example'] # list[str] | The relations you want to fetch with the
 
 try:
     # Fetch all purchases a user has made
-    api_response = api_instance.users_user_id_purchases_get(user_id, _with=_with)
+    api_response = api_instance.list_user_purchases(user_id, _with=_with)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling UserPurchasesApi->users_user_id_purchases_get: %s\n" % e)
+    print("Exception when calling UserPurchasesApi->list_user_purchases: %s\n" % e)
 ```
 
 ### Parameters
@@ -51,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

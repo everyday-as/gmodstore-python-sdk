@@ -28,36 +28,36 @@ class TestAddonVersionsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_addons_addon_id_versions_get(self):
-        """Test case for addons_addon_id_versions_get
-
-        Fetch all the versions of an addon  # noqa: E501
-        """
-        pass
-
-    def test_addons_addon_id_versions_post(self):
-        """Test case for addons_addon_id_versions_post
+    def test_create_addon_version(self):
+        """Test case for create_addon_version
 
         Create a new version for an addon  # noqa: E501
         """
         pass
 
-    def test_addons_addon_id_versions_version_id_download_get(self):
-        """Test case for addons_addon_id_versions_version_id_download_get
+    def test_download_addon_version(self):
+        """Test case for download_addon_version
 
         Generate a download token for a specific version of an addon  # noqa: E501
         """
         pass
 
-    def test_addons_addon_id_versions_version_id_get(self):
-        """Test case for addons_addon_id_versions_version_id_get
+    def test_get_addon_version(self):
+        """Test case for get_addon_version
 
         Fetch a specific version of an addon  # noqa: E501
         """
         pass
 
-    def test_addons_addon_id_versions_version_id_put(self):
-        """Test case for addons_addon_id_versions_version_id_put
+    def test_list_addon_versions(self):
+        """Test case for list_addon_versions
+
+        Fetch all the versions of an addon  # noqa: E501
+        """
+        pass
+
+    def test_update_addon_version(self):
+        """Test case for update_addon_version
 
         Update a version of an addon  # noqa: E501
         """

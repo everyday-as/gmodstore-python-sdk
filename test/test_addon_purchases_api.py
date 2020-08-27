@@ -28,29 +28,29 @@ class TestAddonPurchasesApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_addons_addon_id_purchases_get(self):
-        """Test case for addons_addon_id_purchases_get
-
-        Fetch all purchases of an addon  # noqa: E501
-        """
-        pass
-
-    def test_addons_addon_id_purchases_post(self):
-        """Test case for addons_addon_id_purchases_post
+    def test_create_addon_purchase(self):
+        """Test case for create_addon_purchase
 
         Create a purchase for an addon  # noqa: E501
         """
         pass
 
-    def test_addons_addon_id_purchases_user_id_get(self):
-        """Test case for addons_addon_id_purchases_user_id_get
+    def test_get_addon_purchase(self):
+        """Test case for get_addon_purchase
 
         Get a purchase of an addon by user  # noqa: E501
         """
         pass
 
-    def test_addons_addon_id_purchases_user_id_put(self):
-        """Test case for addons_addon_id_purchases_user_id_put
+    def test_list_addon_purchases(self):
+        """Test case for list_addon_purchases
+
+        Fetch all purchases of an addon  # noqa: E501
+        """
+        pass
+
+    def test_update_addon_purchase(self):
+        """Test case for update_addon_purchase
 
         Update a purchase for an addon  # noqa: E501
         """

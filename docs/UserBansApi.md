@@ -4,10 +4,10 @@ All URIs are relative to *https://api.gmodstore.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**users_user_id_bans_get**](UserBansApi.md#users_user_id_bans_get) | **GET** /users/{user_id}/bans | Fetch all active bans associated with this user
+[**list_user_bans**](UserBansApi.md#list_user_bans) | **GET** /users/{user_id}/bans | Fetch all active bans associated with this user
 
-# **users_user_id_bans_get**
-> InlineResponse20013 users_user_id_bans_get(user_id)
+# **list_user_bans**
+> InlineResponse20013 list_user_bans(user_id)
 
 Fetch all active bans associated with this user
 
@@ -19,11 +19,6 @@ import gmodstore_sdk
 from gmodstore_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.UserBansApi(gmodstore_sdk.ApiClient(configuration))
@@ -31,10 +26,10 @@ user_id = 'user_id_example' # str | Id of the user
 
 try:
     # Fetch all active bans associated with this user
-    api_response = api_instance.users_user_id_bans_get(user_id)
+    api_response = api_instance.list_user_bans(user_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling UserBansApi->users_user_id_bans_get: %s\n" % e)
+    print("Exception when calling UserBansApi->list_user_bans: %s\n" % e)
 ```
 
 ### Parameters
@@ -49,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

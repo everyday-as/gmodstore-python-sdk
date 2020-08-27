@@ -28,17 +28,17 @@ class TestAddonReviewsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_addons_addon_id_reviews_get(self):
-        """Test case for addons_addon_id_reviews_get
+    def test_get_addon_review(self):
+        """Test case for get_addon_review
 
-        Fetch all the reviews of an addon  # noqa: E501
+        Fetch a review of an addon  # noqa: E501
         """
         pass
 
-    def test_addons_addon_id_reviews_review_id_get(self):
-        """Test case for addons_addon_id_reviews_review_id_get
+    def test_list_addon_reviews(self):
+        """Test case for list_addon_reviews
 
-        Fetch a review of an addon  # noqa: E501
+        Fetch all the reviews of an addon  # noqa: E501
         """
         pass
 

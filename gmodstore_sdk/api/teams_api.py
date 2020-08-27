@@ -32,12 +32,12 @@ class TeamsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def teams_team_id_get(self, team_id, **kwargs):  # noqa: E501
+    def get_team(self, team_id, **kwargs):  # noqa: E501
         """Fetch a single team  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.teams_team_id_get(team_id, async_req=True)
+        >>> thread = api.get_team(team_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -49,17 +49,17 @@ class TeamsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.teams_team_id_get_with_http_info(team_id, **kwargs)  # noqa: E501
+            return self.get_team_with_http_info(team_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.teams_team_id_get_with_http_info(team_id, **kwargs)  # noqa: E501
+            (data) = self.get_team_with_http_info(team_id, **kwargs)  # noqa: E501
             return data
 
-    def teams_team_id_get_with_http_info(self, team_id, **kwargs):  # noqa: E501
+    def get_team_with_http_info(self, team_id, **kwargs):  # noqa: E501
         """Fetch a single team  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.teams_team_id_get_with_http_info(team_id, async_req=True)
+        >>> thread = api.get_team_with_http_info(team_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -81,14 +81,14 @@ class TeamsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method teams_team_id_get" % key
+                    " to method get_team" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'team_id' is set
         if ('team_id' not in params or
                 params['team_id'] is None):
-            raise ValueError("Missing the required parameter `team_id` when calling `teams_team_id_get`")  # noqa: E501
+            raise ValueError("Missing the required parameter `team_id` when calling `get_team`")  # noqa: E501
 
         collection_formats = {}
 
@@ -112,7 +112,7 @@ class TeamsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['ApiKeyAuth']  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/teams/{team_id}', 'GET',

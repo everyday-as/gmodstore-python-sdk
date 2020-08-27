@@ -32,12 +32,12 @@ class AddonStatsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def addons_addon_id_stats_get(self, addon_id, **kwargs):  # noqa: E501
+    def get_addon_stats(self, addon_id, **kwargs):  # noqa: E501
         """Fetch all the stats for an addon  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_stats_get(addon_id, async_req=True)
+        >>> thread = api.get_addon_stats(addon_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -48,17 +48,17 @@ class AddonStatsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.addons_addon_id_stats_get_with_http_info(addon_id, **kwargs)  # noqa: E501
+            return self.get_addon_stats_with_http_info(addon_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.addons_addon_id_stats_get_with_http_info(addon_id, **kwargs)  # noqa: E501
+            (data) = self.get_addon_stats_with_http_info(addon_id, **kwargs)  # noqa: E501
             return data
 
-    def addons_addon_id_stats_get_with_http_info(self, addon_id, **kwargs):  # noqa: E501
+    def get_addon_stats_with_http_info(self, addon_id, **kwargs):  # noqa: E501
         """Fetch all the stats for an addon  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_stats_get_with_http_info(addon_id, async_req=True)
+        >>> thread = api.get_addon_stats_with_http_info(addon_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -79,14 +79,14 @@ class AddonStatsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method addons_addon_id_stats_get" % key
+                    " to method get_addon_stats" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'addon_id' is set
         if ('addon_id' not in params or
                 params['addon_id'] is None):
-            raise ValueError("Missing the required parameter `addon_id` when calling `addons_addon_id_stats_get`")  # noqa: E501
+            raise ValueError("Missing the required parameter `addon_id` when calling `get_addon_stats`")  # noqa: E501
 
         collection_formats = {}
 
@@ -107,7 +107,7 @@ class AddonStatsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['ApiKeyAuth']  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/addons/{addon_id}/stats', 'GET',

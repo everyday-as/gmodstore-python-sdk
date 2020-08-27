@@ -35,10 +35,13 @@ from gmodstore_sdk.configuration import Configuration
 # import models into sdk package
 from gmodstore_sdk.models.addon import Addon
 from gmodstore_sdk.models.addon_coupon import AddonCoupon
+from gmodstore_sdk.models.addon_coupon_body import AddonCouponBody
 from gmodstore_sdk.models.addon_download import AddonDownload
 from gmodstore_sdk.models.addon_images import AddonImages
 from gmodstore_sdk.models.addon_price import AddonPrice
 from gmodstore_sdk.models.addon_purchase import AddonPurchase
+from gmodstore_sdk.models.addon_purchase_create_body import AddonPurchaseCreateBody
+from gmodstore_sdk.models.addon_purchase_update_body import AddonPurchaseUpdateBody
 from gmodstore_sdk.models.addon_review import AddonReview
 from gmodstore_sdk.models.addon_stats import AddonStats
 from gmodstore_sdk.models.addon_stats_revenue import AddonStatsRevenue
@@ -48,6 +51,9 @@ from gmodstore_sdk.models.addon_stats_sales_current import AddonStatsSalesCurren
 from gmodstore_sdk.models.addon_stats_views import AddonStatsViews
 from gmodstore_sdk.models.addon_stats_views_current import AddonStatsViewsCurrent
 from gmodstore_sdk.models.addon_version import AddonVersion
+from gmodstore_sdk.models.addon_version_create_body import AddonVersionCreateBody
+from gmodstore_sdk.models.addon_version_update_body import AddonVersionUpdateBody
+from gmodstore_sdk.models.badge_create_body import BadgeCreateBody
 from gmodstore_sdk.models.ban import Ban
 from gmodstore_sdk.models.error import Error
 from gmodstore_sdk.models.inline_response200 import InlineResponse200

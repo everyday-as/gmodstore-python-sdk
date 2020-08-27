@@ -28,8 +28,8 @@ class TestAddonStatsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_addons_addon_id_stats_get(self):
-        """Test case for addons_addon_id_stats_get
+    def test_get_addon_stats(self):
+        """Test case for get_addon_stats
 
         Fetch all the stats for an addon  # noqa: E501
         """

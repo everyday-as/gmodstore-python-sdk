@@ -28,24 +28,24 @@ class TestUserBadgesApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_users_user_id_badges_badge_id_delete(self):
-        """Test case for users_user_id_badges_badge_id_delete
+    def test_create_user_badge(self):
+        """Test case for create_user_badge
+
+        Give a user a badge  # noqa: E501
+        """
+        pass
+
+    def test_delete_user_badge(self):
+        """Test case for delete_user_badge
 
         Destroy a users's badge  # noqa: E501
         """
         pass
 
-    def test_users_user_id_badges_get(self):
-        """Test case for users_user_id_badges_get
+    def test_list_user_badges(self):
+        """Test case for list_user_badges
 
         Fetch all the badges a user has  # noqa: E501
-        """
-        pass
-
-    def test_users_user_id_badges_post(self):
-        """Test case for users_user_id_badges_post
-
-        Give a user a badge  # noqa: E501
         """
         pass
 

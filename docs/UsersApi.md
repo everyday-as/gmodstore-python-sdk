@@ -4,11 +4,11 @@ All URIs are relative to *https://api.gmodstore.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**users_me_get**](UsersApi.md#users_me_get) | **GET** /users/me | Fetches the current user (API Key Owner)
-[**users_user_id_get**](UsersApi.md#users_user_id_get) | **GET** /users/{user_id} | Fetch a single user
+[**get_self_user**](UsersApi.md#get_self_user) | **GET** /users/me | Fetches the current user (API Key Owner)
+[**get_user**](UsersApi.md#get_user) | **GET** /users/{user_id} | Fetch a single user
 
-# **users_me_get**
-> InlineResponse20011 users_me_get(_with=_with)
+# **get_self_user**
+> InlineResponse20011 get_self_user(_with=_with)
 
 Fetches the current user (API Key Owner)
 
@@ -20,11 +20,6 @@ import gmodstore_sdk
 from gmodstore_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.UsersApi(gmodstore_sdk.ApiClient(configuration))
@@ -32,10 +27,10 @@ _with = ['_with_example'] # list[str] | The relations you want to fetch with the
 
 try:
     # Fetches the current user (API Key Owner)
-    api_response = api_instance.users_me_get(_with=_with)
+    api_response = api_instance.get_self_user(_with=_with)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling UsersApi->users_me_get: %s\n" % e)
+    print("Exception when calling UsersApi->get_self_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -50,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -59,8 +54,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **users_user_id_get**
-> InlineResponse20011 users_user_id_get(user_id, _with=_with)
+# **get_user**
+> InlineResponse20011 get_user(user_id, _with=_with)
 
 Fetch a single user
 
@@ -72,11 +67,6 @@ import gmodstore_sdk
 from gmodstore_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.UsersApi(gmodstore_sdk.ApiClient(configuration))
@@ -85,10 +75,10 @@ _with = ['_with_example'] # list[str] | The relations you want to fetch with the
 
 try:
     # Fetch a single user
-    api_response = api_instance.users_user_id_get(user_id, _with=_with)
+    api_response = api_instance.get_user(user_id, _with=_with)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling UsersApi->users_user_id_get: %s\n" % e)
+    print("Exception when calling UsersApi->get_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -104,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

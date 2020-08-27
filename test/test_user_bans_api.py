@@ -28,8 +28,8 @@ class TestUserBansApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_users_user_id_bans_get(self):
-        """Test case for users_user_id_bans_get
+    def test_list_user_bans(self):
+        """Test case for list_user_bans
 
         Fetch all active bans associated with this user  # noqa: E501
         """

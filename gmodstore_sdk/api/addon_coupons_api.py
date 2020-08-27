@@ -32,12 +32,122 @@ class AddonCouponsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def addons_addon_id_coupons_coupon_id_delete(self, addon_id, coupon_id, **kwargs):  # noqa: E501
+    def create_addon_coupon(self, body, addon_id, **kwargs):  # noqa: E501
+        """Create an addon coupon  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_addon_coupon(body, addon_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AddonCouponBody body: (required)
+        :param int addon_id: Id of the addon (required)
+        :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
+        :return: InlineResponse201
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_addon_coupon_with_http_info(body, addon_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_addon_coupon_with_http_info(body, addon_id, **kwargs)  # noqa: E501
+            return data
+
+    def create_addon_coupon_with_http_info(self, body, addon_id, **kwargs):  # noqa: E501
+        """Create an addon coupon  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_addon_coupon_with_http_info(body, addon_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AddonCouponBody body: (required)
+        :param int addon_id: Id of the addon (required)
+        :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
+        :return: InlineResponse201
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'addon_id', '_with']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_addon_coupon" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `create_addon_coupon`")  # noqa: E501
+        # verify the required parameter 'addon_id' is set
+        if ('addon_id' not in params or
+                params['addon_id'] is None):
+            raise ValueError("Missing the required parameter `addon_id` when calling `create_addon_coupon`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'addon_id' in params:
+            path_params['addon_id'] = params['addon_id']  # noqa: E501
+
+        query_params = []
+        if '_with' in params:
+            query_params.append(('with', params['_with']))  # noqa: E501
+            collection_formats['with'] = 'csv'  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['bearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/addons/{addon_id}/coupons', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse201',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_addon_coupon(self, addon_id, coupon_id, **kwargs):  # noqa: E501
         """Destroy an addon's coupon  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_coupons_coupon_id_delete(addon_id, coupon_id, async_req=True)
+        >>> thread = api.delete_addon_coupon(addon_id, coupon_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -49,17 +159,17 @@ class AddonCouponsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.addons_addon_id_coupons_coupon_id_delete_with_http_info(addon_id, coupon_id, **kwargs)  # noqa: E501
+            return self.delete_addon_coupon_with_http_info(addon_id, coupon_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.addons_addon_id_coupons_coupon_id_delete_with_http_info(addon_id, coupon_id, **kwargs)  # noqa: E501
+            (data) = self.delete_addon_coupon_with_http_info(addon_id, coupon_id, **kwargs)  # noqa: E501
             return data
 
-    def addons_addon_id_coupons_coupon_id_delete_with_http_info(self, addon_id, coupon_id, **kwargs):  # noqa: E501
+    def delete_addon_coupon_with_http_info(self, addon_id, coupon_id, **kwargs):  # noqa: E501
         """Destroy an addon's coupon  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_coupons_coupon_id_delete_with_http_info(addon_id, coupon_id, async_req=True)
+        >>> thread = api.delete_addon_coupon_with_http_info(addon_id, coupon_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -81,18 +191,18 @@ class AddonCouponsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method addons_addon_id_coupons_coupon_id_delete" % key
+                    " to method delete_addon_coupon" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'addon_id' is set
         if ('addon_id' not in params or
                 params['addon_id'] is None):
-            raise ValueError("Missing the required parameter `addon_id` when calling `addons_addon_id_coupons_coupon_id_delete`")  # noqa: E501
+            raise ValueError("Missing the required parameter `addon_id` when calling `delete_addon_coupon`")  # noqa: E501
         # verify the required parameter 'coupon_id' is set
         if ('coupon_id' not in params or
                 params['coupon_id'] is None):
-            raise ValueError("Missing the required parameter `coupon_id` when calling `addons_addon_id_coupons_coupon_id_delete`")  # noqa: E501
+            raise ValueError("Missing the required parameter `coupon_id` when calling `delete_addon_coupon`")  # noqa: E501
 
         collection_formats = {}
 
@@ -115,7 +225,7 @@ class AddonCouponsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['ApiKeyAuth']  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/addons/{addon_id}/coupons/{coupon_id}', 'DELETE',
@@ -133,12 +243,12 @@ class AddonCouponsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def addons_addon_id_coupons_coupon_id_get(self, addon_id, coupon_id, **kwargs):  # noqa: E501
+    def get_addon_coupon(self, addon_id, coupon_id, **kwargs):  # noqa: E501
         """Fetch an addon's coupon  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_coupons_coupon_id_get(addon_id, coupon_id, async_req=True)
+        >>> thread = api.get_addon_coupon(addon_id, coupon_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -151,17 +261,17 @@ class AddonCouponsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.addons_addon_id_coupons_coupon_id_get_with_http_info(addon_id, coupon_id, **kwargs)  # noqa: E501
+            return self.get_addon_coupon_with_http_info(addon_id, coupon_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.addons_addon_id_coupons_coupon_id_get_with_http_info(addon_id, coupon_id, **kwargs)  # noqa: E501
+            (data) = self.get_addon_coupon_with_http_info(addon_id, coupon_id, **kwargs)  # noqa: E501
             return data
 
-    def addons_addon_id_coupons_coupon_id_get_with_http_info(self, addon_id, coupon_id, **kwargs):  # noqa: E501
+    def get_addon_coupon_with_http_info(self, addon_id, coupon_id, **kwargs):  # noqa: E501
         """Fetch an addon's coupon  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_coupons_coupon_id_get_with_http_info(addon_id, coupon_id, async_req=True)
+        >>> thread = api.get_addon_coupon_with_http_info(addon_id, coupon_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -184,18 +294,18 @@ class AddonCouponsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method addons_addon_id_coupons_coupon_id_get" % key
+                    " to method get_addon_coupon" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'addon_id' is set
         if ('addon_id' not in params or
                 params['addon_id'] is None):
-            raise ValueError("Missing the required parameter `addon_id` when calling `addons_addon_id_coupons_coupon_id_get`")  # noqa: E501
+            raise ValueError("Missing the required parameter `addon_id` when calling `get_addon_coupon`")  # noqa: E501
         # verify the required parameter 'coupon_id' is set
         if ('coupon_id' not in params or
                 params['coupon_id'] is None):
-            raise ValueError("Missing the required parameter `coupon_id` when calling `addons_addon_id_coupons_coupon_id_get`")  # noqa: E501
+            raise ValueError("Missing the required parameter `coupon_id` when calling `get_addon_coupon`")  # noqa: E501
 
         collection_formats = {}
 
@@ -221,7 +331,7 @@ class AddonCouponsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['ApiKeyAuth']  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/addons/{addon_id}/coupons/{coupon_id}', 'GET',
@@ -239,130 +349,12 @@ class AddonCouponsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def addons_addon_id_coupons_coupon_id_put(self, body, addon_id, coupon_id, **kwargs):  # noqa: E501
-        """Update an addon's coupon  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_coupons_coupon_id_put(body, addon_id, coupon_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param object body: (required)
-        :param int addon_id: Id of the addon (required)
-        :param int coupon_id: Id of the coupon (required)
-        :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
-        :return: InlineResponse201
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.addons_addon_id_coupons_coupon_id_put_with_http_info(body, addon_id, coupon_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.addons_addon_id_coupons_coupon_id_put_with_http_info(body, addon_id, coupon_id, **kwargs)  # noqa: E501
-            return data
-
-    def addons_addon_id_coupons_coupon_id_put_with_http_info(self, body, addon_id, coupon_id, **kwargs):  # noqa: E501
-        """Update an addon's coupon  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_coupons_coupon_id_put_with_http_info(body, addon_id, coupon_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param object body: (required)
-        :param int addon_id: Id of the addon (required)
-        :param int coupon_id: Id of the coupon (required)
-        :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
-        :return: InlineResponse201
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body', 'addon_id', 'coupon_id', '_with']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method addons_addon_id_coupons_coupon_id_put" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `addons_addon_id_coupons_coupon_id_put`")  # noqa: E501
-        # verify the required parameter 'addon_id' is set
-        if ('addon_id' not in params or
-                params['addon_id'] is None):
-            raise ValueError("Missing the required parameter `addon_id` when calling `addons_addon_id_coupons_coupon_id_put`")  # noqa: E501
-        # verify the required parameter 'coupon_id' is set
-        if ('coupon_id' not in params or
-                params['coupon_id'] is None):
-            raise ValueError("Missing the required parameter `coupon_id` when calling `addons_addon_id_coupons_coupon_id_put`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'addon_id' in params:
-            path_params['addon_id'] = params['addon_id']  # noqa: E501
-        if 'coupon_id' in params:
-            path_params['coupon_id'] = params['coupon_id']  # noqa: E501
-
-        query_params = []
-        if '_with' in params:
-            query_params.append(('with', params['_with']))  # noqa: E501
-            collection_formats['with'] = 'csv'  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['ApiKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/addons/{addon_id}/coupons/{coupon_id}', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse201',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def addons_addon_id_coupons_get(self, addon_id, **kwargs):  # noqa: E501
+    def list_addon_coupons(self, addon_id, **kwargs):  # noqa: E501
         """Fetch all the coupons for an addon  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_coupons_get(addon_id, async_req=True)
+        >>> thread = api.list_addon_coupons(addon_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -374,17 +366,17 @@ class AddonCouponsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.addons_addon_id_coupons_get_with_http_info(addon_id, **kwargs)  # noqa: E501
+            return self.list_addon_coupons_with_http_info(addon_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.addons_addon_id_coupons_get_with_http_info(addon_id, **kwargs)  # noqa: E501
+            (data) = self.list_addon_coupons_with_http_info(addon_id, **kwargs)  # noqa: E501
             return data
 
-    def addons_addon_id_coupons_get_with_http_info(self, addon_id, **kwargs):  # noqa: E501
+    def list_addon_coupons_with_http_info(self, addon_id, **kwargs):  # noqa: E501
         """Fetch all the coupons for an addon  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_coupons_get_with_http_info(addon_id, async_req=True)
+        >>> thread = api.list_addon_coupons_with_http_info(addon_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -406,14 +398,14 @@ class AddonCouponsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method addons_addon_id_coupons_get" % key
+                    " to method list_addon_coupons" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'addon_id' is set
         if ('addon_id' not in params or
                 params['addon_id'] is None):
-            raise ValueError("Missing the required parameter `addon_id` when calling `addons_addon_id_coupons_get`")  # noqa: E501
+            raise ValueError("Missing the required parameter `addon_id` when calling `list_addon_coupons`")  # noqa: E501
 
         collection_formats = {}
 
@@ -437,7 +429,7 @@ class AddonCouponsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['ApiKeyAuth']  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/addons/{addon_id}/coupons', 'GET',
@@ -455,17 +447,18 @@ class AddonCouponsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def addons_addon_id_coupons_post(self, body, addon_id, **kwargs):  # noqa: E501
-        """Create an addon coupon  # noqa: E501
+    def update_addon_coupon(self, body, addon_id, coupon_id, **kwargs):  # noqa: E501
+        """Update an addon's coupon  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_coupons_post(body, addon_id, async_req=True)
+        >>> thread = api.update_addon_coupon(body, addon_id, coupon_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param object body: (required)
+        :param AddonCouponBody body: (required)
         :param int addon_id: Id of the addon (required)
+        :param int coupon_id: Id of the coupon (required)
         :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
         :return: InlineResponse201
                  If the method is called asynchronously,
@@ -473,29 +466,30 @@ class AddonCouponsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.addons_addon_id_coupons_post_with_http_info(body, addon_id, **kwargs)  # noqa: E501
+            return self.update_addon_coupon_with_http_info(body, addon_id, coupon_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.addons_addon_id_coupons_post_with_http_info(body, addon_id, **kwargs)  # noqa: E501
+            (data) = self.update_addon_coupon_with_http_info(body, addon_id, coupon_id, **kwargs)  # noqa: E501
             return data
 
-    def addons_addon_id_coupons_post_with_http_info(self, body, addon_id, **kwargs):  # noqa: E501
-        """Create an addon coupon  # noqa: E501
+    def update_addon_coupon_with_http_info(self, body, addon_id, coupon_id, **kwargs):  # noqa: E501
+        """Update an addon's coupon  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_coupons_post_with_http_info(body, addon_id, async_req=True)
+        >>> thread = api.update_addon_coupon_with_http_info(body, addon_id, coupon_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param object body: (required)
+        :param AddonCouponBody body: (required)
         :param int addon_id: Id of the addon (required)
+        :param int coupon_id: Id of the coupon (required)
         :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
         :return: InlineResponse201
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['body', 'addon_id', '_with']  # noqa: E501
+        all_params = ['body', 'addon_id', 'coupon_id', '_with']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -506,24 +500,30 @@ class AddonCouponsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method addons_addon_id_coupons_post" % key
+                    " to method update_addon_coupon" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `addons_addon_id_coupons_post`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `update_addon_coupon`")  # noqa: E501
         # verify the required parameter 'addon_id' is set
         if ('addon_id' not in params or
                 params['addon_id'] is None):
-            raise ValueError("Missing the required parameter `addon_id` when calling `addons_addon_id_coupons_post`")  # noqa: E501
+            raise ValueError("Missing the required parameter `addon_id` when calling `update_addon_coupon`")  # noqa: E501
+        # verify the required parameter 'coupon_id' is set
+        if ('coupon_id' not in params or
+                params['coupon_id'] is None):
+            raise ValueError("Missing the required parameter `coupon_id` when calling `update_addon_coupon`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
         if 'addon_id' in params:
             path_params['addon_id'] = params['addon_id']  # noqa: E501
+        if 'coupon_id' in params:
+            path_params['coupon_id'] = params['coupon_id']  # noqa: E501
 
         query_params = []
         if '_with' in params:
@@ -547,10 +547,10 @@ class AddonCouponsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['ApiKeyAuth']  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/addons/{addon_id}/coupons', 'POST',
+            '/addons/{addon_id}/coupons/{coupon_id}', 'PUT',
             path_params,
             query_params,
             header_params,

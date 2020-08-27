@@ -4,68 +4,14 @@ All URIs are relative to *https://api.gmodstore.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addons_addon_id_versions_get**](AddonVersionsApi.md#addons_addon_id_versions_get) | **GET** /addons/{addon_id}/versions | Fetch all the versions of an addon
-[**addons_addon_id_versions_post**](AddonVersionsApi.md#addons_addon_id_versions_post) | **POST** /addons/{addon_id}/versions | Create a new version for an addon
-[**addons_addon_id_versions_version_id_download_get**](AddonVersionsApi.md#addons_addon_id_versions_version_id_download_get) | **GET** /addons/{addon_id}/versions/{version_id}/download | Generate a download token for a specific version of an addon
-[**addons_addon_id_versions_version_id_get**](AddonVersionsApi.md#addons_addon_id_versions_version_id_get) | **GET** /addons/{addon_id}/versions/{version_id} | Fetch a specific version of an addon
-[**addons_addon_id_versions_version_id_put**](AddonVersionsApi.md#addons_addon_id_versions_version_id_put) | **PUT** /addons/{addon_id}/versions/{version_id} | Update a version of an addon
+[**create_addon_version**](AddonVersionsApi.md#create_addon_version) | **POST** /addons/{addon_id}/versions | Create a new version for an addon
+[**download_addon_version**](AddonVersionsApi.md#download_addon_version) | **GET** /addons/{addon_id}/versions/{version_id}/download | Generate a download token for a specific version of an addon
+[**get_addon_version**](AddonVersionsApi.md#get_addon_version) | **GET** /addons/{addon_id}/versions/{version_id} | Fetch a specific version of an addon
+[**list_addon_versions**](AddonVersionsApi.md#list_addon_versions) | **GET** /addons/{addon_id}/versions | Fetch all the versions of an addon
+[**update_addon_version**](AddonVersionsApi.md#update_addon_version) | **PUT** /addons/{addon_id}/versions/{version_id} | Update a version of an addon
 
-# **addons_addon_id_versions_get**
-> InlineResponse2007 addons_addon_id_versions_get(addon_id, _with=_with)
-
-Fetch all the versions of an addon
-
-### Example
-```python
-from __future__ import print_function
-import time
-import gmodstore_sdk
-from gmodstore_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configuration))
-addon_id = 789 # int | Id of the addon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonVersion schema (optional)
-
-try:
-    # Fetch all the versions of an addon
-    api_response = api_instance.addons_addon_id_versions_get(addon_id, _with=_with)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AddonVersionsApi->addons_addon_id_versions_get: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **addon_id** | **int**| Id of the addon | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonVersion schema | [optional] 
-
-### Return type
-
-[**InlineResponse2007**](InlineResponse2007.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addons_addon_id_versions_post**
-> InlineResponse2012 addons_addon_id_versions_post(name, changelog, file, release_type, addon_id, _with=_with)
+# **create_addon_version**
+> InlineResponse2012 create_addon_version(name, changelog, file, release_type, addon_id, _with=_with)
 
 Create a new version for an addon
 
@@ -77,11 +23,6 @@ import gmodstore_sdk
 from gmodstore_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configuration))
@@ -94,10 +35,10 @@ _with = ['_with_example'] # list[str] | The relations you want to fetch with the
 
 try:
     # Create a new version for an addon
-    api_response = api_instance.addons_addon_id_versions_post(name, changelog, file, release_type, addon_id, _with=_with)
+    api_response = api_instance.create_addon_version(name, changelog, file, release_type, addon_id, _with=_with)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AddonVersionsApi->addons_addon_id_versions_post: %s\n" % e)
+    print("Exception when calling AddonVersionsApi->create_addon_version: %s\n" % e)
 ```
 
 ### Parameters
@@ -117,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -126,8 +67,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addons_addon_id_versions_version_id_download_get**
-> InlineResponse2008 addons_addon_id_versions_version_id_download_get(addon_id, version_id)
+# **download_addon_version**
+> InlineResponse2008 download_addon_version(addon_id, version_id)
 
 Generate a download token for a specific version of an addon
 
@@ -139,11 +80,6 @@ import gmodstore_sdk
 from gmodstore_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configuration))
@@ -152,10 +88,10 @@ version_id = 789 # int | Id of the version
 
 try:
     # Generate a download token for a specific version of an addon
-    api_response = api_instance.addons_addon_id_versions_version_id_download_get(addon_id, version_id)
+    api_response = api_instance.download_addon_version(addon_id, version_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AddonVersionsApi->addons_addon_id_versions_version_id_download_get: %s\n" % e)
+    print("Exception when calling AddonVersionsApi->download_addon_version: %s\n" % e)
 ```
 
 ### Parameters
@@ -171,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -180,8 +116,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addons_addon_id_versions_version_id_get**
-> InlineResponse2012 addons_addon_id_versions_version_id_get(addon_id, version_id, _with=_with)
+# **get_addon_version**
+> InlineResponse2012 get_addon_version(addon_id, version_id, _with=_with)
 
 Fetch a specific version of an addon
 
@@ -193,11 +129,6 @@ import gmodstore_sdk
 from gmodstore_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configuration))
@@ -207,10 +138,10 @@ _with = ['_with_example'] # list[str] | The relations you want to fetch with the
 
 try:
     # Fetch a specific version of an addon
-    api_response = api_instance.addons_addon_id_versions_version_id_get(addon_id, version_id, _with=_with)
+    api_response = api_instance.get_addon_version(addon_id, version_id, _with=_with)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AddonVersionsApi->addons_addon_id_versions_version_id_get: %s\n" % e)
+    print("Exception when calling AddonVersionsApi->get_addon_version: %s\n" % e)
 ```
 
 ### Parameters
@@ -227,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -236,8 +167,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addons_addon_id_versions_version_id_put**
-> InlineResponse2012 addons_addon_id_versions_version_id_put(name, changelog, release_type, addon_id, version_id, _with=_with)
+# **list_addon_versions**
+> InlineResponse2007 list_addon_versions(addon_id, _with=_with)
+
+Fetch all the versions of an addon
+
+### Example
+```python
+from __future__ import print_function
+import time
+import gmodstore_sdk
+from gmodstore_sdk.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configuration))
+addon_id = 789 # int | Id of the addon
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonVersion schema (optional)
+
+try:
+    # Fetch all the versions of an addon
+    api_response = api_instance.list_addon_versions(addon_id, _with=_with)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AddonVersionsApi->list_addon_versions: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **addon_id** | **int**| Id of the addon | 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonVersion schema | [optional] 
+
+### Return type
+
+[**InlineResponse2007**](InlineResponse2007.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_addon_version**
+> InlineResponse2012 update_addon_version(name, changelog, release_type, addon_id, version_id, _with=_with)
 
 Update a version of an addon
 
@@ -249,11 +229,6 @@ import gmodstore_sdk
 from gmodstore_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configuration))
@@ -266,10 +241,10 @@ _with = ['_with_example'] # list[str] | The relations you want to fetch with the
 
 try:
     # Update a version of an addon
-    api_response = api_instance.addons_addon_id_versions_version_id_put(name, changelog, release_type, addon_id, version_id, _with=_with)
+    api_response = api_instance.update_addon_version(name, changelog, release_type, addon_id, version_id, _with=_with)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AddonVersionsApi->addons_addon_id_versions_version_id_put: %s\n" % e)
+    print("Exception when calling AddonVersionsApi->update_addon_version: %s\n" % e)
 ```
 
 ### Parameters
@@ -289,7 +264,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

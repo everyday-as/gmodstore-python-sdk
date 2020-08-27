@@ -28,38 +28,38 @@ class TestAddonCouponsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_addons_addon_id_coupons_coupon_id_delete(self):
-        """Test case for addons_addon_id_coupons_coupon_id_delete
+    def test_create_addon_coupon(self):
+        """Test case for create_addon_coupon
+
+        Create an addon coupon  # noqa: E501
+        """
+        pass
+
+    def test_delete_addon_coupon(self):
+        """Test case for delete_addon_coupon
 
         Destroy an addon's coupon  # noqa: E501
         """
         pass
 
-    def test_addons_addon_id_coupons_coupon_id_get(self):
-        """Test case for addons_addon_id_coupons_coupon_id_get
+    def test_get_addon_coupon(self):
+        """Test case for get_addon_coupon
 
         Fetch an addon's coupon  # noqa: E501
         """
         pass
 
-    def test_addons_addon_id_coupons_coupon_id_put(self):
-        """Test case for addons_addon_id_coupons_coupon_id_put
-
-        Update an addon's coupon  # noqa: E501
-        """
-        pass
-
-    def test_addons_addon_id_coupons_get(self):
-        """Test case for addons_addon_id_coupons_get
+    def test_list_addon_coupons(self):
+        """Test case for list_addon_coupons
 
         Fetch all the coupons for an addon  # noqa: E501
         """
         pass
 
-    def test_addons_addon_id_coupons_post(self):
-        """Test case for addons_addon_id_coupons_post
+    def test_update_addon_coupon(self):
+        """Test case for update_addon_coupon
 
-        Create an addon coupon  # noqa: E501
+        Update an addon's coupon  # noqa: E501
         """
         pass
 

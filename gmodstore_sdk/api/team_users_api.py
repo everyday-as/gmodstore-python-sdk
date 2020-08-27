@@ -32,12 +32,12 @@ class TeamUsersApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def teams_team_id_users_get(self, team_id, **kwargs):  # noqa: E501
+    def list_team_users(self, team_id, **kwargs):  # noqa: E501
         """Fetch all the users in the given team  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.teams_team_id_users_get(team_id, async_req=True)
+        >>> thread = api.list_team_users(team_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -49,17 +49,17 @@ class TeamUsersApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.teams_team_id_users_get_with_http_info(team_id, **kwargs)  # noqa: E501
+            return self.list_team_users_with_http_info(team_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.teams_team_id_users_get_with_http_info(team_id, **kwargs)  # noqa: E501
+            (data) = self.list_team_users_with_http_info(team_id, **kwargs)  # noqa: E501
             return data
 
-    def teams_team_id_users_get_with_http_info(self, team_id, **kwargs):  # noqa: E501
+    def list_team_users_with_http_info(self, team_id, **kwargs):  # noqa: E501
         """Fetch all the users in the given team  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.teams_team_id_users_get_with_http_info(team_id, async_req=True)
+        >>> thread = api.list_team_users_with_http_info(team_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -81,14 +81,14 @@ class TeamUsersApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method teams_team_id_users_get" % key
+                    " to method list_team_users" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'team_id' is set
         if ('team_id' not in params or
                 params['team_id'] is None):
-            raise ValueError("Missing the required parameter `team_id` when calling `teams_team_id_users_get`")  # noqa: E501
+            raise ValueError("Missing the required parameter `team_id` when calling `list_team_users`")  # noqa: E501
 
         collection_formats = {}
 
@@ -112,7 +112,7 @@ class TeamUsersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['ApiKeyAuth']  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/teams/{team_id}/users', 'GET',

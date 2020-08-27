@@ -28,15 +28,15 @@ class TestUsersApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_users_me_get(self):
-        """Test case for users_me_get
+    def test_get_self_user(self):
+        """Test case for get_self_user
 
         Fetches the current user (API Key Owner)  # noqa: E501
         """
         pass
 
-    def test_users_user_id_get(self):
-        """Test case for users_user_id_get
+    def test_get_user(self):
+        """Test case for get_user
 
         Fetch a single user  # noqa: E501
         """

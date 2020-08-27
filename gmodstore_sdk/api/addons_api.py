@@ -32,12 +32,12 @@ class AddonsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def addons_addon_id_get(self, addon_id, **kwargs):  # noqa: E501
+    def get_addon(self, addon_id, **kwargs):  # noqa: E501
         """Fetch a single addon  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_get(addon_id, async_req=True)
+        >>> thread = api.get_addon(addon_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -49,17 +49,17 @@ class AddonsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.addons_addon_id_get_with_http_info(addon_id, **kwargs)  # noqa: E501
+            return self.get_addon_with_http_info(addon_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.addons_addon_id_get_with_http_info(addon_id, **kwargs)  # noqa: E501
+            (data) = self.get_addon_with_http_info(addon_id, **kwargs)  # noqa: E501
             return data
 
-    def addons_addon_id_get_with_http_info(self, addon_id, **kwargs):  # noqa: E501
+    def get_addon_with_http_info(self, addon_id, **kwargs):  # noqa: E501
         """Fetch a single addon  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_addon_id_get_with_http_info(addon_id, async_req=True)
+        >>> thread = api.get_addon_with_http_info(addon_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -81,14 +81,14 @@ class AddonsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method addons_addon_id_get" % key
+                    " to method get_addon" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'addon_id' is set
         if ('addon_id' not in params or
                 params['addon_id'] is None):
-            raise ValueError("Missing the required parameter `addon_id` when calling `addons_addon_id_get`")  # noqa: E501
+            raise ValueError("Missing the required parameter `addon_id` when calling `get_addon`")  # noqa: E501
 
         collection_formats = {}
 
@@ -112,7 +112,7 @@ class AddonsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['ApiKeyAuth']  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/addons/{addon_id}', 'GET',
@@ -130,12 +130,12 @@ class AddonsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def addons_get(self, **kwargs):  # noqa: E501
+    def list_self_addons(self, **kwargs):  # noqa: E501
         """Fetch all the addons that you have access to  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_get(async_req=True)
+        >>> thread = api.list_self_addons(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -146,17 +146,17 @@ class AddonsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.addons_get_with_http_info(**kwargs)  # noqa: E501
+            return self.list_self_addons_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.addons_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.list_self_addons_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def addons_get_with_http_info(self, **kwargs):  # noqa: E501
+    def list_self_addons_with_http_info(self, **kwargs):  # noqa: E501
         """Fetch all the addons that you have access to  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.addons_get_with_http_info(async_req=True)
+        >>> thread = api.list_self_addons_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -177,7 +177,7 @@ class AddonsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method addons_get" % key
+                    " to method list_self_addons" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -202,7 +202,7 @@ class AddonsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['ApiKeyAuth']  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/addons', 'GET',

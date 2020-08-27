@@ -4,10 +4,10 @@ All URIs are relative to *https://api.gmodstore.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**users_user_id_teams_get**](UserTeamsApi.md#users_user_id_teams_get) | **GET** /users/{user_id}/teams | Fetch all the teams of a user
+[**list_user_teams**](UserTeamsApi.md#list_user_teams) | **GET** /users/{user_id}/teams | Fetch all the teams of a user
 
-# **users_user_id_teams_get**
-> InlineResponse20012 users_user_id_teams_get(user_id, _with=_with)
+# **list_user_teams**
+> InlineResponse20012 list_user_teams(user_id, _with=_with)
 
 Fetch all the teams of a user
 
@@ -19,11 +19,6 @@ import gmodstore_sdk
 from gmodstore_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.UserTeamsApi(gmodstore_sdk.ApiClient(configuration))
@@ -32,10 +27,10 @@ _with = ['_with_example'] # list[str] | The relations you want to fetch with the
 
 try:
     # Fetch all the teams of a user
-    api_response = api_instance.users_user_id_teams_get(user_id, _with=_with)
+    api_response = api_instance.list_user_teams(user_id, _with=_with)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling UserTeamsApi->users_user_id_teams_get: %s\n" % e)
+    print("Exception when calling UserTeamsApi->list_user_teams: %s\n" % e)
 ```
 
 ### Parameters
@@ -51,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

@@ -51,11 +51,20 @@ import gmodstore_sdk
 from gmodstore_sdk.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gmodstore_sdk.AddonCouponsApi(gmodstore_sdk.ApiClient(configuration))
+body = gmodstore_sdk.AddonCouponBody() # AddonCouponBody | 
+addon_id = 789 # int | Id of the addon
+_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonCoupon schema (optional)
+
+try:
+    # Create an addon coupon
+    api_response = api_instance.create_addon_coupon(body, addon_id, _with=_with)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AddonCouponsApi->create_addon_coupon: %s\n" % e)
+
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonCouponsApi(gmodstore_sdk.ApiClient(configuration))
@@ -64,15 +73,10 @@ coupon_id = 789 # int | Id of the coupon
 
 try:
     # Destroy an addon's coupon
-    api_instance.addons_addon_id_coupons_coupon_id_delete(addon_id, coupon_id)
+    api_instance.delete_addon_coupon(addon_id, coupon_id)
 except ApiException as e:
-    print("Exception when calling AddonCouponsApi->addons_addon_id_coupons_coupon_id_delete: %s\n" % e)
+    print("Exception when calling AddonCouponsApi->delete_addon_coupon: %s\n" % e)
 
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonCouponsApi(gmodstore_sdk.ApiClient(configuration))
@@ -82,36 +86,11 @@ _with = ['_with_example'] # list[str] | The relations you want to fetch with the
 
 try:
     # Fetch an addon's coupon
-    api_response = api_instance.addons_addon_id_coupons_coupon_id_get(addon_id, coupon_id, _with=_with)
+    api_response = api_instance.get_addon_coupon(addon_id, coupon_id, _with=_with)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AddonCouponsApi->addons_addon_id_coupons_coupon_id_get: %s\n" % e)
+    print("Exception when calling AddonCouponsApi->get_addon_coupon: %s\n" % e)
 
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = gmodstore_sdk.AddonCouponsApi(gmodstore_sdk.ApiClient(configuration))
-body = NULL # object | 
-addon_id = 789 # int | Id of the addon
-coupon_id = 789 # int | Id of the coupon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonCoupon schema (optional)
-
-try:
-    # Update an addon's coupon
-    api_response = api_instance.addons_addon_id_coupons_coupon_id_put(body, addon_id, coupon_id, _with=_with)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AddonCouponsApi->addons_addon_id_coupons_coupon_id_put: %s\n" % e)
-
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonCouponsApi(gmodstore_sdk.ApiClient(configuration))
@@ -120,29 +99,25 @@ _with = ['_with_example'] # list[str] | The relations you want to fetch with the
 
 try:
     # Fetch all the coupons for an addon
-    api_response = api_instance.addons_addon_id_coupons_get(addon_id, _with=_with)
+    api_response = api_instance.list_addon_coupons(addon_id, _with=_with)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AddonCouponsApi->addons_addon_id_coupons_get: %s\n" % e)
+    print("Exception when calling AddonCouponsApi->list_addon_coupons: %s\n" % e)
 
-# Configure API key authorization: ApiKeyAuth
-configuration = gmodstore_sdk.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonCouponsApi(gmodstore_sdk.ApiClient(configuration))
-body = NULL # object | 
+body = gmodstore_sdk.AddonCouponBody() # AddonCouponBody | 
 addon_id = 789 # int | Id of the addon
+coupon_id = 789 # int | Id of the coupon
 _with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonCoupon schema (optional)
 
 try:
-    # Create an addon coupon
-    api_response = api_instance.addons_addon_id_coupons_post(body, addon_id, _with=_with)
+    # Update an addon's coupon
+    api_response = api_instance.update_addon_coupon(body, addon_id, coupon_id, _with=_with)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AddonCouponsApi->addons_addon_id_coupons_post: %s\n" % e)
+    print("Exception when calling AddonCouponsApi->update_addon_coupon: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -151,45 +126,48 @@ All URIs are relative to *https://api.gmodstore.com/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AddonCouponsApi* | [**addons_addon_id_coupons_coupon_id_delete**](docs/AddonCouponsApi.md#addons_addon_id_coupons_coupon_id_delete) | **DELETE** /addons/{addon_id}/coupons/{coupon_id} | Destroy an addon&#x27;s coupon
-*AddonCouponsApi* | [**addons_addon_id_coupons_coupon_id_get**](docs/AddonCouponsApi.md#addons_addon_id_coupons_coupon_id_get) | **GET** /addons/{addon_id}/coupons/{coupon_id} | Fetch an addon&#x27;s coupon
-*AddonCouponsApi* | [**addons_addon_id_coupons_coupon_id_put**](docs/AddonCouponsApi.md#addons_addon_id_coupons_coupon_id_put) | **PUT** /addons/{addon_id}/coupons/{coupon_id} | Update an addon&#x27;s coupon
-*AddonCouponsApi* | [**addons_addon_id_coupons_get**](docs/AddonCouponsApi.md#addons_addon_id_coupons_get) | **GET** /addons/{addon_id}/coupons | Fetch all the coupons for an addon
-*AddonCouponsApi* | [**addons_addon_id_coupons_post**](docs/AddonCouponsApi.md#addons_addon_id_coupons_post) | **POST** /addons/{addon_id}/coupons | Create an addon coupon
-*AddonPurchasesApi* | [**addons_addon_id_purchases_get**](docs/AddonPurchasesApi.md#addons_addon_id_purchases_get) | **GET** /addons/{addon_id}/purchases | Fetch all purchases of an addon
-*AddonPurchasesApi* | [**addons_addon_id_purchases_post**](docs/AddonPurchasesApi.md#addons_addon_id_purchases_post) | **POST** /addons/{addon_id}/purchases | Create a purchase for an addon
-*AddonPurchasesApi* | [**addons_addon_id_purchases_user_id_get**](docs/AddonPurchasesApi.md#addons_addon_id_purchases_user_id_get) | **GET** /addons/{addon_id}/purchases/{user_id} | Get a purchase of an addon by user
-*AddonPurchasesApi* | [**addons_addon_id_purchases_user_id_put**](docs/AddonPurchasesApi.md#addons_addon_id_purchases_user_id_put) | **PUT** /addons/{addon_id}/purchases/{user_id} | Update a purchase for an addon
-*AddonReviewsApi* | [**addons_addon_id_reviews_get**](docs/AddonReviewsApi.md#addons_addon_id_reviews_get) | **GET** /addons/{addon_id}/reviews | Fetch all the reviews of an addon
-*AddonReviewsApi* | [**addons_addon_id_reviews_review_id_get**](docs/AddonReviewsApi.md#addons_addon_id_reviews_review_id_get) | **GET** /addons/{addon_id}/reviews/{review_id} | Fetch a review of an addon
-*AddonStatsApi* | [**addons_addon_id_stats_get**](docs/AddonStatsApi.md#addons_addon_id_stats_get) | **GET** /addons/{addon_id}/stats | Fetch all the stats for an addon
-*AddonVersionsApi* | [**addons_addon_id_versions_get**](docs/AddonVersionsApi.md#addons_addon_id_versions_get) | **GET** /addons/{addon_id}/versions | Fetch all the versions of an addon
-*AddonVersionsApi* | [**addons_addon_id_versions_post**](docs/AddonVersionsApi.md#addons_addon_id_versions_post) | **POST** /addons/{addon_id}/versions | Create a new version for an addon
-*AddonVersionsApi* | [**addons_addon_id_versions_version_id_download_get**](docs/AddonVersionsApi.md#addons_addon_id_versions_version_id_download_get) | **GET** /addons/{addon_id}/versions/{version_id}/download | Generate a download token for a specific version of an addon
-*AddonVersionsApi* | [**addons_addon_id_versions_version_id_get**](docs/AddonVersionsApi.md#addons_addon_id_versions_version_id_get) | **GET** /addons/{addon_id}/versions/{version_id} | Fetch a specific version of an addon
-*AddonVersionsApi* | [**addons_addon_id_versions_version_id_put**](docs/AddonVersionsApi.md#addons_addon_id_versions_version_id_put) | **PUT** /addons/{addon_id}/versions/{version_id} | Update a version of an addon
-*AddonsApi* | [**addons_addon_id_get**](docs/AddonsApi.md#addons_addon_id_get) | **GET** /addons/{addon_id} | Fetch a single addon
-*AddonsApi* | [**addons_get**](docs/AddonsApi.md#addons_get) | **GET** /addons | Fetch all the addons that you have access to
-*TeamUsersApi* | [**teams_team_id_users_get**](docs/TeamUsersApi.md#teams_team_id_users_get) | **GET** /teams/{team_id}/users | Fetch all the users in the given team
-*TeamsApi* | [**teams_team_id_get**](docs/TeamsApi.md#teams_team_id_get) | **GET** /teams/{team_id} | Fetch a single team
-*UserAddonsApi* | [**users_user_id_addons_get**](docs/UserAddonsApi.md#users_user_id_addons_get) | **GET** /users/{user_id}/addons | Fetch all the addons authored / co-authored by a user
-*UserBadgesApi* | [**users_user_id_badges_badge_id_delete**](docs/UserBadgesApi.md#users_user_id_badges_badge_id_delete) | **DELETE** /users/{user_id}/badges/{badge_id} | Destroy a users&#x27;s badge
-*UserBadgesApi* | [**users_user_id_badges_get**](docs/UserBadgesApi.md#users_user_id_badges_get) | **GET** /users/{user_id}/badges | Fetch all the badges a user has
-*UserBadgesApi* | [**users_user_id_badges_post**](docs/UserBadgesApi.md#users_user_id_badges_post) | **POST** /users/{user_id}/badges | Give a user a badge
-*UserBansApi* | [**users_user_id_bans_get**](docs/UserBansApi.md#users_user_id_bans_get) | **GET** /users/{user_id}/bans | Fetch all active bans associated with this user
-*UserPurchasesApi* | [**users_user_id_purchases_get**](docs/UserPurchasesApi.md#users_user_id_purchases_get) | **GET** /users/{user_id}/purchases | Fetch all purchases a user has made
-*UserTeamsApi* | [**users_user_id_teams_get**](docs/UserTeamsApi.md#users_user_id_teams_get) | **GET** /users/{user_id}/teams | Fetch all the teams of a user
-*UsersApi* | [**users_me_get**](docs/UsersApi.md#users_me_get) | **GET** /users/me | Fetches the current user (API Key Owner)
-*UsersApi* | [**users_user_id_get**](docs/UsersApi.md#users_user_id_get) | **GET** /users/{user_id} | Fetch a single user
+*AddonCouponsApi* | [**create_addon_coupon**](docs/AddonCouponsApi.md#create_addon_coupon) | **POST** /addons/{addon_id}/coupons | Create an addon coupon
+*AddonCouponsApi* | [**delete_addon_coupon**](docs/AddonCouponsApi.md#delete_addon_coupon) | **DELETE** /addons/{addon_id}/coupons/{coupon_id} | Destroy an addon&#x27;s coupon
+*AddonCouponsApi* | [**get_addon_coupon**](docs/AddonCouponsApi.md#get_addon_coupon) | **GET** /addons/{addon_id}/coupons/{coupon_id} | Fetch an addon&#x27;s coupon
+*AddonCouponsApi* | [**list_addon_coupons**](docs/AddonCouponsApi.md#list_addon_coupons) | **GET** /addons/{addon_id}/coupons | Fetch all the coupons for an addon
+*AddonCouponsApi* | [**update_addon_coupon**](docs/AddonCouponsApi.md#update_addon_coupon) | **PUT** /addons/{addon_id}/coupons/{coupon_id} | Update an addon&#x27;s coupon
+*AddonPurchasesApi* | [**create_addon_purchase**](docs/AddonPurchasesApi.md#create_addon_purchase) | **POST** /addons/{addon_id}/purchases | Create a purchase for an addon
+*AddonPurchasesApi* | [**get_addon_purchase**](docs/AddonPurchasesApi.md#get_addon_purchase) | **GET** /addons/{addon_id}/purchases/{user_id} | Get a purchase of an addon by user
+*AddonPurchasesApi* | [**list_addon_purchases**](docs/AddonPurchasesApi.md#list_addon_purchases) | **GET** /addons/{addon_id}/purchases | Fetch all purchases of an addon
+*AddonPurchasesApi* | [**update_addon_purchase**](docs/AddonPurchasesApi.md#update_addon_purchase) | **PUT** /addons/{addon_id}/purchases/{user_id} | Update a purchase for an addon
+*AddonReviewsApi* | [**get_addon_review**](docs/AddonReviewsApi.md#get_addon_review) | **GET** /addons/{addon_id}/reviews/{review_id} | Fetch a review of an addon
+*AddonReviewsApi* | [**list_addon_reviews**](docs/AddonReviewsApi.md#list_addon_reviews) | **GET** /addons/{addon_id}/reviews | Fetch all the reviews of an addon
+*AddonStatsApi* | [**get_addon_stats**](docs/AddonStatsApi.md#get_addon_stats) | **GET** /addons/{addon_id}/stats | Fetch all the stats for an addon
+*AddonVersionsApi* | [**create_addon_version**](docs/AddonVersionsApi.md#create_addon_version) | **POST** /addons/{addon_id}/versions | Create a new version for an addon
+*AddonVersionsApi* | [**download_addon_version**](docs/AddonVersionsApi.md#download_addon_version) | **GET** /addons/{addon_id}/versions/{version_id}/download | Generate a download token for a specific version of an addon
+*AddonVersionsApi* | [**get_addon_version**](docs/AddonVersionsApi.md#get_addon_version) | **GET** /addons/{addon_id}/versions/{version_id} | Fetch a specific version of an addon
+*AddonVersionsApi* | [**list_addon_versions**](docs/AddonVersionsApi.md#list_addon_versions) | **GET** /addons/{addon_id}/versions | Fetch all the versions of an addon
+*AddonVersionsApi* | [**update_addon_version**](docs/AddonVersionsApi.md#update_addon_version) | **PUT** /addons/{addon_id}/versions/{version_id} | Update a version of an addon
+*AddonsApi* | [**get_addon**](docs/AddonsApi.md#get_addon) | **GET** /addons/{addon_id} | Fetch a single addon
+*AddonsApi* | [**list_self_addons**](docs/AddonsApi.md#list_self_addons) | **GET** /addons | Fetch all the addons that you have access to
+*TeamUsersApi* | [**list_team_users**](docs/TeamUsersApi.md#list_team_users) | **GET** /teams/{team_id}/users | Fetch all the users in the given team
+*TeamsApi* | [**get_team**](docs/TeamsApi.md#get_team) | **GET** /teams/{team_id} | Fetch a single team
+*UserAddonsApi* | [**list_user_addons**](docs/UserAddonsApi.md#list_user_addons) | **GET** /users/{user_id}/addons | Fetch all the addons authored / co-authored by a user
+*UserBadgesApi* | [**create_user_badge**](docs/UserBadgesApi.md#create_user_badge) | **POST** /users/{user_id}/badges | Give a user a badge
+*UserBadgesApi* | [**delete_user_badge**](docs/UserBadgesApi.md#delete_user_badge) | **DELETE** /users/{user_id}/badges/{badge_id} | Destroy a users&#x27;s badge
+*UserBadgesApi* | [**list_user_badges**](docs/UserBadgesApi.md#list_user_badges) | **GET** /users/{user_id}/badges | Fetch all the badges a user has
+*UserBansApi* | [**list_user_bans**](docs/UserBansApi.md#list_user_bans) | **GET** /users/{user_id}/bans | Fetch all active bans associated with this user
+*UserPurchasesApi* | [**list_user_purchases**](docs/UserPurchasesApi.md#list_user_purchases) | **GET** /users/{user_id}/purchases | Fetch all purchases a user has made
+*UserTeamsApi* | [**list_user_teams**](docs/UserTeamsApi.md#list_user_teams) | **GET** /users/{user_id}/teams | Fetch all the teams of a user
+*UsersApi* | [**get_self_user**](docs/UsersApi.md#get_self_user) | **GET** /users/me | Fetches the current user (API Key Owner)
+*UsersApi* | [**get_user**](docs/UsersApi.md#get_user) | **GET** /users/{user_id} | Fetch a single user
 
 ## Documentation For Models
 
  - [Addon](docs/Addon.md)
  - [AddonCoupon](docs/AddonCoupon.md)
+ - [AddonCouponBody](docs/AddonCouponBody.md)
  - [AddonDownload](docs/AddonDownload.md)
  - [AddonImages](docs/AddonImages.md)
  - [AddonPrice](docs/AddonPrice.md)
  - [AddonPurchase](docs/AddonPurchase.md)
+ - [AddonPurchaseCreateBody](docs/AddonPurchaseCreateBody.md)
+ - [AddonPurchaseUpdateBody](docs/AddonPurchaseUpdateBody.md)
  - [AddonReview](docs/AddonReview.md)
  - [AddonStats](docs/AddonStats.md)
  - [AddonStatsRevenue](docs/AddonStatsRevenue.md)
@@ -199,6 +177,9 @@ Class | Method | HTTP request | Description
  - [AddonStatsViews](docs/AddonStatsViews.md)
  - [AddonStatsViewsCurrent](docs/AddonStatsViewsCurrent.md)
  - [AddonVersion](docs/AddonVersion.md)
+ - [AddonVersionCreateBody](docs/AddonVersionCreateBody.md)
+ - [AddonVersionUpdateBody](docs/AddonVersionUpdateBody.md)
+ - [BadgeCreateBody](docs/BadgeCreateBody.md)
  - [Ban](docs/Ban.md)
  - [Error](docs/Error.md)
  - [InlineResponse200](docs/InlineResponse200.md)
@@ -237,6 +218,9 @@ Class | Method | HTTP request | Description
 - **Type**: API key
 - **API key parameter name**: Authorization
 - **Location**: HTTP header
+
+## bearerAuth
+
 
 
 ## Author
