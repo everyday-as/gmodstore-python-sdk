@@ -41,10 +41,10 @@ class AddonPurchasesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AddonPurchaseCreateBody body: (required)
+        :param NewAddonPurchase body: (required)
         :param int addon_id: Id of the addon (required)
         :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
-        :return: InlineResponse2011
+        :return: AddonPurchaseResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -64,10 +64,10 @@ class AddonPurchasesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AddonPurchaseCreateBody body: (required)
+        :param NewAddonPurchase body: (required)
         :param int addon_id: Id of the addon (required)
         :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
-        :return: InlineResponse2011
+        :return: AddonPurchaseResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -134,7 +134,7 @@ class AddonPurchasesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2011',  # noqa: E501
+            response_type='AddonPurchaseResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -154,7 +154,7 @@ class AddonPurchasesApi(object):
         :param int addon_id: Id of the addon (required)
         :param str user_id: Id of the user (required)
         :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
-        :return: InlineResponse2011
+        :return: AddonPurchaseResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -177,7 +177,7 @@ class AddonPurchasesApi(object):
         :param int addon_id: Id of the addon (required)
         :param str user_id: Id of the user (required)
         :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
-        :return: InlineResponse2011
+        :return: AddonPurchaseResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -240,7 +240,7 @@ class AddonPurchasesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2011',  # noqa: E501
+            response_type='AddonPurchaseResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -259,7 +259,7 @@ class AddonPurchasesApi(object):
         :param async_req bool
         :param int addon_id: Id of the addon (required)
         :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
-        :return: InlineResponse2004
+        :return: AddonPurchaseListResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -281,7 +281,7 @@ class AddonPurchasesApi(object):
         :param async_req bool
         :param int addon_id: Id of the addon (required)
         :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
-        :return: InlineResponse2004
+        :return: AddonPurchaseListResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -338,7 +338,7 @@ class AddonPurchasesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2004',  # noqa: E501
+            response_type='AddonPurchaseListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -355,11 +355,11 @@ class AddonPurchasesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AddonPurchaseUpdateBody body: (required)
+        :param UpdateAddonPurchase body: (required)
         :param int addon_id: Id of the addon (required)
         :param str user_id: Id of the user (required)
         :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
-        :return: InlineResponse2011
+        :return: AddonPurchaseResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -379,11 +379,11 @@ class AddonPurchasesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AddonPurchaseUpdateBody body: (required)
+        :param UpdateAddonPurchase body: (required)
         :param int addon_id: Id of the addon (required)
         :param str user_id: Id of the user (required)
         :param list[str] _with: The relations you want to fetch with the AddonPurchase schema
-        :return: InlineResponse2011
+        :return: AddonPurchaseResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -456,7 +456,7 @@ class AddonPurchasesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2011',  # noqa: E501
+            response_type='AddonPurchaseResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**update_addon_coupon**](AddonCouponsApi.md#update_addon_coupon) | **PUT** /addons/{addon_id}/coupons/{coupon_id} | Update an addon&#x27;s coupon
 
 # **create_addon_coupon**
-> InlineResponse201 create_addon_coupon(body, addon_id, _with=_with)
+> AddonCouponResponse create_addon_coupon(body, addon_id, _with=_with)
 
 Create an addon coupon
 
@@ -26,7 +26,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonCouponsApi(gmodstore_sdk.ApiClient(configuration))
-body = gmodstore_sdk.AddonCouponBody() # AddonCouponBody | 
+body = gmodstore_sdk.NewAddonCoupon() # NewAddonCoupon | 
 addon_id = 789 # int | Id of the addon
 _with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonCoupon schema (optional)
 
@@ -42,13 +42,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AddonCouponBody**](AddonCouponBody.md)|  | 
+ **body** | [**NewAddonCoupon**](NewAddonCoupon.md)|  | 
  **addon_id** | **int**| Id of the addon | 
  **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonCoupon schema | [optional] 
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**AddonCouponResponse**](AddonCouponResponse.md)
 
 ### Authorization
 
@@ -110,7 +110,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_addon_coupon**
-> InlineResponse201 get_addon_coupon(addon_id, coupon_id, _with=_with)
+> AddonCouponResponse get_addon_coupon(addon_id, coupon_id, _with=_with)
 
 Fetch an addon's coupon
 
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**AddonCouponResponse**](AddonCouponResponse.md)
 
 ### Authorization
 
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_addon_coupons**
-> InlineResponse2003 list_addon_coupons(addon_id, _with=_with)
+> AddonCouponListResponse list_addon_coupons(addon_id, _with=_with)
 
 Fetch all the coupons for an addon
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**AddonCouponListResponse**](AddonCouponListResponse.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_addon_coupon**
-> InlineResponse201 update_addon_coupon(body, addon_id, coupon_id, _with=_with)
+> AddonCouponResponse update_addon_coupon(body, addon_id, coupon_id, _with=_with)
 
 Update an addon's coupon
 
@@ -225,7 +225,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonCouponsApi(gmodstore_sdk.ApiClient(configuration))
-body = gmodstore_sdk.AddonCouponBody() # AddonCouponBody | 
+body = gmodstore_sdk.UpdateAddonCoupon() # UpdateAddonCoupon | 
 addon_id = 789 # int | Id of the addon
 coupon_id = 789 # int | Id of the coupon
 _with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonCoupon schema (optional)
@@ -242,14 +242,14 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AddonCouponBody**](AddonCouponBody.md)|  | 
+ **body** | [**UpdateAddonCoupon**](UpdateAddonCoupon.md)|  | 
  **addon_id** | **int**| Id of the addon | 
  **coupon_id** | **int**| Id of the coupon | 
  **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonCoupon schema | [optional] 
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**AddonCouponResponse**](AddonCouponResponse.md)
 
 ### Authorization
 

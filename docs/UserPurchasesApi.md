@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**list_user_purchases**](UserPurchasesApi.md#list_user_purchases) | **GET** /users/{user_id}/purchases | Fetch all purchases a user has made
 
 # **list_user_purchases**
-> InlineResponse2004 list_user_purchases(user_id, _with=_with)
+> AddonPurchaseListResponse list_user_purchases(user_id, _with=_with)
 
 Fetch all purchases a user has made
 
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**AddonPurchaseListResponse**](AddonPurchaseListResponse.md)
 
 ### Authorization
 

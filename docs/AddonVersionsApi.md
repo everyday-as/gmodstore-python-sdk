@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**update_addon_version**](AddonVersionsApi.md#update_addon_version) | **PUT** /addons/{addon_id}/versions/{version_id} | Update a version of an addon
 
 # **create_addon_version**
-> InlineResponse2012 create_addon_version(name, changelog, file, release_type, addon_id, _with=_with)
+> AddonVersionResponse create_addon_version(name, changelog, file, release_type, addon_id, _with=_with)
 
 Create a new version for an addon
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2012**](InlineResponse2012.md)
+[**AddonVersionResponse**](AddonVersionResponse.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **download_addon_version**
-> InlineResponse2008 download_addon_version(addon_id, version_id)
+> AddonDownloadResponse download_addon_version(addon_id, version_id)
 
 Generate a download token for a specific version of an addon
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**AddonDownloadResponse**](AddonDownloadResponse.md)
 
 ### Authorization
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_addon_version**
-> InlineResponse2012 get_addon_version(addon_id, version_id, _with=_with)
+> AddonVersionResponse get_addon_version(addon_id, version_id, _with=_with)
 
 Fetch a specific version of an addon
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2012**](InlineResponse2012.md)
+[**AddonVersionResponse**](AddonVersionResponse.md)
 
 ### Authorization
 
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_addon_versions**
-> InlineResponse2007 list_addon_versions(addon_id, _with=_with)
+> AddonVersionListResponse list_addon_versions(addon_id, _with=_with)
 
 Fetch all the versions of an addon
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**AddonVersionListResponse**](AddonVersionListResponse.md)
 
 ### Authorization
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_addon_version**
-> InlineResponse2012 update_addon_version(name, changelog, release_type, addon_id, version_id, _with=_with)
+> AddonVersionResponse update_addon_version(name, changelog, release_type, addon_id, version_id, _with=_with)
 
 Update a version of an addon
 
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2012**](InlineResponse2012.md)
+[**AddonVersionResponse**](AddonVersionResponse.md)
 
 ### Authorization
 

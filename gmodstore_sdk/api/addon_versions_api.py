@@ -47,7 +47,7 @@ class AddonVersionsApi(object):
         :param str release_type: (required)
         :param int addon_id: Id of the addon (required)
         :param list[str] _with: The relations you want to fetch with the AddonVersion schema
-        :return: InlineResponse2012
+        :return: AddonVersionResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -73,7 +73,7 @@ class AddonVersionsApi(object):
         :param str release_type: (required)
         :param int addon_id: Id of the addon (required)
         :param list[str] _with: The relations you want to fetch with the AddonVersion schema
-        :return: InlineResponse2012
+        :return: AddonVersionResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -158,7 +158,7 @@ class AddonVersionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2012',  # noqa: E501
+            response_type='AddonVersionResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -177,7 +177,7 @@ class AddonVersionsApi(object):
         :param async_req bool
         :param int addon_id: Id of the addon (required)
         :param int version_id: Id of the version (required)
-        :return: InlineResponse2008
+        :return: AddonDownloadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -199,7 +199,7 @@ class AddonVersionsApi(object):
         :param async_req bool
         :param int addon_id: Id of the addon (required)
         :param int version_id: Id of the version (required)
-        :return: InlineResponse2008
+        :return: AddonDownloadResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -259,7 +259,7 @@ class AddonVersionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2008',  # noqa: E501
+            response_type='AddonDownloadResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -279,7 +279,7 @@ class AddonVersionsApi(object):
         :param int addon_id: Id of the addon (required)
         :param int version_id: Id of the version (required)
         :param list[str] _with: The relations you want to fetch with the AddonVersion schema
-        :return: InlineResponse2012
+        :return: AddonVersionResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -302,7 +302,7 @@ class AddonVersionsApi(object):
         :param int addon_id: Id of the addon (required)
         :param int version_id: Id of the version (required)
         :param list[str] _with: The relations you want to fetch with the AddonVersion schema
-        :return: InlineResponse2012
+        :return: AddonVersionResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -365,7 +365,7 @@ class AddonVersionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2012',  # noqa: E501
+            response_type='AddonVersionResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -384,7 +384,7 @@ class AddonVersionsApi(object):
         :param async_req bool
         :param int addon_id: Id of the addon (required)
         :param list[str] _with: The relations you want to fetch with the AddonVersion schema
-        :return: InlineResponse2007
+        :return: AddonVersionListResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -406,7 +406,7 @@ class AddonVersionsApi(object):
         :param async_req bool
         :param int addon_id: Id of the addon (required)
         :param list[str] _with: The relations you want to fetch with the AddonVersion schema
-        :return: InlineResponse2007
+        :return: AddonVersionListResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -463,7 +463,7 @@ class AddonVersionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2007',  # noqa: E501
+            response_type='AddonVersionListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -486,7 +486,7 @@ class AddonVersionsApi(object):
         :param int addon_id: Id of the addon (required)
         :param int version_id: Id of the version (required)
         :param list[str] _with: The relations you want to fetch with the AddonVersion schema
-        :return: InlineResponse2012
+        :return: AddonVersionResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -512,7 +512,7 @@ class AddonVersionsApi(object):
         :param int addon_id: Id of the addon (required)
         :param int version_id: Id of the version (required)
         :param list[str] _with: The relations you want to fetch with the AddonVersion schema
-        :return: InlineResponse2012
+        :return: AddonVersionResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -597,7 +597,7 @@ class AddonVersionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2012',  # noqa: E501
+            response_type='AddonVersionResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

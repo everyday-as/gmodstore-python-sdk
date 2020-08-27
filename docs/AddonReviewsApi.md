@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**list_addon_reviews**](AddonReviewsApi.md#list_addon_reviews) | **GET** /addons/{addon_id}/reviews | Fetch all the reviews of an addon
 
 # **get_addon_review**
-> InlineResponse2006 get_addon_review(addon_id, review_id, _with=_with)
+> AddonReviewResponse get_addon_review(addon_id, review_id, _with=_with)
 
 Fetch a review of an addon
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**AddonReviewResponse**](AddonReviewResponse.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_addon_reviews**
-> InlineResponse2005 list_addon_reviews(addon_id, _with=_with)
+> AddonReviewListResponse list_addon_reviews(addon_id, _with=_with)
 
 Fetch all the reviews of an addon
 
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**AddonReviewListResponse**](AddonReviewListResponse.md)
 
 ### Authorization
 

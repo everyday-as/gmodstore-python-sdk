@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**get_team**](TeamsApi.md#get_team) | **GET** /teams/{team_id} | Fetch a single team
 
 # **get_team**
-> InlineResponse2009 get_team(team_id, _with=_with)
+> TeamResponse get_team(team_id, _with=_with)
 
 Fetch a single team
 
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**TeamResponse**](TeamResponse.md)
 
 ### Authorization
 

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**update_addon_purchase**](AddonPurchasesApi.md#update_addon_purchase) | **PUT** /addons/{addon_id}/purchases/{user_id} | Update a purchase for an addon
 
 # **create_addon_purchase**
-> InlineResponse2011 create_addon_purchase(body, addon_id, _with=_with)
+> AddonPurchaseResponse create_addon_purchase(body, addon_id, _with=_with)
 
 Create a purchase for an addon
 
@@ -25,7 +25,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonPurchasesApi(gmodstore_sdk.ApiClient(configuration))
-body = gmodstore_sdk.AddonPurchaseCreateBody() # AddonPurchaseCreateBody | 
+body = gmodstore_sdk.NewAddonPurchase() # NewAddonPurchase | 
 addon_id = 789 # int | Id of the addon
 _with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonPurchase schema (optional)
 
@@ -41,13 +41,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AddonPurchaseCreateBody**](AddonPurchaseCreateBody.md)|  | 
+ **body** | [**NewAddonPurchase**](NewAddonPurchase.md)|  | 
  **addon_id** | **int**| Id of the addon | 
  **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonPurchase schema | [optional] 
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**AddonPurchaseResponse**](AddonPurchaseResponse.md)
 
 ### Authorization
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_addon_purchase**
-> InlineResponse2011 get_addon_purchase(addon_id, user_id, _with=_with)
+> AddonPurchaseResponse get_addon_purchase(addon_id, user_id, _with=_with)
 
 Get a purchase of an addon by user
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**AddonPurchaseResponse**](AddonPurchaseResponse.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_addon_purchases**
-> InlineResponse2004 list_addon_purchases(addon_id, _with=_with)
+> AddonPurchaseListResponse list_addon_purchases(addon_id, _with=_with)
 
 Fetch all purchases of an addon
 
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**AddonPurchaseListResponse**](AddonPurchaseListResponse.md)
 
 ### Authorization
 
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_addon_purchase**
-> InlineResponse2011 update_addon_purchase(body, addon_id, user_id, _with=_with)
+> AddonPurchaseResponse update_addon_purchase(body, addon_id, user_id, _with=_with)
 
 Update a purchase for an addon
 
@@ -176,7 +176,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.AddonPurchasesApi(gmodstore_sdk.ApiClient(configuration))
-body = gmodstore_sdk.AddonPurchaseUpdateBody() # AddonPurchaseUpdateBody | 
+body = gmodstore_sdk.UpdateAddonPurchase() # UpdateAddonPurchase | 
 addon_id = 789 # int | Id of the addon
 user_id = 'user_id_example' # str | Id of the user
 _with = ['_with_example'] # list[str] | The relations you want to fetch with the AddonPurchase schema (optional)
@@ -193,14 +193,14 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AddonPurchaseUpdateBody**](AddonPurchaseUpdateBody.md)|  | 
+ **body** | [**UpdateAddonPurchase**](UpdateAddonPurchase.md)|  | 
  **addon_id** | **int**| Id of the addon | 
  **user_id** | **str**| Id of the user | 
  **_with** | [**list[str]**](str.md)| The relations you want to fetch with the AddonPurchase schema | [optional] 
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**AddonPurchaseResponse**](AddonPurchaseResponse.md)
 
 ### Authorization
 

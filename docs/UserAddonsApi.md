@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**list_user_addons**](UserAddonsApi.md#list_user_addons) | **GET** /users/{user_id}/addons | Fetch all the addons authored / co-authored by a user
 
 # **list_user_addons**
-> InlineResponse200 list_user_addons(user_id, _with=_with)
+> AddonListResponse list_user_addons(user_id, _with=_with)
 
 Fetch all the addons authored / co-authored by a user
 
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**AddonListResponse**](AddonListResponse.md)
 
 ### Authorization
 

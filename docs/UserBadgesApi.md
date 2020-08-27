@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**list_user_badges**](UserBadgesApi.md#list_user_badges) | **GET** /users/{user_id}/badges | Fetch all the badges a user has
 
 # **create_user_badge**
-> InlineResponse2013 create_user_badge(body, user_id)
+> BadgeResponse create_user_badge(body, user_id)
 
 Give a user a badge
 
@@ -24,7 +24,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gmodstore_sdk.UserBadgesApi(gmodstore_sdk.ApiClient(configuration))
-body = gmodstore_sdk.BadgeCreateBody() # BadgeCreateBody | 
+body = gmodstore_sdk.NewUserBadge() # NewUserBadge | 
 user_id = 'user_id_example' # str | Id of the user
 
 try:
@@ -39,12 +39,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**BadgeCreateBody**](BadgeCreateBody.md)|  | 
+ **body** | [**NewUserBadge**](NewUserBadge.md)|  | 
  **user_id** | **str**| Id of the user | 
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**BadgeResponse**](BadgeResponse.md)
 
 ### Authorization
 
@@ -106,7 +106,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_user_badges**
-> InlineResponse20014 list_user_badges(user_id)
+> BadgeListResponse list_user_badges(user_id)
 
 Fetch all the badges a user has
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**BadgeListResponse**](BadgeListResponse.md)
 
 ### Authorization
 

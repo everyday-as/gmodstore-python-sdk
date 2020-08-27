@@ -41,10 +41,10 @@ class AddonCouponsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AddonCouponBody body: (required)
+        :param NewAddonCoupon body: (required)
         :param int addon_id: Id of the addon (required)
         :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
-        :return: InlineResponse201
+        :return: AddonCouponResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -64,10 +64,10 @@ class AddonCouponsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AddonCouponBody body: (required)
+        :param NewAddonCoupon body: (required)
         :param int addon_id: Id of the addon (required)
         :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
-        :return: InlineResponse201
+        :return: AddonCouponResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -134,7 +134,7 @@ class AddonCouponsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse201',  # noqa: E501
+            response_type='AddonCouponResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -255,7 +255,7 @@ class AddonCouponsApi(object):
         :param int addon_id: Id of the addon (required)
         :param int coupon_id: Id of the coupon (required)
         :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
-        :return: InlineResponse201
+        :return: AddonCouponResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -278,7 +278,7 @@ class AddonCouponsApi(object):
         :param int addon_id: Id of the addon (required)
         :param int coupon_id: Id of the coupon (required)
         :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
-        :return: InlineResponse201
+        :return: AddonCouponResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -341,7 +341,7 @@ class AddonCouponsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse201',  # noqa: E501
+            response_type='AddonCouponResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -360,7 +360,7 @@ class AddonCouponsApi(object):
         :param async_req bool
         :param int addon_id: Id of the addon (required)
         :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
-        :return: InlineResponse2003
+        :return: AddonCouponListResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -382,7 +382,7 @@ class AddonCouponsApi(object):
         :param async_req bool
         :param int addon_id: Id of the addon (required)
         :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
-        :return: InlineResponse2003
+        :return: AddonCouponListResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -439,7 +439,7 @@ class AddonCouponsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2003',  # noqa: E501
+            response_type='AddonCouponListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -456,11 +456,11 @@ class AddonCouponsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AddonCouponBody body: (required)
+        :param UpdateAddonCoupon body: (required)
         :param int addon_id: Id of the addon (required)
         :param int coupon_id: Id of the coupon (required)
         :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
-        :return: InlineResponse201
+        :return: AddonCouponResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -480,11 +480,11 @@ class AddonCouponsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AddonCouponBody body: (required)
+        :param UpdateAddonCoupon body: (required)
         :param int addon_id: Id of the addon (required)
         :param int coupon_id: Id of the coupon (required)
         :param list[str] _with: The relations you want to fetch with the AddonCoupon schema
-        :return: InlineResponse201
+        :return: AddonCouponResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -557,7 +557,7 @@ class AddonCouponsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse201',  # noqa: E501
+            response_type='AddonCouponResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
