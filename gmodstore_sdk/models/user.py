@@ -34,6 +34,8 @@ class User(object):
         'avatar': 'str',
         'country_code': 'str',
         'slug': 'str',
+        'reputation': 'int',
+        'team_reputation': 'int',
         'ban_properties': 'UserBanProperties',
         'group': 'PermissionGroup'
     }
@@ -44,17 +46,21 @@ class User(object):
         'avatar': 'avatar',
         'country_code': 'country_code',
         'slug': 'slug',
+        'reputation': 'reputation',
+        'team_reputation': 'team_reputation',
         'ban_properties': 'ban_properties',
         'group': 'group'
     }
 
-    def __init__(self, id=None, name=None, avatar=None, country_code=None, slug=None, ban_properties=None, group=None):  # noqa: E501
+    def __init__(self, id=None, name=None, avatar=None, country_code=None, slug=None, reputation=None, team_reputation=None, ban_properties=None, group=None):  # noqa: E501
         """User - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None
         self._avatar = None
         self._country_code = None
         self._slug = None
+        self._reputation = None
+        self._team_reputation = None
         self._ban_properties = None
         self._group = None
         self.discriminator = None
@@ -68,6 +74,10 @@ class User(object):
             self.country_code = country_code
         if slug is not None:
             self.slug = slug
+        if reputation is not None:
+            self.reputation = reputation
+        if team_reputation is not None:
+            self.team_reputation = team_reputation
         if ban_properties is not None:
             self.ban_properties = ban_properties
         if group is not None:
@@ -177,6 +187,48 @@ class User(object):
         """
 
         self._slug = slug
+
+    @property
+    def reputation(self):
+        """Gets the reputation of this User.  # noqa: E501
+
+
+        :return: The reputation of this User.  # noqa: E501
+        :rtype: int
+        """
+        return self._reputation
+
+    @reputation.setter
+    def reputation(self, reputation):
+        """Sets the reputation of this User.
+
+
+        :param reputation: The reputation of this User.  # noqa: E501
+        :type: int
+        """
+
+        self._reputation = reputation
+
+    @property
+    def team_reputation(self):
+        """Gets the team_reputation of this User.  # noqa: E501
+
+
+        :return: The team_reputation of this User.  # noqa: E501
+        :rtype: int
+        """
+        return self._team_reputation
+
+    @team_reputation.setter
+    def team_reputation(self, team_reputation):
+        """Sets the team_reputation of this User.
+
+
+        :param team_reputation: The team_reputation of this User.  # noqa: E501
+        :type: int
+        """
+
+        self._team_reputation = team_reputation
 
     @property
     def ban_properties(self):
