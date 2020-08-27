@@ -1,4 +1,4 @@
-# gmodstore_sdk.UserAddonsApi
+# gmodstore-sdk.UserAddonsApi
 
 All URIs are relative to *https://api.gmodstore.com/v2*
 
@@ -6,31 +6,50 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**list_user_addons**](UserAddonsApi.md#list_user_addons) | **GET** /users/{user_id}/addons | Fetch all the addons authored / co-authored by a user
 
+
 # **list_user_addons**
 > AddonListResponse list_user_addons(user_id, _with=_with)
 
 Fetch all the addons authored / co-authored by a user
 
 ### Example
+
+* Bearer (API Key) Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
-import gmodstore_sdk
-from gmodstore_sdk.rest import ApiException
+import gmodstore-sdk
+from gmodstore-sdk.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://api.gmodstore.com/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gmodstore-sdk.Configuration(
+    host = "https://api.gmodstore.com/v2"
+)
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-# create an instance of the API class
-api_instance = gmodstore_sdk.UserAddonsApi(gmodstore_sdk.ApiClient(configuration))
-user_id = 789 # int | Id of the user
+# Configure Bearer authorization (API Key): bearerAuth
+configuration = gmodstore-sdk.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with gmodstore-sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gmodstore-sdk.UserAddonsApi(api_client)
+    user_id = 56 # int | Id of the user
 _with = ['_with_example'] # list[str] | The relations you want to fetch with the `Addon` (optional)
 
-try:
-    # Fetch all the addons authored / co-authored by a user
-    api_response = api_instance.list_user_addons(user_id, _with=_with)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserAddonsApi->list_user_addons: %s\n" % e)
+    try:
+        # Fetch all the addons authored / co-authored by a user
+        api_response = api_instance.list_user_addons(user_id, _with=_with)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UserAddonsApi->list_user_addons: %s\n" % e)
 ```
 
 ### Parameters
@@ -52,6 +71,13 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
+**429** | Too many requests |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset - The UNIX timestamp at which your rate limit quota will reset. <br>  |
+**0** | Something went wrong |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

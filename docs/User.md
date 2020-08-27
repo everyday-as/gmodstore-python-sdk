@@ -10,8 +10,9 @@ Name | Type | Description | Notes
 **slug** | **str** |  | [optional] 
 **reputation** | **int** |  | [optional] 
 **team_reputation** | **int** |  | [optional] 
-**ban_properties** | [**UserBanProperties**](UserBanProperties.md) |  | [optional] 
+**ban_properties** | **list[str]** |  | [optional] 
 **group** | [**PermissionGroup**](PermissionGroup.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

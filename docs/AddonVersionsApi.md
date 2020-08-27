@@ -1,4 +1,4 @@
-# gmodstore_sdk.AddonVersionsApi
+# gmodstore-sdk.AddonVersionsApi
 
 All URIs are relative to *https://api.gmodstore.com/v2*
 
@@ -10,46 +10,59 @@ Method | HTTP request | Description
 [**list_addon_versions**](AddonVersionsApi.md#list_addon_versions) | **GET** /addons/{addon_id}/versions | Fetch all the versions of an addon
 [**update_addon_version**](AddonVersionsApi.md#update_addon_version) | **PUT** /addons/{addon_id}/versions/{version_id} | Update a version of an addon
 
+
 # **create_addon_version**
-> AddonVersionResponse create_addon_version(name, changelog, file, release_type, addon_id, _with=_with)
+> AddonVersionResponse create_addon_version(addon_id, new_addon_version, _with=_with)
 
 Create a new version for an addon
 
 ### Example
+
+* Bearer (API Key) Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
-import gmodstore_sdk
-from gmodstore_sdk.rest import ApiException
+import gmodstore-sdk
+from gmodstore-sdk.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://api.gmodstore.com/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gmodstore-sdk.Configuration(
+    host = "https://api.gmodstore.com/v2"
+)
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-# create an instance of the API class
-api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configuration))
-name = 'name_example' # str | 
-changelog = 'changelog_example' # str | 
-file = 'file_example' # str | 
-release_type = gmodstore_sdk.AddonVersionReleaseType() # AddonVersionReleaseType | 
-addon_id = 789 # int | Id of the addon
+# Configure Bearer authorization (API Key): bearerAuth
+configuration = gmodstore-sdk.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with gmodstore-sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gmodstore-sdk.AddonVersionsApi(api_client)
+    addon_id = 56 # int | Id of the addon
+new_addon_version = gmodstore-sdk.NewAddonVersion() # NewAddonVersion | 
 _with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonVersion` (optional)
 
-try:
-    # Create a new version for an addon
-    api_response = api_instance.create_addon_version(name, changelog, file, release_type, addon_id, _with=_with)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AddonVersionsApi->create_addon_version: %s\n" % e)
+    try:
+        # Create a new version for an addon
+        api_response = api_instance.create_addon_version(addon_id, new_addon_version, _with=_with)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AddonVersionsApi->create_addon_version: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**|  | 
- **changelog** | **str**|  | 
- **file** | **str**|  | 
- **release_type** | [**AddonVersionReleaseType**](.md)|  | 
  **addon_id** | **int**| Id of the addon | 
+ **new_addon_version** | [**NewAddonVersion**](NewAddonVersion.md)|  | 
  **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonVersion&#x60; | [optional] 
 
 ### Return type
@@ -65,6 +78,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
+**429** | Too many requests |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset - The UNIX timestamp at which your rate limit quota will reset. <br>  |
+**0** | Something went wrong |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **download_addon_version**
@@ -73,25 +93,43 @@ Name | Type | Description  | Notes
 Generate a download token for a specific version of an addon
 
 ### Example
+
+* Bearer (API Key) Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
-import gmodstore_sdk
-from gmodstore_sdk.rest import ApiException
+import gmodstore-sdk
+from gmodstore-sdk.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://api.gmodstore.com/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gmodstore-sdk.Configuration(
+    host = "https://api.gmodstore.com/v2"
+)
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-# create an instance of the API class
-api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configuration))
-addon_id = 789 # int | Id of the addon
-version_id = 789 # int | Id of the version
+# Configure Bearer authorization (API Key): bearerAuth
+configuration = gmodstore-sdk.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
 
-try:
-    # Generate a download token for a specific version of an addon
-    api_response = api_instance.download_addon_version(addon_id, version_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AddonVersionsApi->download_addon_version: %s\n" % e)
+# Enter a context with an instance of the API client
+with gmodstore-sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gmodstore-sdk.AddonVersionsApi(api_client)
+    addon_id = 56 # int | Id of the addon
+version_id = 56 # int | Id of the version
+
+    try:
+        # Generate a download token for a specific version of an addon
+        api_response = api_instance.download_addon_version(addon_id, version_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AddonVersionsApi->download_addon_version: %s\n" % e)
 ```
 
 ### Parameters
@@ -114,6 +152,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
+**429** | Too many requests |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset - The UNIX timestamp at which your rate limit quota will reset. <br>  |
+**0** | Something went wrong |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_addon_version**
@@ -122,26 +167,44 @@ Name | Type | Description  | Notes
 Fetch a specific version of an addon
 
 ### Example
+
+* Bearer (API Key) Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
-import gmodstore_sdk
-from gmodstore_sdk.rest import ApiException
+import gmodstore-sdk
+from gmodstore-sdk.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://api.gmodstore.com/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gmodstore-sdk.Configuration(
+    host = "https://api.gmodstore.com/v2"
+)
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-# create an instance of the API class
-api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configuration))
-addon_id = 789 # int | Id of the addon
-version_id = 789 # int | Id of the version
+# Configure Bearer authorization (API Key): bearerAuth
+configuration = gmodstore-sdk.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with gmodstore-sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gmodstore-sdk.AddonVersionsApi(api_client)
+    addon_id = 56 # int | Id of the addon
+version_id = 56 # int | Id of the version
 _with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonVersion` (optional)
 
-try:
-    # Fetch a specific version of an addon
-    api_response = api_instance.get_addon_version(addon_id, version_id, _with=_with)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AddonVersionsApi->get_addon_version: %s\n" % e)
+    try:
+        # Fetch a specific version of an addon
+        api_response = api_instance.get_addon_version(addon_id, version_id, _with=_with)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AddonVersionsApi->get_addon_version: %s\n" % e)
 ```
 
 ### Parameters
@@ -165,6 +228,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
+**429** | Too many requests |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset - The UNIX timestamp at which your rate limit quota will reset. <br>  |
+**0** | Something went wrong |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_addon_versions**
@@ -173,25 +243,43 @@ Name | Type | Description  | Notes
 Fetch all the versions of an addon
 
 ### Example
+
+* Bearer (API Key) Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
-import gmodstore_sdk
-from gmodstore_sdk.rest import ApiException
+import gmodstore-sdk
+from gmodstore-sdk.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://api.gmodstore.com/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gmodstore-sdk.Configuration(
+    host = "https://api.gmodstore.com/v2"
+)
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-# create an instance of the API class
-api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configuration))
-addon_id = 789 # int | Id of the addon
+# Configure Bearer authorization (API Key): bearerAuth
+configuration = gmodstore-sdk.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with gmodstore-sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gmodstore-sdk.AddonVersionsApi(api_client)
+    addon_id = 56 # int | Id of the addon
 _with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonVersion` (optional)
 
-try:
-    # Fetch all the versions of an addon
-    api_response = api_instance.list_addon_versions(addon_id, _with=_with)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AddonVersionsApi->list_addon_versions: %s\n" % e)
+    try:
+        # Fetch all the versions of an addon
+        api_response = api_instance.list_addon_versions(addon_id, _with=_with)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AddonVersionsApi->list_addon_versions: %s\n" % e)
 ```
 
 ### Parameters
@@ -214,60 +302,69 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
+**429** | Too many requests |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset - The UNIX timestamp at which your rate limit quota will reset. <br>  |
+**0** | Something went wrong |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_addon_version**
-> AddonVersionResponse update_addon_version(id, name, changelog, file_hash, file_size, release_type, created_at, updated_at, addon, addon_id, version_id, _with=_with)
+> AddonVersionResponse update_addon_version(addon_id, version_id, addon_version, _with=_with)
 
 Update a version of an addon
 
 ### Example
+
+* Bearer (API Key) Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
-import gmodstore_sdk
-from gmodstore_sdk.rest import ApiException
+import gmodstore-sdk
+from gmodstore-sdk.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to https://api.gmodstore.com/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gmodstore-sdk.Configuration(
+    host = "https://api.gmodstore.com/v2"
+)
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-# create an instance of the API class
-api_instance = gmodstore_sdk.AddonVersionsApi(gmodstore_sdk.ApiClient(configuration))
-id = 56 # int | 
-name = 'name_example' # str | 
-changelog = 'changelog_example' # str | 
-file_hash = 'file_hash_example' # str | 
-file_size = 56 # int | 
-release_type = gmodstore_sdk.AddonVersionReleaseType() # AddonVersionReleaseType | 
-created_at = '2013-10-20T19:20:30+01:00' # datetime | 
-updated_at = '2013-10-20T19:20:30+01:00' # datetime | 
-addon = gmodstore_sdk.Addon() # Addon | 
-addon_id = 789 # int | Id of the addon
-version_id = 789 # int | Id of the version
+# Configure Bearer authorization (API Key): bearerAuth
+configuration = gmodstore-sdk.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with gmodstore-sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gmodstore-sdk.AddonVersionsApi(api_client)
+    addon_id = 56 # int | Id of the addon
+version_id = 56 # int | Id of the version
+addon_version = gmodstore-sdk.AddonVersion() # AddonVersion | 
 _with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonVersion` (optional)
 
-try:
-    # Update a version of an addon
-    api_response = api_instance.update_addon_version(id, name, changelog, file_hash, file_size, release_type, created_at, updated_at, addon, addon_id, version_id, _with=_with)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AddonVersionsApi->update_addon_version: %s\n" % e)
+    try:
+        # Update a version of an addon
+        api_response = api_instance.update_addon_version(addon_id, version_id, addon_version, _with=_with)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AddonVersionsApi->update_addon_version: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  | 
- **name** | **str**|  | 
- **changelog** | **str**|  | 
- **file_hash** | **str**|  | 
- **file_size** | **int**|  | 
- **release_type** | [**AddonVersionReleaseType**](.md)|  | 
- **created_at** | **datetime**|  | 
- **updated_at** | **datetime**|  | 
- **addon** | [**Addon**](.md)|  | 
  **addon_id** | **int**| Id of the addon | 
  **version_id** | **int**| Id of the version | 
+ **addon_version** | [**AddonVersion**](AddonVersion.md)|  | 
  **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonVersion&#x60; | [optional] 
 
 ### Return type
@@ -282,6 +379,13 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
+**429** | Too many requests |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset - The UNIX timestamp at which your rate limit quota will reset. <br>  |
+**0** | Something went wrong |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
