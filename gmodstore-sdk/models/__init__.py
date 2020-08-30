@@ -51,6 +51,7 @@ from gmodstore-sdk.models.new_addon_purchase import NewAddonPurchase
 from gmodstore-sdk.models.new_addon_version import NewAddonVersion
 from gmodstore-sdk.models.order_item import OrderItem
 from gmodstore-sdk.models.permission_group import PermissionGroup
+from gmodstore-sdk.models.permission_group_list_response import PermissionGroupListResponse
 from gmodstore-sdk.models.team import Team
 from gmodstore-sdk.models.team_list_response import TeamListResponse
 from gmodstore-sdk.models.team_response import TeamResponse
