@@ -143,6 +143,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_permission_group_list_response.py
-test/test_permission_groups_api.py
 tox.ini

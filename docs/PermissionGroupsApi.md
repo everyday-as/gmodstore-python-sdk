@@ -4,11 +4,11 @@ All URIs are relative to *https://api.gmodstore.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_permission_groups**](PermissionGroupsApi.md#get_permission_groups) | **GET** /permission-groups | Fetches all available permission groups
+[**list_permission_groups**](PermissionGroupsApi.md#list_permission_groups) | **GET** /permission-groups | Fetches all available permission groups
 
 
-# **get_permission_groups**
-> PermissionGroupListResponse get_permission_groups()
+# **list_permission_groups**
+> PermissionGroupListResponse list_permission_groups()
 
 Fetches all available permission groups
 
@@ -44,10 +44,10 @@ with gmodstore-sdk.ApiClient(configuration) as api_client:
     
     try:
         # Fetches all available permission groups
-        api_response = api_instance.get_permission_groups()
+        api_response = api_instance.list_permission_groups()
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling PermissionGroupsApi->get_permission_groups: %s\n" % e)
+        print("Exception when calling PermissionGroupsApi->list_permission_groups: %s\n" % e)
 ```
 
 ### Parameters

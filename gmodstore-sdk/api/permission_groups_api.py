@@ -36,13 +36,13 @@ class PermissionGroupsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def get_permission_groups(self, **kwargs):  # noqa: E501
+    def list_permission_groups(self, **kwargs):  # noqa: E501
         """Fetches all available permission groups  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_permission_groups(async_req=True)
+        >>> thread = api.list_permission_groups(async_req=True)
         >>> result = thread.get()
 
         :param async_req: Whether to execute the request asynchronously.
@@ -61,15 +61,15 @@ class PermissionGroupsApi(object):
         :rtype: PermissionGroupListResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_permission_groups_with_http_info(**kwargs)  # noqa: E501
+        return self.list_permission_groups_with_http_info(**kwargs)  # noqa: E501
 
-    def get_permission_groups_with_http_info(self, **kwargs):  # noqa: E501
+    def list_permission_groups_with_http_info(self, **kwargs):  # noqa: E501
         """Fetches all available permission groups  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_permission_groups_with_http_info(async_req=True)
+        >>> thread = api.list_permission_groups_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req: Whether to execute the request asynchronously.
@@ -113,7 +113,7 @@ class PermissionGroupsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_permission_groups" % key
+                    " to method list_permission_groups" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
