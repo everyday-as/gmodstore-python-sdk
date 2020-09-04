@@ -192,7 +192,7 @@ class UserBadgesApi(object):
         :param user_id: Id of the user (required)
         :type user_id: int
         :param badge_id: Id of the badge (required)
-        :type badge_id: int
+        :type badge_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -223,7 +223,7 @@ class UserBadgesApi(object):
         :param user_id: Id of the user (required)
         :type user_id: int
         :param badge_id: Id of the badge (required)
-        :type badge_id: int
+        :type badge_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code

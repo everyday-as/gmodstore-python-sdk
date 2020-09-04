@@ -118,7 +118,7 @@ with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gmodstore-sdk.UserBadgesApi(api_client)
     user_id = 56 # int | Id of the user
-badge_id = 56 # int | Id of the badge
+badge_id = 'badge_id_example' # str | Id of the badge
 
     try:
         # Destroy a users's badge
@@ -132,7 +132,7 @@ badge_id = 56 # int | Id of the badge
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| Id of the user | 
- **badge_id** | **int**| Id of the badge | 
+ **badge_id** | **str**| Id of the badge | 
 
 ### Return type
 
