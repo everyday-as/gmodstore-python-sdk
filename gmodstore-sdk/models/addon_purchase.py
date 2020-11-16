@@ -35,7 +35,7 @@ class AddonPurchase(object):
     openapi_types = {
         'revoked': 'bool',
         'created_at': 'datetime',
-        'updated_at': 'int',
+        'updated_at': 'datetime',
         'addon': 'Addon',
         'order_item': 'OrderItem',
         'user': 'User'
@@ -126,7 +126,7 @@ class AddonPurchase(object):
 
 
         :return: The updated_at of this AddonPurchase.  # noqa: E501
-        :rtype: int
+        :rtype: datetime
         """
         return self._updated_at
 
@@ -136,7 +136,7 @@ class AddonPurchase(object):
 
 
         :param updated_at: The updated_at of this AddonPurchase.  # noqa: E501
-        :type updated_at: int
+        :type updated_at: datetime
         """
 
         self._updated_at = updated_at

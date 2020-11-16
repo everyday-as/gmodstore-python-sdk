@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **revoked** | **bool** |  | 
 **created_at** | **datetime** |  | [optional] [readonly] 
-**updated_at** | **int** |  | [optional] [readonly] 
+**updated_at** | **datetime** |  | [optional] [readonly] 
 **addon** | [**Addon**](Addon.md) |  | [optional] 
 **order_item** | [**OrderItem**](OrderItem.md) |  | [optional] 
 **user** | [**User**](User.md) |  | [optional] 
