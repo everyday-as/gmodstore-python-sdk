@@ -48,6 +48,7 @@ docs/PermissionGroup.md
 docs/PermissionGroupListResponse.md
 docs/PermissionGroupsApi.md
 docs/Team.md
+docs/TeamAddonsApi.md
 docs/TeamListResponse.md
 docs/TeamResponse.md
 docs/TeamUser.md
@@ -76,6 +77,7 @@ gmodstore-sdk/api/addon_stats_api.py
 gmodstore-sdk/api/addon_versions_api.py
 gmodstore-sdk/api/addons_api.py
 gmodstore-sdk/api/permission_groups_api.py
+gmodstore-sdk/api/team_addons_api.py
 gmodstore-sdk/api/team_users_api.py
 gmodstore-sdk/api/teams_api.py
 gmodstore-sdk/api/user_addons_api.py
@@ -143,4 +145,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_team_addons_api.py
 tox.ini

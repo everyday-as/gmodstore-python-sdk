@@ -113,6 +113,7 @@ Class | Method | HTTP request | Description
 *AddonsApi* | [**get_addon**](docs/AddonsApi.md#get_addon) | **GET** /addons/{addon_id} | Fetch a single addon
 *AddonsApi* | [**list_self_addons**](docs/AddonsApi.md#list_self_addons) | **GET** /addons | Fetch all the addons that you have access to
 *PermissionGroupsApi* | [**list_permission_groups**](docs/PermissionGroupsApi.md#list_permission_groups) | **GET** /permission-groups | Fetches all available permission groups
+*TeamAddonsApi* | [**list_team_addons**](docs/TeamAddonsApi.md#list_team_addons) | **GET** /teams/{team_id}/addons | Fetch all the addons in the given team
 *TeamUsersApi* | [**list_team_users**](docs/TeamUsersApi.md#list_team_users) | **GET** /teams/{team_id}/users | Fetch all the users in the given team
 *TeamsApi* | [**get_team**](docs/TeamsApi.md#get_team) | **GET** /teams/{team_id} | Fetch a single team
 *UserAddonsApi* | [**list_user_addons**](docs/UserAddonsApi.md#list_user_addons) | **GET** /users/{user_id}/addons | Fetch all the addons authored / co-authored by a user

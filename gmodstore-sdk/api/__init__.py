@@ -10,6 +10,7 @@ from gmodstore-sdk.api.addon_stats_api import AddonStatsApi
 from gmodstore-sdk.api.addon_versions_api import AddonVersionsApi
 from gmodstore-sdk.api.addons_api import AddonsApi
 from gmodstore-sdk.api.permission_groups_api import PermissionGroupsApi
+from gmodstore-sdk.api.team_addons_api import TeamAddonsApi
 from gmodstore-sdk.api.team_users_api import TeamUsersApi
 from gmodstore-sdk.api.teams_api import TeamsApi
 from gmodstore-sdk.api.user_addons_api import UserAddonsApi
