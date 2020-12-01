@@ -151,7 +151,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_advent_calendar_api.py
-test/test_advent_calendar_stats.py
-test/test_advent_calendar_stats_response.py
 tox.ini
