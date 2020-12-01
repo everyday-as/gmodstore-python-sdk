@@ -23,6 +23,7 @@ from gmodstore-sdk.api.addon_reviews_api import AddonReviewsApi
 from gmodstore-sdk.api.addon_stats_api import AddonStatsApi
 from gmodstore-sdk.api.addon_versions_api import AddonVersionsApi
 from gmodstore-sdk.api.addons_api import AddonsApi
+from gmodstore-sdk.api.advent_calendar_api import AdventCalendarApi
 from gmodstore-sdk.api.permission_groups_api import PermissionGroupsApi
 from gmodstore-sdk.api.team_addons_api import TeamAddonsApi
 from gmodstore-sdk.api.team_users_api import TeamUsersApi
@@ -72,6 +73,8 @@ from gmodstore-sdk.models.addon_version import AddonVersion
 from gmodstore-sdk.models.addon_version_list_response import AddonVersionListResponse
 from gmodstore-sdk.models.addon_version_release_type import AddonVersionReleaseType
 from gmodstore-sdk.models.addon_version_response import AddonVersionResponse
+from gmodstore-sdk.models.advent_calendar_stats import AdventCalendarStats
+from gmodstore-sdk.models.advent_calendar_stats_response import AdventCalendarStatsResponse
 from gmodstore-sdk.models.badge_list_response import BadgeListResponse
 from gmodstore-sdk.models.badge_response import BadgeResponse
 from gmodstore-sdk.models.error import Error

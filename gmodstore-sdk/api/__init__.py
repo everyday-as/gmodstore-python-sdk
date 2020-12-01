@@ -9,6 +9,7 @@ from gmodstore-sdk.api.addon_reviews_api import AddonReviewsApi
 from gmodstore-sdk.api.addon_stats_api import AddonStatsApi
 from gmodstore-sdk.api.addon_versions_api import AddonVersionsApi
 from gmodstore-sdk.api.addons_api import AddonsApi
+from gmodstore-sdk.api.advent_calendar_api import AdventCalendarApi
 from gmodstore-sdk.api.permission_groups_api import PermissionGroupsApi
 from gmodstore-sdk.api.team_addons_api import TeamAddonsApi
 from gmodstore-sdk.api.team_users_api import TeamUsersApi

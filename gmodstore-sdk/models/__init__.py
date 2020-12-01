@@ -42,6 +42,8 @@ from gmodstore-sdk.models.addon_version import AddonVersion
 from gmodstore-sdk.models.addon_version_list_response import AddonVersionListResponse
 from gmodstore-sdk.models.addon_version_release_type import AddonVersionReleaseType
 from gmodstore-sdk.models.addon_version_response import AddonVersionResponse
+from gmodstore-sdk.models.advent_calendar_stats import AdventCalendarStats
+from gmodstore-sdk.models.advent_calendar_stats_response import AdventCalendarStatsResponse
 from gmodstore-sdk.models.badge_list_response import BadgeListResponse
 from gmodstore-sdk.models.badge_response import BadgeResponse
 from gmodstore-sdk.models.error import Error

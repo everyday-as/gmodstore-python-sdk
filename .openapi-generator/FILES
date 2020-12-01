@@ -36,6 +36,9 @@ docs/AddonVersionReleaseType.md
 docs/AddonVersionResponse.md
 docs/AddonVersionsApi.md
 docs/AddonsApi.md
+docs/AdventCalendarApi.md
+docs/AdventCalendarStats.md
+docs/AdventCalendarStatsResponse.md
 docs/BadgeListResponse.md
 docs/BadgeResponse.md
 docs/Error.md
@@ -76,6 +79,7 @@ gmodstore-sdk/api/addon_reviews_api.py
 gmodstore-sdk/api/addon_stats_api.py
 gmodstore-sdk/api/addon_versions_api.py
 gmodstore-sdk/api/addons_api.py
+gmodstore-sdk/api/advent_calendar_api.py
 gmodstore-sdk/api/permission_groups_api.py
 gmodstore-sdk/api/team_addons_api.py
 gmodstore-sdk/api/team_users_api.py
@@ -118,6 +122,8 @@ gmodstore-sdk/models/addon_version.py
 gmodstore-sdk/models/addon_version_list_response.py
 gmodstore-sdk/models/addon_version_release_type.py
 gmodstore-sdk/models/addon_version_response.py
+gmodstore-sdk/models/advent_calendar_stats.py
+gmodstore-sdk/models/advent_calendar_stats_response.py
 gmodstore-sdk/models/badge_list_response.py
 gmodstore-sdk/models/badge_response.py
 gmodstore-sdk/models/error.py
@@ -145,5 +151,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_team_addons_api.py
+test/test_advent_calendar_api.py
+test/test_advent_calendar_stats.py
+test/test_advent_calendar_stats_response.py
 tox.ini
