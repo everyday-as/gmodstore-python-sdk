@@ -38,9 +38,11 @@ class AddonCoupon(object):
         'percent': 'float',
         'max_uses': 'int',
         'expires_at': 'datetime',
+        'bound_user_id': 'int',
         'created_at': 'datetime',
         'updated_at': 'datetime',
-        'addon': 'Addon'
+        'addon': 'Addon',
+        'bound_user': 'User'
     }
 
     attribute_map = {
@@ -49,12 +51,14 @@ class AddonCoupon(object):
         'percent': 'percent',
         'max_uses': 'max_uses',
         'expires_at': 'expires_at',
+        'bound_user_id': 'bound_user_id',
         'created_at': 'created_at',
         'updated_at': 'updated_at',
-        'addon': 'addon'
+        'addon': 'addon',
+        'bound_user': 'bound_user'
     }
 
-    def __init__(self, id=None, code=None, percent=None, max_uses=None, expires_at=None, created_at=None, updated_at=None, addon=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, code=None, percent=None, max_uses=None, expires_at=None, bound_user_id=None, created_at=None, updated_at=None, addon=None, bound_user=None, local_vars_configuration=None):  # noqa: E501
         """AddonCoupon - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,9 +69,11 @@ class AddonCoupon(object):
         self._percent = None
         self._max_uses = None
         self._expires_at = None
+        self._bound_user_id = None
         self._created_at = None
         self._updated_at = None
         self._addon = None
+        self._bound_user = None
         self.discriminator = None
 
         self.id = id
@@ -75,12 +81,16 @@ class AddonCoupon(object):
         self.percent = percent
         self.max_uses = max_uses
         self.expires_at = expires_at
+        if bound_user_id is not None:
+            self.bound_user_id = bound_user_id
         if created_at is not None:
             self.created_at = created_at
         if updated_at is not None:
             self.updated_at = updated_at
         if addon is not None:
             self.addon = addon
+        if bound_user is not None:
+            self.bound_user = bound_user
 
     @property
     def id(self):
@@ -212,6 +222,27 @@ class AddonCoupon(object):
         self._expires_at = expires_at
 
     @property
+    def bound_user_id(self):
+        """Gets the bound_user_id of this AddonCoupon.  # noqa: E501
+
+
+        :return: The bound_user_id of this AddonCoupon.  # noqa: E501
+        :rtype: int
+        """
+        return self._bound_user_id
+
+    @bound_user_id.setter
+    def bound_user_id(self, bound_user_id):
+        """Sets the bound_user_id of this AddonCoupon.
+
+
+        :param bound_user_id: The bound_user_id of this AddonCoupon.  # noqa: E501
+        :type bound_user_id: int
+        """
+
+        self._bound_user_id = bound_user_id
+
+    @property
     def created_at(self):
         """Gets the created_at of this AddonCoupon.  # noqa: E501
 
@@ -273,6 +304,27 @@ class AddonCoupon(object):
         """
 
         self._addon = addon
+
+    @property
+    def bound_user(self):
+        """Gets the bound_user of this AddonCoupon.  # noqa: E501
+
+
+        :return: The bound_user of this AddonCoupon.  # noqa: E501
+        :rtype: User
+        """
+        return self._bound_user
+
+    @bound_user.setter
+    def bound_user(self, bound_user):
+        """Sets the bound_user of this AddonCoupon.
+
+
+        :param bound_user: The bound_user of this AddonCoupon.  # noqa: E501
+        :type bound_user: User
+        """
+
+        self._bound_user = bound_user
 
     def to_dict(self):
         """Returns the model properties as a dict"""
