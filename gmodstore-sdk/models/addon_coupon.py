@@ -81,8 +81,7 @@ class AddonCoupon(object):
         self.percent = percent
         self.max_uses = max_uses
         self.expires_at = expires_at
-        if bound_user_id is not None:
-            self.bound_user_id = bound_user_id
+        self.bound_user_id = bound_user_id
         if created_at is not None:
             self.created_at = created_at
         if updated_at is not None:

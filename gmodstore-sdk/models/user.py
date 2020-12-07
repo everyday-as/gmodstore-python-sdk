@@ -79,8 +79,7 @@ class User(object):
             self.name = name
         if avatar is not None:
             self.avatar = avatar
-        if country_code is not None:
-            self.country_code = country_code
+        self.country_code = country_code
         if slug is not None:
             self.slug = slug
         if reputation is not None:
