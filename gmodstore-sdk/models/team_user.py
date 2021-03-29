@@ -35,16 +35,18 @@ class TeamUser(object):
     openapi_types = {
         'team_id': 'int',
         'primary': 'bool',
+        'percentage': 'int',
         'user': 'User'
     }
 
     attribute_map = {
         'team_id': 'team_id',
         'primary': 'primary',
+        'percentage': 'percentage',
         'user': 'user'
     }
 
-    def __init__(self, team_id=None, primary=None, user=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, team_id=None, primary=None, percentage=None, user=None, local_vars_configuration=None):  # noqa: E501
         """TeamUser - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -52,6 +54,7 @@ class TeamUser(object):
 
         self._team_id = None
         self._primary = None
+        self._percentage = None
         self._user = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class TeamUser(object):
             self.team_id = team_id
         if primary is not None:
             self.primary = primary
+        if percentage is not None:
+            self.percentage = percentage
         if user is not None:
             self.user = user
 
@@ -103,6 +108,27 @@ class TeamUser(object):
         """
 
         self._primary = primary
+
+    @property
+    def percentage(self):
+        """Gets the percentage of this TeamUser.  # noqa: E501
+
+
+        :return: The percentage of this TeamUser.  # noqa: E501
+        :rtype: int
+        """
+        return self._percentage
+
+    @percentage.setter
+    def percentage(self, percentage):
+        """Sets the percentage of this TeamUser.
+
+
+        :param percentage: The percentage of this TeamUser.  # noqa: E501
+        :type percentage: int
+        """
+
+        self._percentage = percentage
 
     @property
     def user(self):
