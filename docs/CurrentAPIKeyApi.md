@@ -41,7 +41,7 @@ configuration = gmodstore-sdk.Configuration(
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gmodstore-sdk.CurrentAPIKeyApi(api_client)
-    _with = ['_with_example'] # list[str] | The relations you want to fetch with the `User` (optional)
+    _with = ['_with_example'] # list[str] | The relations you want to fetch with the `ApiKey` (optional)
 
     try:
         # Get meta information about the current API key
@@ -55,7 +55,7 @@ with gmodstore-sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;User&#x60; | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;ApiKey&#x60; | [optional] 
 
 ### Return type
 

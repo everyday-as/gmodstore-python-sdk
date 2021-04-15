@@ -45,7 +45,7 @@ class CurrentAPIKeyApi(object):
         >>> thread = api.get_current_api_key(async_req=True)
         >>> result = thread.get()
 
-        :param _with: The relations you want to fetch with the `User`
+        :param _with: The relations you want to fetch with the `ApiKey`
         :type _with: list[str]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -74,7 +74,7 @@ class CurrentAPIKeyApi(object):
         >>> thread = api.get_current_api_key_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param _with: The relations you want to fetch with the `User`
+        :param _with: The relations you want to fetch with the `ApiKey`
         :type _with: list[str]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
