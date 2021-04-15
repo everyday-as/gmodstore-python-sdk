@@ -1,16 +1,16 @@
-# gmodstore-sdk.UserAddonsApi
+# gmodstore-sdk.ApiKeyApi
 
 All URIs are relative to *https://api.gmodstore.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list_user_addons**](UserAddonsApi.md#list_user_addons) | **GET** /users/{user_id}/addons | Fetch all the addons authored / co-authored by a user
+[**get_current_api_key**](ApiKeyApi.md#get_current_api_key) | **GET** /me | Get meta information about the current API key
 
 
-# **list_user_addons**
-> AddonListResponse1 list_user_addons(user_id, _with=_with)
+# **get_current_api_key**
+> AddonListResponse get_current_api_key(_with=_with)
 
-Fetch all the addons authored / co-authored by a user
+Get meta information about the current API key
 
 ### Example
 
@@ -40,28 +40,26 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.UserAddonsApi(api_client)
-    user_id = 56 # int | Id of the user
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the `Addon` (optional)
+    api_instance = gmodstore-sdk.ApiKeyApi(api_client)
+    _with = ['_with_example'] # list[str] | The relations you want to fetch with the `User` (optional)
 
     try:
-        # Fetch all the addons authored / co-authored by a user
-        api_response = api_instance.list_user_addons(user_id, _with=_with)
+        # Get meta information about the current API key
+        api_response = api_instance.get_current_api_key(_with=_with)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling UserAddonsApi->list_user_addons: %s\n" % e)
+        print("Exception when calling ApiKeyApi->get_current_api_key: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| Id of the user | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;Addon&#x60; | [optional] 
+ **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;User&#x60; | [optional] 
 
 ### Return type
 
-[**AddonListResponse1**](AddonListResponse1.md)
+[**AddonListResponse**](AddonListResponse.md)
 
 ### Authorization
 

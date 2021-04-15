@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_self_addons**
-> AddonListResponse list_self_addons(_with=_with)
+> AddonListResponse1 list_self_addons(_with=_with)
 
 Fetch all the addons that you have access to
 
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddonListResponse**](AddonListResponse.md)
+[**AddonListResponse1**](AddonListResponse1.md)
 
 ### Authorization
 

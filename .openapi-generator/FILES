@@ -11,6 +11,7 @@ docs/AddonDownload.md
 docs/AddonDownloadResponse.md
 docs/AddonImages.md
 docs/AddonListResponse.md
+docs/AddonListResponse1.md
 docs/AddonPrice.md
 docs/AddonPurchase.md
 docs/AddonPurchaseListResponse.md
@@ -39,6 +40,8 @@ docs/AddonsApi.md
 docs/AdventCalendarApi.md
 docs/AdventCalendarStats.md
 docs/AdventCalendarStatsResponse.md
+docs/ApiKey.md
+docs/ApiKeyApi.md
 docs/BadgeListResponse.md
 docs/BadgeResponse.md
 docs/Error.md
@@ -80,6 +83,7 @@ gmodstore-sdk/api/addon_stats_api.py
 gmodstore-sdk/api/addon_versions_api.py
 gmodstore-sdk/api/addons_api.py
 gmodstore-sdk/api/advent_calendar_api.py
+gmodstore-sdk/api/api_key_api.py
 gmodstore-sdk/api/permission_groups_api.py
 gmodstore-sdk/api/team_addons_api.py
 gmodstore-sdk/api/team_users_api.py
@@ -102,6 +106,7 @@ gmodstore-sdk/models/addon_download.py
 gmodstore-sdk/models/addon_download_response.py
 gmodstore-sdk/models/addon_images.py
 gmodstore-sdk/models/addon_list_response.py
+gmodstore-sdk/models/addon_list_response1.py
 gmodstore-sdk/models/addon_price.py
 gmodstore-sdk/models/addon_purchase.py
 gmodstore-sdk/models/addon_purchase_list_response.py
@@ -124,6 +129,7 @@ gmodstore-sdk/models/addon_version_release_type.py
 gmodstore-sdk/models/addon_version_response.py
 gmodstore-sdk/models/advent_calendar_stats.py
 gmodstore-sdk/models/advent_calendar_stats_response.py
+gmodstore-sdk/models/api_key.py
 gmodstore-sdk/models/badge_list_response.py
 gmodstore-sdk/models/badge_response.py
 gmodstore-sdk/models/error.py
@@ -151,4 +157,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_addon_list_response1.py
+test/test_api_key.py
+test/test_api_key_api.py
 tox.ini

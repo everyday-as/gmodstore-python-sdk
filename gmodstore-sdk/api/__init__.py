@@ -20,3 +20,4 @@ from gmodstore-sdk.api.user_bans_api import UserBansApi
 from gmodstore-sdk.api.user_purchases_api import UserPurchasesApi
 from gmodstore-sdk.api.user_teams_api import UserTeamsApi
 from gmodstore-sdk.api.users_api import UsersApi
+from gmodstore-sdk.api.api_key_api import ApiKeyApi

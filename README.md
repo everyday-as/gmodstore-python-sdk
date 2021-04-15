@@ -126,6 +126,7 @@ Class | Method | HTTP request | Description
 *UserTeamsApi* | [**list_user_teams**](docs/UserTeamsApi.md#list_user_teams) | **GET** /users/{user_id}/teams | Fetch all the teams of a user
 *UsersApi* | [**get_self_user**](docs/UsersApi.md#get_self_user) | **GET** /users/me | Fetches the current user (API Key Owner)
 *UsersApi* | [**get_user**](docs/UsersApi.md#get_user) | **GET** /users/{user_id} | Fetch a single user
+*ApiKeyApi* | [**get_current_api_key**](docs/ApiKeyApi.md#get_current_api_key) | **GET** /me | Get meta information about the current API key
 
 
 ## Documentation For Models
@@ -138,6 +139,7 @@ Class | Method | HTTP request | Description
  - [AddonDownloadResponse](docs/AddonDownloadResponse.md)
  - [AddonImages](docs/AddonImages.md)
  - [AddonListResponse](docs/AddonListResponse.md)
+ - [AddonListResponse1](docs/AddonListResponse1.md)
  - [AddonPrice](docs/AddonPrice.md)
  - [AddonPurchase](docs/AddonPurchase.md)
  - [AddonPurchaseListResponse](docs/AddonPurchaseListResponse.md)
@@ -160,6 +162,7 @@ Class | Method | HTTP request | Description
  - [AddonVersionResponse](docs/AddonVersionResponse.md)
  - [AdventCalendarStats](docs/AdventCalendarStats.md)
  - [AdventCalendarStatsResponse](docs/AdventCalendarStatsResponse.md)
+ - [ApiKey](docs/ApiKey.md)
  - [BadgeListResponse](docs/BadgeListResponse.md)
  - [BadgeResponse](docs/BadgeResponse.md)
  - [Error](docs/Error.md)
