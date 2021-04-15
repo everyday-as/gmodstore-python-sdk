@@ -113,6 +113,7 @@ Class | Method | HTTP request | Description
 *AddonsApi* | [**get_addon**](docs/AddonsApi.md#get_addon) | **GET** /addons/{addon_id} | Fetch a single addon
 *AddonsApi* | [**list_self_addons**](docs/AddonsApi.md#list_self_addons) | **GET** /addons | Fetch all the addons that you have access to
 *AdventCalendarApi* | [**get_advent_calendar_stats**](docs/AdventCalendarApi.md#get_advent_calendar_stats) | **GET** /events/advent-calendar/stats | Fetch statistics relating to the advent calendar event
+*CurrentAPIKeyApi* | [**get_current_api_key**](docs/CurrentAPIKeyApi.md#get_current_api_key) | **GET** /me | Get meta information about the current API key
 *PermissionGroupsApi* | [**list_permission_groups**](docs/PermissionGroupsApi.md#list_permission_groups) | **GET** /permission-groups | Fetches all available permission groups
 *TeamAddonsApi* | [**list_team_addons**](docs/TeamAddonsApi.md#list_team_addons) | **GET** /teams/{team_id}/addons | Fetch all the addons in the given team
 *TeamUsersApi* | [**list_team_users**](docs/TeamUsersApi.md#list_team_users) | **GET** /teams/{team_id}/users | Fetch all the users in the given team
@@ -126,7 +127,6 @@ Class | Method | HTTP request | Description
 *UserTeamsApi* | [**list_user_teams**](docs/UserTeamsApi.md#list_user_teams) | **GET** /users/{user_id}/teams | Fetch all the teams of a user
 *UsersApi* | [**get_self_user**](docs/UsersApi.md#get_self_user) | **GET** /users/me | Fetches the current user (API Key Owner)
 *UsersApi* | [**get_user**](docs/UsersApi.md#get_user) | **GET** /users/{user_id} | Fetch a single user
-*ApiKeyApi* | [**get_current_api_key**](docs/ApiKeyApi.md#get_current_api_key) | **GET** /me | Get meta information about the current API key
 
 
 ## Documentation For Models

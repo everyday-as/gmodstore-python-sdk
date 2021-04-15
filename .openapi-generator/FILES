@@ -41,9 +41,9 @@ docs/AdventCalendarApi.md
 docs/AdventCalendarStats.md
 docs/AdventCalendarStatsResponse.md
 docs/ApiKey.md
-docs/ApiKeyApi.md
 docs/BadgeListResponse.md
 docs/BadgeResponse.md
+docs/CurrentAPIKeyApi.md
 docs/Error.md
 docs/ErrorResponse.md
 docs/Money.md
@@ -83,7 +83,7 @@ gmodstore-sdk/api/addon_stats_api.py
 gmodstore-sdk/api/addon_versions_api.py
 gmodstore-sdk/api/addons_api.py
 gmodstore-sdk/api/advent_calendar_api.py
-gmodstore-sdk/api/api_key_api.py
+gmodstore-sdk/api/current_api_key_api.py
 gmodstore-sdk/api/permission_groups_api.py
 gmodstore-sdk/api/team_addons_api.py
 gmodstore-sdk/api/team_users_api.py
@@ -157,7 +157,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_addon_list_response1.py
-test/test_api_key.py
-test/test_api_key_api.py
+test/test_current_api_key_api.py
 tox.ini

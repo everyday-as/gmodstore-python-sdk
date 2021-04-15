@@ -1,10 +1,10 @@
-# gmodstore-sdk.ApiKeyApi
+# gmodstore-sdk.CurrentAPIKeyApi
 
 All URIs are relative to *https://api.gmodstore.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_current_api_key**](ApiKeyApi.md#get_current_api_key) | **GET** /me | Get meta information about the current API key
+[**get_current_api_key**](CurrentAPIKeyApi.md#get_current_api_key) | **GET** /me | Get meta information about the current API key
 
 
 # **get_current_api_key**
@@ -40,7 +40,7 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.ApiKeyApi(api_client)
+    api_instance = gmodstore-sdk.CurrentAPIKeyApi(api_client)
     _with = ['_with_example'] # list[str] | The relations you want to fetch with the `User` (optional)
 
     try:
@@ -48,7 +48,7 @@ with gmodstore-sdk.ApiClient(configuration) as api_client:
         api_response = api_instance.get_current_api_key(_with=_with)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling ApiKeyApi->get_current_api_key: %s\n" % e)
+        print("Exception when calling CurrentAPIKeyApi->get_current_api_key: %s\n" % e)
 ```
 
 ### Parameters
