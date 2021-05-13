@@ -16,10 +16,11 @@ Fetch statistics relating to the advent calendar event
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import advent_calendar_api
+from gmodstore-sdk.model.advent_calendar_stats_response import AdventCalendarStatsResponse
+from gmodstore-sdk.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -40,15 +41,17 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.AdventCalendarApi(api_client)
-    
+    api_instance = advent_calendar_api.AdventCalendarApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         # Fetch statistics relating to the advent calendar event
         api_response = api_instance.get_advent_calendar_stats()
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling AdventCalendarApi->get_advent_calendar_stats: %s\n" % e)
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -65,6 +68,7 @@ This endpoint does not need any parameter.
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

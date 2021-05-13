@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     GmodStore API
 
@@ -10,18 +8,24 @@
 """
 
 
-from __future__ import absolute_import
-
 import re  # noqa: F401
+import sys  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
-from gmodstore-sdk.api_client import ApiClient
-from gmodstore-sdk.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
+from gmodstore-sdk.api_client import ApiClient, Endpoint as _Endpoint
+from gmodstore-sdk.model_utils import (  # noqa: F401
+    check_allowed_values,
+    check_validations,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_and_convert_types
 )
+from gmodstore-sdk.model.addon_purchase import AddonPurchase
+from gmodstore-sdk.model.addon_purchase_list_response import AddonPurchaseListResponse
+from gmodstore-sdk.model.addon_purchase_response import AddonPurchaseResponse
+from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.new_addon_purchase import NewAddonPurchase
 
 
 class AddonPurchasesApi(object):
@@ -36,602 +40,588 @@ class AddonPurchasesApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_addon_purchase(self, addon_id, new_addon_purchase, **kwargs):  # noqa: E501
-        """Create a purchase for an addon  # noqa: E501
+        def __create_addon_purchase(
+            self,
+            addon_id,
+            new_addon_purchase,
+            **kwargs
+        ):
+            """Create a purchase for an addon  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_addon_purchase(addon_id, new_addon_purchase, async_req=True)
-        >>> result = thread.get()
+            >>> thread = api.create_addon_purchase(addon_id, new_addon_purchase, async_req=True)
+            >>> result = thread.get()
 
-        :param addon_id: Id of the addon (required)
-        :type addon_id: int
-        :param new_addon_purchase: (required)
-        :type new_addon_purchase: NewAddonPurchase
-        :param _with: The relations you want to fetch with the `AddonPurchase`
-        :type _with: list[str]
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: AddonPurchaseResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.create_addon_purchase_with_http_info(addon_id, new_addon_purchase, **kwargs)  # noqa: E501
+            Args:
+                addon_id (int): Id of the addon
+                new_addon_purchase (NewAddonPurchase):
 
-    def create_addon_purchase_with_http_info(self, addon_id, new_addon_purchase, **kwargs):  # noqa: E501
-        """Create a purchase for an addon  # noqa: E501
+            Keyword Args:
+                _with ([str]): The relations you want to fetch with the `AddonPurchase`. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+            Returns:
+                AddonPurchaseResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['addon_id'] = \
+                addon_id
+            kwargs['new_addon_purchase'] = \
+                new_addon_purchase
+            return self.call_with_http_info(**kwargs)
 
-        >>> thread = api.create_addon_purchase_with_http_info(addon_id, new_addon_purchase, async_req=True)
-        >>> result = thread.get()
+        self.create_addon_purchase = _Endpoint(
+            settings={
+                'response_type': (AddonPurchaseResponse,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/addons/{addon_id}/purchases',
+                'operation_id': 'create_addon_purchase',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'addon_id',
+                    'new_addon_purchase',
+                    '_with',
+                ],
+                'required': [
+                    'addon_id',
+                    'new_addon_purchase',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    '_with',
+                ],
+                'validation': [
+                    '_with',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('_with',): {
 
-        :param addon_id: Id of the addon (required)
-        :type addon_id: int
-        :param new_addon_purchase: (required)
-        :type new_addon_purchase: NewAddonPurchase
-        :param _with: The relations you want to fetch with the `AddonPurchase`
-        :type _with: list[str]
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(AddonPurchaseResponse, status_code(int), headers(HTTPHeaderDict))
-        """
+                    },
+                },
+                'allowed_values': {
+                    ('_with',): {
 
-        local_var_params = locals()
-
-        all_params = [
-            'addon_id',
-            'new_addon_purchase',
-            '_with'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+                        "ADDON": "addon",
+                        "ORDER_ITEM": "order_item",
+                        "USER": "user"
+                    },
+                },
+                'openapi_types': {
+                    'addon_id':
+                        (int,),
+                    'new_addon_purchase':
+                        (NewAddonPurchase,),
+                    '_with':
+                        ([str],),
+                },
+                'attribute_map': {
+                    'addon_id': 'addon_id',
+                    '_with': 'with',
+                },
+                'location_map': {
+                    'addon_id': 'path',
+                    'new_addon_purchase': 'body',
+                    '_with': 'query',
+                },
+                'collection_format_map': {
+                    '_with': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client,
+            callable=__create_addon_purchase
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_addon_purchase" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'addon_id' is set
-        if self.api_client.client_side_validation and ('addon_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['addon_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `addon_id` when calling `create_addon_purchase`")  # noqa: E501
-        # verify the required parameter 'new_addon_purchase' is set
-        if self.api_client.client_side_validation and ('new_addon_purchase' not in local_var_params or  # noqa: E501
-                                                        local_var_params['new_addon_purchase'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `new_addon_purchase` when calling `create_addon_purchase`")  # noqa: E501
+        def __get_addon_purchase(
+            self,
+            addon_id,
+            user_id,
+            **kwargs
+        ):
+            """Get a purchase of an addon by user  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
-        if 'addon_id' in local_var_params:
-            path_params['addon_id'] = local_var_params['addon_id']  # noqa: E501
+            >>> thread = api.get_addon_purchase(addon_id, user_id, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if '_with' in local_var_params and local_var_params['_with'] is not None:  # noqa: E501
-            query_params.append(('with', local_var_params['_with']))  # noqa: E501
-            collection_formats['with'] = 'csv'  # noqa: E501
+            Args:
+                addon_id (int): Id of the addon
+                user_id (int): Id of the user
 
-        header_params = {}
+            Keyword Args:
+                _with ([str]): The relations you want to fetch with the `AddonPurchase`. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                AddonPurchaseResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['addon_id'] = \
+                addon_id
+            kwargs['user_id'] = \
+                user_id
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        if 'new_addon_purchase' in local_var_params:
-            body_params = local_var_params['new_addon_purchase']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        self.get_addon_purchase = _Endpoint(
+            settings={
+                'response_type': (AddonPurchaseResponse,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/addons/{addon_id}/purchases/{user_id}',
+                'operation_id': 'get_addon_purchase',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'addon_id',
+                    'user_id',
+                    '_with',
+                ],
+                'required': [
+                    'addon_id',
+                    'user_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    '_with',
+                ],
+                'validation': [
+                    '_with',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('_with',): {
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+                    },
+                },
+                'allowed_values': {
+                    ('_with',): {
 
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/addons/{addon_id}/purchases', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AddonPurchaseResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_addon_purchase(self, addon_id, user_id, **kwargs):  # noqa: E501
-        """Get a purchase of an addon by user  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_addon_purchase(addon_id, user_id, async_req=True)
-        >>> result = thread.get()
-
-        :param addon_id: Id of the addon (required)
-        :type addon_id: int
-        :param user_id: Id of the user (required)
-        :type user_id: int
-        :param _with: The relations you want to fetch with the `AddonPurchase`
-        :type _with: list[str]
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: AddonPurchaseResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_addon_purchase_with_http_info(addon_id, user_id, **kwargs)  # noqa: E501
-
-    def get_addon_purchase_with_http_info(self, addon_id, user_id, **kwargs):  # noqa: E501
-        """Get a purchase of an addon by user  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_addon_purchase_with_http_info(addon_id, user_id, async_req=True)
-        >>> result = thread.get()
-
-        :param addon_id: Id of the addon (required)
-        :type addon_id: int
-        :param user_id: Id of the user (required)
-        :type user_id: int
-        :param _with: The relations you want to fetch with the `AddonPurchase`
-        :type _with: list[str]
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(AddonPurchaseResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'addon_id',
-            'user_id',
-            '_with'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+                        "ADDON": "addon",
+                        "ORDER_ITEM": "order_item",
+                        "USER": "user"
+                    },
+                },
+                'openapi_types': {
+                    'addon_id':
+                        (int,),
+                    'user_id':
+                        (int,),
+                    '_with':
+                        ([str],),
+                },
+                'attribute_map': {
+                    'addon_id': 'addon_id',
+                    'user_id': 'user_id',
+                    '_with': 'with',
+                },
+                'location_map': {
+                    'addon_id': 'path',
+                    'user_id': 'path',
+                    '_with': 'query',
+                },
+                'collection_format_map': {
+                    '_with': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__get_addon_purchase
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_addon_purchase" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'addon_id' is set
-        if self.api_client.client_side_validation and ('addon_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['addon_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `addon_id` when calling `get_addon_purchase`")  # noqa: E501
-        # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `user_id` when calling `get_addon_purchase`")  # noqa: E501
+        def __list_addon_purchases(
+            self,
+            addon_id,
+            **kwargs
+        ):
+            """Fetch all purchases of an addon  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
-        if 'addon_id' in local_var_params:
-            path_params['addon_id'] = local_var_params['addon_id']  # noqa: E501
-        if 'user_id' in local_var_params:
-            path_params['user_id'] = local_var_params['user_id']  # noqa: E501
+            >>> thread = api.list_addon_purchases(addon_id, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if '_with' in local_var_params and local_var_params['_with'] is not None:  # noqa: E501
-            query_params.append(('with', local_var_params['_with']))  # noqa: E501
-            collection_formats['with'] = 'csv'  # noqa: E501
+            Args:
+                addon_id (int): Id of the addon
 
-        header_params = {}
+            Keyword Args:
+                _with ([str]): The relations you want to fetch with the `AddonPurchase`. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                AddonPurchaseListResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['addon_id'] = \
+                addon_id
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        self.list_addon_purchases = _Endpoint(
+            settings={
+                'response_type': (AddonPurchaseListResponse,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/addons/{addon_id}/purchases',
+                'operation_id': 'list_addon_purchases',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'addon_id',
+                    '_with',
+                ],
+                'required': [
+                    'addon_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    '_with',
+                ],
+                'validation': [
+                    '_with',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('_with',): {
 
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
+                    },
+                },
+                'allowed_values': {
+                    ('_with',): {
 
-        return self.api_client.call_api(
-            '/addons/{addon_id}/purchases/{user_id}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AddonPurchaseResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def list_addon_purchases(self, addon_id, **kwargs):  # noqa: E501
-        """Fetch all purchases of an addon  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.list_addon_purchases(addon_id, async_req=True)
-        >>> result = thread.get()
-
-        :param addon_id: Id of the addon (required)
-        :type addon_id: int
-        :param _with: The relations you want to fetch with the `AddonPurchase`
-        :type _with: list[str]
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: AddonPurchaseListResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.list_addon_purchases_with_http_info(addon_id, **kwargs)  # noqa: E501
-
-    def list_addon_purchases_with_http_info(self, addon_id, **kwargs):  # noqa: E501
-        """Fetch all purchases of an addon  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.list_addon_purchases_with_http_info(addon_id, async_req=True)
-        >>> result = thread.get()
-
-        :param addon_id: Id of the addon (required)
-        :type addon_id: int
-        :param _with: The relations you want to fetch with the `AddonPurchase`
-        :type _with: list[str]
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(AddonPurchaseListResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'addon_id',
-            '_with'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+                        "ADDON": "addon",
+                        "ORDER_ITEM": "order_item",
+                        "USER": "user"
+                    },
+                },
+                'openapi_types': {
+                    'addon_id':
+                        (int,),
+                    '_with':
+                        ([str],),
+                },
+                'attribute_map': {
+                    'addon_id': 'addon_id',
+                    '_with': 'with',
+                },
+                'location_map': {
+                    'addon_id': 'path',
+                    '_with': 'query',
+                },
+                'collection_format_map': {
+                    '_with': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__list_addon_purchases
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_addon_purchases" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'addon_id' is set
-        if self.api_client.client_side_validation and ('addon_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['addon_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `addon_id` when calling `list_addon_purchases`")  # noqa: E501
+        def __update_addon_purchase(
+            self,
+            addon_id,
+            user_id,
+            addon_purchase,
+            **kwargs
+        ):
+            """Update a purchase for an addon  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
-        if 'addon_id' in local_var_params:
-            path_params['addon_id'] = local_var_params['addon_id']  # noqa: E501
+            >>> thread = api.update_addon_purchase(addon_id, user_id, addon_purchase, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if '_with' in local_var_params and local_var_params['_with'] is not None:  # noqa: E501
-            query_params.append(('with', local_var_params['_with']))  # noqa: E501
-            collection_formats['with'] = 'csv'  # noqa: E501
+            Args:
+                addon_id (int): Id of the addon
+                user_id (int): Id of the user
+                addon_purchase (AddonPurchase):
 
-        header_params = {}
+            Keyword Args:
+                _with ([str]): The relations you want to fetch with the `AddonPurchase`. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                AddonPurchaseResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['addon_id'] = \
+                addon_id
+            kwargs['user_id'] = \
+                user_id
+            kwargs['addon_purchase'] = \
+                addon_purchase
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        self.update_addon_purchase = _Endpoint(
+            settings={
+                'response_type': (AddonPurchaseResponse,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/addons/{addon_id}/purchases/{user_id}',
+                'operation_id': 'update_addon_purchase',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'addon_id',
+                    'user_id',
+                    'addon_purchase',
+                    '_with',
+                ],
+                'required': [
+                    'addon_id',
+                    'user_id',
+                    'addon_purchase',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    '_with',
+                ],
+                'validation': [
+                    '_with',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('_with',): {
 
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
+                    },
+                },
+                'allowed_values': {
+                    ('_with',): {
 
-        return self.api_client.call_api(
-            '/addons/{addon_id}/purchases', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AddonPurchaseListResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def update_addon_purchase(self, addon_id, user_id, addon_purchase, **kwargs):  # noqa: E501
-        """Update a purchase for an addon  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.update_addon_purchase(addon_id, user_id, addon_purchase, async_req=True)
-        >>> result = thread.get()
-
-        :param addon_id: Id of the addon (required)
-        :type addon_id: int
-        :param user_id: Id of the user (required)
-        :type user_id: int
-        :param addon_purchase: (required)
-        :type addon_purchase: AddonPurchase
-        :param _with: The relations you want to fetch with the `AddonPurchase`
-        :type _with: list[str]
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: AddonPurchaseResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.update_addon_purchase_with_http_info(addon_id, user_id, addon_purchase, **kwargs)  # noqa: E501
-
-    def update_addon_purchase_with_http_info(self, addon_id, user_id, addon_purchase, **kwargs):  # noqa: E501
-        """Update a purchase for an addon  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.update_addon_purchase_with_http_info(addon_id, user_id, addon_purchase, async_req=True)
-        >>> result = thread.get()
-
-        :param addon_id: Id of the addon (required)
-        :type addon_id: int
-        :param user_id: Id of the user (required)
-        :type user_id: int
-        :param addon_purchase: (required)
-        :type addon_purchase: AddonPurchase
-        :param _with: The relations you want to fetch with the `AddonPurchase`
-        :type _with: list[str]
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(AddonPurchaseResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'addon_id',
-            'user_id',
-            'addon_purchase',
-            '_with'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+                        "ADDON": "addon",
+                        "ORDER_ITEM": "order_item",
+                        "USER": "user"
+                    },
+                },
+                'openapi_types': {
+                    'addon_id':
+                        (int,),
+                    'user_id':
+                        (int,),
+                    'addon_purchase':
+                        (AddonPurchase,),
+                    '_with':
+                        ([str],),
+                },
+                'attribute_map': {
+                    'addon_id': 'addon_id',
+                    'user_id': 'user_id',
+                    '_with': 'with',
+                },
+                'location_map': {
+                    'addon_id': 'path',
+                    'user_id': 'path',
+                    'addon_purchase': 'body',
+                    '_with': 'query',
+                },
+                'collection_format_map': {
+                    '_with': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client,
+            callable=__update_addon_purchase
         )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_addon_purchase" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'addon_id' is set
-        if self.api_client.client_side_validation and ('addon_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['addon_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `addon_id` when calling `update_addon_purchase`")  # noqa: E501
-        # verify the required parameter 'user_id' is set
-        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `user_id` when calling `update_addon_purchase`")  # noqa: E501
-        # verify the required parameter 'addon_purchase' is set
-        if self.api_client.client_side_validation and ('addon_purchase' not in local_var_params or  # noqa: E501
-                                                        local_var_params['addon_purchase'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `addon_purchase` when calling `update_addon_purchase`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'addon_id' in local_var_params:
-            path_params['addon_id'] = local_var_params['addon_id']  # noqa: E501
-        if 'user_id' in local_var_params:
-            path_params['user_id'] = local_var_params['user_id']  # noqa: E501
-
-        query_params = []
-        if '_with' in local_var_params and local_var_params['_with'] is not None:  # noqa: E501
-            query_params.append(('with', local_var_params['_with']))  # noqa: E501
-            collection_formats['with'] = 'csv'  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'addon_purchase' in local_var_params:
-            body_params = local_var_params['addon_purchase']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/addons/{addon_id}/purchases/{user_id}', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AddonPurchaseResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))

@@ -1,11 +1,12 @@
 # AddonVersion
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [optional] [readonly] 
 **name** | **str** |  | 
 **changelog** | **str** | You can pass in markdown here | 
+**id** | **int** |  | [optional] [readonly] 
 **file_hash** | **str** |  | [optional] [readonly] 
 **file_size** | **int** |  | [optional] [readonly] 
 **release_type** | [**AddonVersionReleaseType**](AddonVersionReleaseType.md) |  | [optional] 

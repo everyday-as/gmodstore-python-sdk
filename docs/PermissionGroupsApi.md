@@ -16,10 +16,11 @@ Fetches all available permission groups
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import permission_groups_api
+from gmodstore-sdk.model.permission_group_list_response import PermissionGroupListResponse
+from gmodstore-sdk.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -40,15 +41,17 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.PermissionGroupsApi(api_client)
-    
+    api_instance = permission_groups_api.PermissionGroupsApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
     try:
         # Fetches all available permission groups
         api_response = api_instance.list_permission_groups()
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling PermissionGroupsApi->list_permission_groups: %s\n" % e)
 ```
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -65,6 +68,7 @@ This endpoint does not need any parameter.
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

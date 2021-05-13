@@ -16,10 +16,11 @@ Fetch all the addons in the given team
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import team_addons_api
+from gmodstore-sdk.model.team_user_list_response import TeamUserListResponse
+from gmodstore-sdk.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -40,22 +41,24 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.TeamAddonsApi(api_client)
-    team_id = 56 # int | Id of the team
+    api_instance = team_addons_api.TeamAddonsApi(api_client)
+    team_id = 1 # int | Id of the team
 
+    # example passing only required values which don't have defaults set
     try:
         # Fetch all the addons in the given team
         api_response = api_instance.list_team_addons(team_id)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling TeamAddonsApi->list_team_addons: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **team_id** | **int**| Id of the team | 
+ **team_id** | **int**| Id of the team |
 
 ### Return type
 
@@ -69,6 +72,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

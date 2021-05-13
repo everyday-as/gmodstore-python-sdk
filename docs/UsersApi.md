@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_self_user**
-> UserResponse get_self_user(_with=_with)
+> UserResponse get_self_user()
 
 Fetches the current user (API Key Owner)
 
@@ -17,10 +17,11 @@ Fetches the current user (API Key Owner)
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import users_api
+from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.user_response import UserResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -41,22 +42,27 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.UsersApi(api_client)
-    _with = ['_with_example'] # list[str] | The relations you want to fetch with the `User` (optional)
+    api_instance = users_api.UsersApi(api_client)
+    _with = [
+        "group",
+    ] # [str] | The relations you want to fetch with the `User` (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Fetches the current user (API Key Owner)
         api_response = api_instance.get_self_user(_with=_with)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling UsersApi->get_self_user: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;User&#x60; | [optional] 
+ **_with** | **[str]**| The relations you want to fetch with the &#x60;User&#x60; | [optional]
 
 ### Return type
 
@@ -70,6 +76,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -81,7 +88,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user**
-> UserResponse get_user(user_id, _with=_with)
+> UserResponse get_user(user_id)
 
 Fetch a single user
 
@@ -89,10 +96,11 @@ Fetch a single user
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import users_api
+from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.user_response import UserResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -113,24 +121,37 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.UsersApi(api_client)
-    user_id = 56 # int | Id of the user
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the `User` (optional)
+    api_instance = users_api.UsersApi(api_client)
+    user_id = 1 # int | Id of the user
+    _with = [
+        "group",
+    ] # [str] | The relations you want to fetch with the `User` (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Fetch a single user
+        api_response = api_instance.get_user(user_id)
+        pprint(api_response)
+    except gmodstore-sdk.ApiException as e:
+        print("Exception when calling UsersApi->get_user: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Fetch a single user
         api_response = api_instance.get_user(user_id, _with=_with)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling UsersApi->get_user: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| Id of the user | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;User&#x60; | [optional] 
+ **user_id** | **int**| Id of the user |
+ **_with** | **[str]**| The relations you want to fetch with the &#x60;User&#x60; | [optional]
 
 ### Return type
 
@@ -144,6 +165,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

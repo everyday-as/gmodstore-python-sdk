@@ -1,5 +1,6 @@
 # AddonCouponResponse
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

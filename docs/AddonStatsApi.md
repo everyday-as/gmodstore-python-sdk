@@ -16,10 +16,11 @@ Fetch all the stats for an addon
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import addon_stats_api
+from gmodstore-sdk.model.addon_stats_list_response import AddonStatsListResponse
+from gmodstore-sdk.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -40,22 +41,24 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.AddonStatsApi(api_client)
-    addon_id = 56 # int | Id of the addon
+    api_instance = addon_stats_api.AddonStatsApi(api_client)
+    addon_id = 1 # int | Id of the addon
 
+    # example passing only required values which don't have defaults set
     try:
         # Fetch all the stats for an addon
         api_response = api_instance.get_addon_stats(addon_id)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling AddonStatsApi->get_addon_stats: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addon_id** | **int**| Id of the addon | 
+ **addon_id** | **int**| Id of the addon |
 
 ### Return type
 
@@ -69,6 +72,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

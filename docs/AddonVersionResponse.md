@@ -1,5 +1,6 @@
 # AddonVersionResponse
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

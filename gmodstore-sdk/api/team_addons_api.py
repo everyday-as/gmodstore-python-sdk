@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     GmodStore API
 
@@ -10,18 +8,21 @@
 """
 
 
-from __future__ import absolute_import
-
 import re  # noqa: F401
+import sys  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
-from gmodstore-sdk.api_client import ApiClient
-from gmodstore-sdk.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
+from gmodstore-sdk.api_client import ApiClient, Endpoint as _Endpoint
+from gmodstore-sdk.model_utils import (  # noqa: F401
+    check_allowed_values,
+    check_validations,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_and_convert_types
 )
+from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.team_user_list_response import TeamUserListResponse
 
 
 class TeamAddonsApi(object):
@@ -36,131 +37,120 @@ class TeamAddonsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def list_team_addons(self, team_id, **kwargs):  # noqa: E501
-        """Fetch all the addons in the given team  # noqa: E501
+        def __list_team_addons(
+            self,
+            team_id,
+            **kwargs
+        ):
+            """Fetch all the addons in the given team  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_team_addons(team_id, async_req=True)
-        >>> result = thread.get()
+            >>> thread = api.list_team_addons(team_id, async_req=True)
+            >>> result = thread.get()
 
-        :param team_id: Id of the team (required)
-        :type team_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: TeamUserListResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.list_team_addons_with_http_info(team_id, **kwargs)  # noqa: E501
+            Args:
+                team_id (int): Id of the team
 
-    def list_team_addons_with_http_info(self, team_id, **kwargs):  # noqa: E501
-        """Fetch all the addons in the given team  # noqa: E501
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+            Returns:
+                TeamUserListResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['team_id'] = \
+                team_id
+            return self.call_with_http_info(**kwargs)
 
-        >>> thread = api.list_team_addons_with_http_info(team_id, async_req=True)
-        >>> result = thread.get()
-
-        :param team_id: Id of the team (required)
-        :type team_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(TeamUserListResponse, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'team_id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+        self.list_team_addons = _Endpoint(
+            settings={
+                'response_type': (TeamUserListResponse,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/teams/{team_id}/addons',
+                'operation_id': 'list_team_addons',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'team_id',
+                ],
+                'required': [
+                    'team_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'team_id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'team_id': 'team_id',
+                },
+                'location_map': {
+                    'team_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__list_team_addons
         )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_team_addons" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'team_id' is set
-        if self.api_client.client_side_validation and ('team_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['team_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `team_id` when calling `list_team_addons`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'team_id' in local_var_params:
-            path_params['team_id'] = local_var_params['team_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/teams/{team_id}/addons', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='TeamUserListResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))

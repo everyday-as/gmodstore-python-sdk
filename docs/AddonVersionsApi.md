@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_addon_version**
-> AddonVersionResponse create_addon_version(addon_id, new_addon_version, _with=_with)
+> AddonVersionResponse create_addon_version(addon_id, new_addon_version)
 
 Create a new version for an addon
 
@@ -20,10 +20,12 @@ Create a new version for an addon
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import addon_versions_api
+from gmodstore-sdk.model.new_addon_version import NewAddonVersion
+from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.addon_version_response import AddonVersionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -44,26 +46,44 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.AddonVersionsApi(api_client)
-    addon_id = 56 # int | Id of the addon
-new_addon_version = gmodstore-sdk.NewAddonVersion() # NewAddonVersion | 
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonVersion` (optional)
+    api_instance = addon_versions_api.AddonVersionsApi(api_client)
+    addon_id = 1 # int | Id of the addon
+    new_addon_version = NewAddonVersion(
+        name="name_example",
+        changelog="changelog_example",
+        file=open('/path/to/file', 'rb'),
+        release_type=AddonVersionReleaseType("stable"),
+    ) # NewAddonVersion | 
+    _with = [
+        "addon",
+    ] # [str] | The relations you want to fetch with the `AddonVersion` (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Create a new version for an addon
+        api_response = api_instance.create_addon_version(addon_id, new_addon_version)
+        pprint(api_response)
+    except gmodstore-sdk.ApiException as e:
+        print("Exception when calling AddonVersionsApi->create_addon_version: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Create a new version for an addon
         api_response = api_instance.create_addon_version(addon_id, new_addon_version, _with=_with)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling AddonVersionsApi->create_addon_version: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addon_id** | **int**| Id of the addon | 
- **new_addon_version** | [**NewAddonVersion**](NewAddonVersion.md)|  | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonVersion&#x60; | [optional] 
+ **addon_id** | **int**| Id of the addon |
+ **new_addon_version** | [**NewAddonVersion**](NewAddonVersion.md)|  |
+ **_with** | **[str]**| The relations you want to fetch with the &#x60;AddonVersion&#x60; | [optional]
 
 ### Return type
 
@@ -77,6 +97,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -96,10 +117,11 @@ Generate a download token for a specific version of an addon
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import addon_versions_api
+from gmodstore-sdk.model.addon_download_response import AddonDownloadResponse
+from gmodstore-sdk.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -120,24 +142,26 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.AddonVersionsApi(api_client)
-    addon_id = 56 # int | Id of the addon
-version_id = 56 # int | Id of the version
+    api_instance = addon_versions_api.AddonVersionsApi(api_client)
+    addon_id = 1 # int | Id of the addon
+    version_id = 1 # int | Id of the version
 
+    # example passing only required values which don't have defaults set
     try:
         # Generate a download token for a specific version of an addon
         api_response = api_instance.download_addon_version(addon_id, version_id)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling AddonVersionsApi->download_addon_version: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addon_id** | **int**| Id of the addon | 
- **version_id** | **int**| Id of the version | 
+ **addon_id** | **int**| Id of the addon |
+ **version_id** | **int**| Id of the version |
 
 ### Return type
 
@@ -152,6 +176,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -162,7 +187,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_addon_version**
-> AddonVersionResponse get_addon_version(addon_id, version_id, _with=_with)
+> AddonVersionResponse get_addon_version(addon_id, version_id)
 
 Fetch a specific version of an addon
 
@@ -170,10 +195,11 @@ Fetch a specific version of an addon
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import addon_versions_api
+from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.addon_version_response import AddonVersionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -194,26 +220,39 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.AddonVersionsApi(api_client)
-    addon_id = 56 # int | Id of the addon
-version_id = 56 # int | Id of the version
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonVersion` (optional)
+    api_instance = addon_versions_api.AddonVersionsApi(api_client)
+    addon_id = 1 # int | Id of the addon
+    version_id = 1 # int | Id of the version
+    _with = [
+        "addon",
+    ] # [str] | The relations you want to fetch with the `AddonVersion` (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Fetch a specific version of an addon
+        api_response = api_instance.get_addon_version(addon_id, version_id)
+        pprint(api_response)
+    except gmodstore-sdk.ApiException as e:
+        print("Exception when calling AddonVersionsApi->get_addon_version: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Fetch a specific version of an addon
         api_response = api_instance.get_addon_version(addon_id, version_id, _with=_with)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling AddonVersionsApi->get_addon_version: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addon_id** | **int**| Id of the addon | 
- **version_id** | **int**| Id of the version | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonVersion&#x60; | [optional] 
+ **addon_id** | **int**| Id of the addon |
+ **version_id** | **int**| Id of the version |
+ **_with** | **[str]**| The relations you want to fetch with the &#x60;AddonVersion&#x60; | [optional]
 
 ### Return type
 
@@ -228,6 +267,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -238,7 +278,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_addon_versions**
-> AddonVersionListResponse list_addon_versions(addon_id, _with=_with)
+> AddonVersionListResponse list_addon_versions(addon_id)
 
 Fetch all the versions of an addon
 
@@ -246,10 +286,11 @@ Fetch all the versions of an addon
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import addon_versions_api
+from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.addon_version_list_response import AddonVersionListResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -270,24 +311,37 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.AddonVersionsApi(api_client)
-    addon_id = 56 # int | Id of the addon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonVersion` (optional)
+    api_instance = addon_versions_api.AddonVersionsApi(api_client)
+    addon_id = 1 # int | Id of the addon
+    _with = [
+        "addon",
+    ] # [str] | The relations you want to fetch with the `AddonVersion` (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Fetch all the versions of an addon
+        api_response = api_instance.list_addon_versions(addon_id)
+        pprint(api_response)
+    except gmodstore-sdk.ApiException as e:
+        print("Exception when calling AddonVersionsApi->list_addon_versions: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Fetch all the versions of an addon
         api_response = api_instance.list_addon_versions(addon_id, _with=_with)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling AddonVersionsApi->list_addon_versions: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addon_id** | **int**| Id of the addon | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonVersion&#x60; | [optional] 
+ **addon_id** | **int**| Id of the addon |
+ **_with** | **[str]**| The relations you want to fetch with the &#x60;AddonVersion&#x60; | [optional]
 
 ### Return type
 
@@ -302,6 +356,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -312,7 +367,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_addon_version**
-> AddonVersionResponse update_addon_version(addon_id, version_id, addon_version, _with=_with)
+> AddonVersionResponse update_addon_version(addon_id, version_id, addon_version)
 
 Update a version of an addon
 
@@ -320,10 +375,12 @@ Update a version of an addon
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import addon_versions_api
+from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.addon_version_response import AddonVersionResponse
+from gmodstore-sdk.model.addon_version import AddonVersion
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -344,28 +401,45 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.AddonVersionsApi(api_client)
-    addon_id = 56 # int | Id of the addon
-version_id = 56 # int | Id of the version
-addon_version = gmodstore-sdk.AddonVersion() # AddonVersion | 
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonVersion` (optional)
+    api_instance = addon_versions_api.AddonVersionsApi(api_client)
+    addon_id = 1 # int | Id of the addon
+    version_id = 1 # int | Id of the version
+    addon_version = AddonVersion(
+        name="name_example",
+        changelog="changelog_example",
+        release_type=AddonVersionReleaseType("stable"),
+    ) # AddonVersion | 
+    _with = [
+        "addon",
+    ] # [str] | The relations you want to fetch with the `AddonVersion` (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Update a version of an addon
+        api_response = api_instance.update_addon_version(addon_id, version_id, addon_version)
+        pprint(api_response)
+    except gmodstore-sdk.ApiException as e:
+        print("Exception when calling AddonVersionsApi->update_addon_version: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Update a version of an addon
         api_response = api_instance.update_addon_version(addon_id, version_id, addon_version, _with=_with)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling AddonVersionsApi->update_addon_version: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addon_id** | **int**| Id of the addon | 
- **version_id** | **int**| Id of the version | 
- **addon_version** | [**AddonVersion**](AddonVersion.md)|  | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonVersion&#x60; | [optional] 
+ **addon_id** | **int**| Id of the addon |
+ **version_id** | **int**| Id of the version |
+ **addon_version** | [**AddonVersion**](AddonVersion.md)|  |
+ **_with** | **[str]**| The relations you want to fetch with the &#x60;AddonVersion&#x60; | [optional]
 
 ### Return type
 
@@ -379,6 +453,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

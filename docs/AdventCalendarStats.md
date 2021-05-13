@@ -1,5 +1,6 @@
 # AdventCalendarStats
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

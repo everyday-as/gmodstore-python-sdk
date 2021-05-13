@@ -1,5 +1,6 @@
 # AddonPrice
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

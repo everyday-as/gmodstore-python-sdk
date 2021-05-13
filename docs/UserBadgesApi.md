@@ -18,10 +18,12 @@ Give a user a badge
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import user_badges_api
+from gmodstore-sdk.model.badge_response import BadgeResponse
+from gmodstore-sdk.model.user_badge import UserBadge
+from gmodstore-sdk.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -42,24 +44,28 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.UserBadgesApi(api_client)
-    user_id = 56 # int | Id of the user
-user_badge = gmodstore-sdk.UserBadge() # UserBadge | 
+    api_instance = user_badges_api.UserBadgesApi(api_client)
+    user_id = 1 # int | Id of the user
+    user_badge = UserBadge(
+        badge="badge_example",
+    ) # UserBadge | 
 
+    # example passing only required values which don't have defaults set
     try:
         # Give a user a badge
         api_response = api_instance.create_user_badge(user_id, user_badge)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling UserBadgesApi->create_user_badge: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| Id of the user | 
- **user_badge** | [**UserBadge**](UserBadge.md)|  | 
+ **user_id** | **int**| Id of the user |
+ **user_badge** | [**UserBadge**](UserBadge.md)|  |
 
 ### Return type
 
@@ -73,6 +79,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -92,10 +99,10 @@ Destroy a users's badge
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import user_badges_api
+from gmodstore-sdk.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -116,23 +123,25 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.UserBadgesApi(api_client)
-    user_id = 56 # int | Id of the user
-badge_id = 'badge_id_example' # str | Id of the badge
+    api_instance = user_badges_api.UserBadgesApi(api_client)
+    user_id = 1 # int | Id of the user
+    badge_id = "badge_id_example" # str | Id of the badge
 
+    # example passing only required values which don't have defaults set
     try:
         # Destroy a users's badge
         api_instance.delete_user_badge(user_id, badge_id)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling UserBadgesApi->delete_user_badge: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| Id of the user | 
- **badge_id** | **str**| Id of the badge | 
+ **user_id** | **int**| Id of the user |
+ **badge_id** | **str**| Id of the badge |
 
 ### Return type
 
@@ -146,6 +155,7 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -164,10 +174,11 @@ Fetch all the badges a user has
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import user_badges_api
+from gmodstore-sdk.model.badge_list_response import BadgeListResponse
+from gmodstore-sdk.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -188,22 +199,24 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.UserBadgesApi(api_client)
-    user_id = 56 # int | Id of the user
+    api_instance = user_badges_api.UserBadgesApi(api_client)
+    user_id = 1 # int | Id of the user
 
+    # example passing only required values which don't have defaults set
     try:
         # Fetch all the badges a user has
         api_response = api_instance.list_user_badges(user_id)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling UserBadgesApi->list_user_badges: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| Id of the user | 
+ **user_id** | **int**| Id of the user |
 
 ### Return type
 
@@ -217,6 +230,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

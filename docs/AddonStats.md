@@ -1,5 +1,6 @@
 # AddonStats
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_current_api_key**
-> AddonListResponse get_current_api_key(_with=_with)
+> AddonListResponse get_current_api_key()
 
 Get meta information about the current API key
 
@@ -16,10 +16,11 @@ Get meta information about the current API key
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import current_api_key_api
+from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.addon_list_response import AddonListResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -40,22 +41,27 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.CurrentAPIKeyApi(api_client)
-    _with = ['_with_example'] # list[str] | The relations you want to fetch with the `ApiKey` (optional)
+    api_instance = current_api_key_api.CurrentAPIKeyApi(api_client)
+    _with = [
+        "user",
+    ] # [str] | The relations you want to fetch with the `ApiKey` (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Get meta information about the current API key
         api_response = api_instance.get_current_api_key(_with=_with)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling CurrentAPIKeyApi->get_current_api_key: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;ApiKey&#x60; | [optional] 
+ **_with** | **[str]**| The relations you want to fetch with the &#x60;ApiKey&#x60; | [optional]
 
 ### Return type
 
@@ -69,6 +75,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

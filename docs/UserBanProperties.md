@@ -1,12 +1,10 @@
-# NewAddonVersion
+# UserBanProperties
+
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
-**changelog** | **str** | You can pass in markdown here | 
-**file** | **file** |  | 
-**release_type** | [**AddonVersionReleaseType**](AddonVersionReleaseType.md) |  | [optional] 
+**value** | **[str]** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

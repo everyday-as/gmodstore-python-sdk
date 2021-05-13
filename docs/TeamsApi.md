@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_team**
-> TeamResponse get_team(team_id, _with=_with)
+> TeamResponse get_team(team_id)
 
 Fetch a single team
 
@@ -16,10 +16,11 @@ Fetch a single team
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import teams_api
+from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.team_response import TeamResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -40,24 +41,37 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.TeamsApi(api_client)
-    team_id = 56 # int | Id of the team
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the `Team` (optional)
+    api_instance = teams_api.TeamsApi(api_client)
+    team_id = 1 # int | Id of the team
+    _with = [
+        "primaryAuthor",
+    ] # [str] | The relations you want to fetch with the `Team` (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Fetch a single team
+        api_response = api_instance.get_team(team_id)
+        pprint(api_response)
+    except gmodstore-sdk.ApiException as e:
+        print("Exception when calling TeamsApi->get_team: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Fetch a single team
         api_response = api_instance.get_team(team_id, _with=_with)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling TeamsApi->get_team: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **team_id** | **int**| Id of the team | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;Team&#x60; | [optional] 
+ **team_id** | **int**| Id of the team |
+ **_with** | **[str]**| The relations you want to fetch with the &#x60;Team&#x60; | [optional]
 
 ### Return type
 
@@ -71,6 +85,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

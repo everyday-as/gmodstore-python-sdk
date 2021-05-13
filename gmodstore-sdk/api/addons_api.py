@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     GmodStore API
 
@@ -10,18 +8,22 @@
 """
 
 
-from __future__ import absolute_import
-
 import re  # noqa: F401
+import sys  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
-from gmodstore-sdk.api_client import ApiClient
-from gmodstore-sdk.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
+from gmodstore-sdk.api_client import ApiClient, Endpoint as _Endpoint
+from gmodstore-sdk.model_utils import (  # noqa: F401
+    check_allowed_values,
+    check_validations,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_and_convert_types
 )
+from gmodstore-sdk.model.addon_list_response1 import AddonListResponse1
+from gmodstore-sdk.model.addon_response import AddonResponse
+from gmodstore-sdk.model.error_response import ErrorResponse
 
 
 class AddonsApi(object):
@@ -36,265 +38,260 @@ class AddonsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def get_addon(self, addon_id, **kwargs):  # noqa: E501
-        """Fetch a single addon  # noqa: E501
+        def __get_addon(
+            self,
+            addon_id,
+            **kwargs
+        ):
+            """Fetch a single addon  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_addon(addon_id, async_req=True)
-        >>> result = thread.get()
+            >>> thread = api.get_addon(addon_id, async_req=True)
+            >>> result = thread.get()
 
-        :param addon_id: Id of the addon (required)
-        :type addon_id: int
-        :param _with: The relations you want to fetch with the `Addon`
-        :type _with: list[str]
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: AddonResponse
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_addon_with_http_info(addon_id, **kwargs)  # noqa: E501
+            Args:
+                addon_id (int): Id of the addon
 
-    def get_addon_with_http_info(self, addon_id, **kwargs):  # noqa: E501
-        """Fetch a single addon  # noqa: E501
+            Keyword Args:
+                _with ([str]): The relations you want to fetch with the `Addon`. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+            Returns:
+                AddonResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['addon_id'] = \
+                addon_id
+            return self.call_with_http_info(**kwargs)
 
-        >>> thread = api.get_addon_with_http_info(addon_id, async_req=True)
-        >>> result = thread.get()
+        self.get_addon = _Endpoint(
+            settings={
+                'response_type': (AddonResponse,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/addons/{addon_id}',
+                'operation_id': 'get_addon',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'addon_id',
+                    '_with',
+                ],
+                'required': [
+                    'addon_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    '_with',
+                ],
+                'validation': [
+                    '_with',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('_with',): {
 
-        :param addon_id: Id of the addon (required)
-        :type addon_id: int
-        :param _with: The relations you want to fetch with the `Addon`
-        :type _with: list[str]
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(AddonResponse, status_code(int), headers(HTTPHeaderDict))
-        """
+                    },
+                },
+                'allowed_values': {
+                    ('_with',): {
 
-        local_var_params = locals()
-
-        all_params = [
-            'addon_id',
-            '_with'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+                        "LATEST_VERSION": "latest_version",
+                        "TEAM": "team"
+                    },
+                },
+                'openapi_types': {
+                    'addon_id':
+                        (int,),
+                    '_with':
+                        ([str],),
+                },
+                'attribute_map': {
+                    'addon_id': 'addon_id',
+                    '_with': 'with',
+                },
+                'location_map': {
+                    'addon_id': 'path',
+                    '_with': 'query',
+                },
+                'collection_format_map': {
+                    '_with': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__get_addon
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_addon" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'addon_id' is set
-        if self.api_client.client_side_validation and ('addon_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['addon_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `addon_id` when calling `get_addon`")  # noqa: E501
+        def __list_self_addons(
+            self,
+            **kwargs
+        ):
+            """Fetch all the addons that you have access to  # noqa: E501
 
-        collection_formats = {}
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
-        if 'addon_id' in local_var_params:
-            path_params['addon_id'] = local_var_params['addon_id']  # noqa: E501
+            >>> thread = api.list_self_addons(async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if '_with' in local_var_params and local_var_params['_with'] is not None:  # noqa: E501
-            query_params.append(('with', local_var_params['_with']))  # noqa: E501
-            collection_formats['with'] = 'csv'  # noqa: E501
 
-        header_params = {}
+            Keyword Args:
+                _with ([str]): The relations you want to fetch with the `Addon`. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                AddonListResponse1
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        self.list_self_addons = _Endpoint(
+            settings={
+                'response_type': (AddonListResponse1,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/addons',
+                'operation_id': 'list_self_addons',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    '_with',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                    '_with',
+                ],
+                'validation': [
+                    '_with',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('_with',): {
 
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
+                    },
+                },
+                'allowed_values': {
+                    ('_with',): {
 
-        return self.api_client.call_api(
-            '/addons/{addon_id}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AddonResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def list_self_addons(self, **kwargs):  # noqa: E501
-        """Fetch all the addons that you have access to  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.list_self_addons(async_req=True)
-        >>> result = thread.get()
-
-        :param _with: The relations you want to fetch with the `Addon`
-        :type _with: list[str]
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: AddonListResponse1
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.list_self_addons_with_http_info(**kwargs)  # noqa: E501
-
-    def list_self_addons_with_http_info(self, **kwargs):  # noqa: E501
-        """Fetch all the addons that you have access to  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.list_self_addons_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param _with: The relations you want to fetch with the `Addon`
-        :type _with: list[str]
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(AddonListResponse1, status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            '_with'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
+                        "LATEST_VERSION": "latest_version",
+                        "TEAM": "team"
+                    },
+                },
+                'openapi_types': {
+                    '_with':
+                        ([str],),
+                },
+                'attribute_map': {
+                    '_with': 'with',
+                },
+                'location_map': {
+                    '_with': 'query',
+                },
+                'collection_format_map': {
+                    '_with': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__list_self_addons
         )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_self_addons" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if '_with' in local_var_params and local_var_params['_with'] is not None:  # noqa: E501
-            query_params.append(('with', local_var_params['_with']))  # noqa: E501
-            collection_formats['with'] = 'csv'  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/addons', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AddonListResponse1',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))

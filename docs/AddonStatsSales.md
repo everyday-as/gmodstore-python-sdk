@@ -1,5 +1,6 @@
 # AddonStatsSales
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

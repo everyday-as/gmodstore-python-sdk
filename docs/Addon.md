@@ -1,5 +1,6 @@
 # Addon
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -8,7 +9,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **short_description** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
-**requirements** | **list[str]** |  | [optional] 
+**requirements** | **[str]** |  | [optional] 
 **price** | [**AddonPrice**](AddonPrice.md) |  | [optional] 
 **images** | [**AddonImages**](AddonImages.md) |  | [optional] 
 **slug** | **str** |  | [optional] [readonly] 

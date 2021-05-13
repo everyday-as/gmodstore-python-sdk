@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_addon_review**
-> AddonReviewResponse get_addon_review(addon_id, review_id, _with=_with)
+> AddonReviewResponse get_addon_review(addon_id, review_id)
 
 Fetch a review of an addon
 
@@ -17,10 +17,11 @@ Fetch a review of an addon
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import addon_reviews_api
+from gmodstore-sdk.model.addon_review_response import AddonReviewResponse
+from gmodstore-sdk.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -41,26 +42,39 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.AddonReviewsApi(api_client)
-    addon_id = 56 # int | Id of the addon
-review_id = 56 # int | Id of the review
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonReview` (optional)
+    api_instance = addon_reviews_api.AddonReviewsApi(api_client)
+    addon_id = 1 # int | Id of the addon
+    review_id = 1 # int | Id of the review
+    _with = [
+        "addon",
+    ] # [str] | The relations you want to fetch with the `AddonReview` (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Fetch a review of an addon
+        api_response = api_instance.get_addon_review(addon_id, review_id)
+        pprint(api_response)
+    except gmodstore-sdk.ApiException as e:
+        print("Exception when calling AddonReviewsApi->get_addon_review: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Fetch a review of an addon
         api_response = api_instance.get_addon_review(addon_id, review_id, _with=_with)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling AddonReviewsApi->get_addon_review: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addon_id** | **int**| Id of the addon | 
- **review_id** | **int**| Id of the review | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonReview&#x60; | [optional] 
+ **addon_id** | **int**| Id of the addon |
+ **review_id** | **int**| Id of the review |
+ **_with** | **[str]**| The relations you want to fetch with the &#x60;AddonReview&#x60; | [optional]
 
 ### Return type
 
@@ -75,6 +89,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -85,7 +100,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_addon_reviews**
-> AddonReviewListResponse list_addon_reviews(addon_id, _with=_with)
+> AddonReviewListResponse list_addon_reviews(addon_id)
 
 Fetch all the reviews of an addon
 
@@ -93,10 +108,11 @@ Fetch all the reviews of an addon
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import addon_reviews_api
+from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.addon_review_list_response import AddonReviewListResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -117,24 +133,37 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.AddonReviewsApi(api_client)
-    addon_id = 56 # int | Id of the addon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonReview` (optional)
+    api_instance = addon_reviews_api.AddonReviewsApi(api_client)
+    addon_id = 1 # int | Id of the addon
+    _with = [
+        "addon",
+    ] # [str] | The relations you want to fetch with the `AddonReview` (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Fetch all the reviews of an addon
+        api_response = api_instance.list_addon_reviews(addon_id)
+        pprint(api_response)
+    except gmodstore-sdk.ApiException as e:
+        print("Exception when calling AddonReviewsApi->list_addon_reviews: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Fetch all the reviews of an addon
         api_response = api_instance.list_addon_reviews(addon_id, _with=_with)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling AddonReviewsApi->list_addon_reviews: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addon_id** | **int**| Id of the addon | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonReview&#x60; | [optional] 
+ **addon_id** | **int**| Id of the addon |
+ **_with** | **[str]**| The relations you want to fetch with the &#x60;AddonReview&#x60; | [optional]
 
 ### Return type
 
@@ -148,6 +177,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

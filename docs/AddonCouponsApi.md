@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_addon_coupon**
-> AddonCouponResponse create_addon_coupon(addon_id, addon_coupon, _with=_with)
+> AddonCouponResponse create_addon_coupon(addon_id, addon_coupon)
 
 Create an addon coupon
 
@@ -20,10 +20,12 @@ Create an addon coupon
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import addon_coupons_api
+from gmodstore-sdk.model.addon_coupon_response import AddonCouponResponse
+from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.addon_coupon import AddonCoupon
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -44,26 +46,45 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.AddonCouponsApi(api_client)
-    addon_id = 56 # int | Id of the addon
-addon_coupon = gmodstore-sdk.AddonCoupon() # AddonCoupon | 
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonCoupon` (optional)
+    api_instance = addon_coupons_api.AddonCouponsApi(api_client)
+    addon_id = 1 # int | Id of the addon
+    addon_coupon = AddonCoupon(
+        code="code_example",
+        percent=1,
+        max_uses=1,
+        expires_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        bound_user_id=1,
+    ) # AddonCoupon | 
+    _with = [
+        "addon",
+    ] # [str] | The relations you want to fetch with the `AddonCoupon` (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Create an addon coupon
+        api_response = api_instance.create_addon_coupon(addon_id, addon_coupon)
+        pprint(api_response)
+    except gmodstore-sdk.ApiException as e:
+        print("Exception when calling AddonCouponsApi->create_addon_coupon: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Create an addon coupon
         api_response = api_instance.create_addon_coupon(addon_id, addon_coupon, _with=_with)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling AddonCouponsApi->create_addon_coupon: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addon_id** | **int**| Id of the addon | 
- **addon_coupon** | [**AddonCoupon**](AddonCoupon.md)|  | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonCoupon&#x60; | [optional] 
+ **addon_id** | **int**| Id of the addon |
+ **addon_coupon** | [**AddonCoupon**](AddonCoupon.md)|  |
+ **_with** | **[str]**| The relations you want to fetch with the &#x60;AddonCoupon&#x60; | [optional]
 
 ### Return type
 
@@ -77,6 +98,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -96,10 +118,10 @@ Destroy an addon's coupon
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import addon_coupons_api
+from gmodstore-sdk.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -120,23 +142,25 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.AddonCouponsApi(api_client)
-    addon_id = 56 # int | Id of the addon
-coupon_id = 56 # int | Id of the coupon
+    api_instance = addon_coupons_api.AddonCouponsApi(api_client)
+    addon_id = 1 # int | Id of the addon
+    coupon_id = 1 # int | Id of the coupon
 
+    # example passing only required values which don't have defaults set
     try:
         # Destroy an addon's coupon
         api_instance.delete_addon_coupon(addon_id, coupon_id)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling AddonCouponsApi->delete_addon_coupon: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addon_id** | **int**| Id of the addon | 
- **coupon_id** | **int**| Id of the coupon | 
+ **addon_id** | **int**| Id of the addon |
+ **coupon_id** | **int**| Id of the coupon |
 
 ### Return type
 
@@ -151,6 +175,7 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -161,7 +186,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_addon_coupon**
-> AddonCouponResponse get_addon_coupon(addon_id, coupon_id, _with=_with)
+> AddonCouponResponse get_addon_coupon(addon_id, coupon_id)
 
 Fetch an addon's coupon
 
@@ -169,10 +194,11 @@ Fetch an addon's coupon
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import addon_coupons_api
+from gmodstore-sdk.model.addon_coupon_response import AddonCouponResponse
+from gmodstore-sdk.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -193,26 +219,39 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.AddonCouponsApi(api_client)
-    addon_id = 56 # int | Id of the addon
-coupon_id = 56 # int | Id of the coupon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonCoupon` (optional)
+    api_instance = addon_coupons_api.AddonCouponsApi(api_client)
+    addon_id = 1 # int | Id of the addon
+    coupon_id = 1 # int | Id of the coupon
+    _with = [
+        "addon",
+    ] # [str] | The relations you want to fetch with the `AddonCoupon` (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Fetch an addon's coupon
+        api_response = api_instance.get_addon_coupon(addon_id, coupon_id)
+        pprint(api_response)
+    except gmodstore-sdk.ApiException as e:
+        print("Exception when calling AddonCouponsApi->get_addon_coupon: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Fetch an addon's coupon
         api_response = api_instance.get_addon_coupon(addon_id, coupon_id, _with=_with)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling AddonCouponsApi->get_addon_coupon: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addon_id** | **int**| Id of the addon | 
- **coupon_id** | **int**| Id of the coupon | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonCoupon&#x60; | [optional] 
+ **addon_id** | **int**| Id of the addon |
+ **coupon_id** | **int**| Id of the coupon |
+ **_with** | **[str]**| The relations you want to fetch with the &#x60;AddonCoupon&#x60; | [optional]
 
 ### Return type
 
@@ -227,6 +266,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -237,7 +277,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_addon_coupons**
-> AddonCouponListResponse list_addon_coupons(addon_id, _with=_with)
+> AddonCouponListResponse list_addon_coupons(addon_id)
 
 Fetch all the coupons for an addon
 
@@ -245,10 +285,11 @@ Fetch all the coupons for an addon
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import addon_coupons_api
+from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.addon_coupon_list_response import AddonCouponListResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -269,24 +310,37 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.AddonCouponsApi(api_client)
-    addon_id = 56 # int | Id of the addon
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonCoupon` (optional)
+    api_instance = addon_coupons_api.AddonCouponsApi(api_client)
+    addon_id = 1 # int | Id of the addon
+    _with = [
+        "addon",
+    ] # [str] | The relations you want to fetch with the `AddonCoupon` (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Fetch all the coupons for an addon
+        api_response = api_instance.list_addon_coupons(addon_id)
+        pprint(api_response)
+    except gmodstore-sdk.ApiException as e:
+        print("Exception when calling AddonCouponsApi->list_addon_coupons: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Fetch all the coupons for an addon
         api_response = api_instance.list_addon_coupons(addon_id, _with=_with)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling AddonCouponsApi->list_addon_coupons: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addon_id** | **int**| Id of the addon | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonCoupon&#x60; | [optional] 
+ **addon_id** | **int**| Id of the addon |
+ **_with** | **[str]**| The relations you want to fetch with the &#x60;AddonCoupon&#x60; | [optional]
 
 ### Return type
 
@@ -301,6 +355,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -311,7 +366,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_addon_coupon**
-> AddonCouponResponse update_addon_coupon(addon_id, coupon_id, addon_coupon, _with=_with)
+> AddonCouponResponse update_addon_coupon(addon_id, coupon_id, addon_coupon)
 
 Update an addon's coupon
 
@@ -319,10 +374,12 @@ Update an addon's coupon
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import addon_coupons_api
+from gmodstore-sdk.model.addon_coupon_response import AddonCouponResponse
+from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.addon_coupon import AddonCoupon
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -343,28 +400,47 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.AddonCouponsApi(api_client)
-    addon_id = 56 # int | Id of the addon
-coupon_id = 56 # int | Id of the coupon
-addon_coupon = gmodstore-sdk.AddonCoupon() # AddonCoupon | 
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonCoupon` (optional)
+    api_instance = addon_coupons_api.AddonCouponsApi(api_client)
+    addon_id = 1 # int | Id of the addon
+    coupon_id = 1 # int | Id of the coupon
+    addon_coupon = AddonCoupon(
+        code="code_example",
+        percent=1,
+        max_uses=1,
+        expires_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        bound_user_id=1,
+    ) # AddonCoupon | 
+    _with = [
+        "addon",
+    ] # [str] | The relations you want to fetch with the `AddonCoupon` (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Update an addon's coupon
+        api_response = api_instance.update_addon_coupon(addon_id, coupon_id, addon_coupon)
+        pprint(api_response)
+    except gmodstore-sdk.ApiException as e:
+        print("Exception when calling AddonCouponsApi->update_addon_coupon: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Update an addon's coupon
         api_response = api_instance.update_addon_coupon(addon_id, coupon_id, addon_coupon, _with=_with)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling AddonCouponsApi->update_addon_coupon: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addon_id** | **int**| Id of the addon | 
- **coupon_id** | **int**| Id of the coupon | 
- **addon_coupon** | [**AddonCoupon**](AddonCoupon.md)|  | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;AddonCoupon&#x60; | [optional] 
+ **addon_id** | **int**| Id of the addon |
+ **coupon_id** | **int**| Id of the coupon |
+ **addon_coupon** | [**AddonCoupon**](AddonCoupon.md)|  |
+ **_with** | **[str]**| The relations you want to fetch with the &#x60;AddonCoupon&#x60; | [optional]
 
 ### Return type
 
@@ -378,6 +454,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

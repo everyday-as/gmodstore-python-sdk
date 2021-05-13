@@ -10,7 +10,7 @@ For more information, please visit [https://docs.gmodstore.com](https://docs.gmo
 
 ## Requirements.
 
-Python 2.7 and 3.4+
+Python >= 3.6
 
 ## Installation & Usage
 ### pip install
@@ -46,13 +46,15 @@ import gmodstore-sdk
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```python
-from __future__ import print_function
 
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
 from pprint import pprint
-
+from gmodstore-sdk.api import addon_coupons_api
+from gmodstore-sdk.model.addon_coupon import AddonCoupon
+from gmodstore-sdk.model.addon_coupon_list_response import AddonCouponListResponse
+from gmodstore-sdk.model.addon_coupon_response import AddonCouponResponse
+from gmodstore-sdk.model.error_response import ErrorResponse
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gmodstore-sdk.Configuration(
@@ -73,18 +75,25 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.AddonCouponsApi(api_client)
-    addon_id = 56 # int | Id of the addon
-addon_coupon = gmodstore-sdk.AddonCoupon() # AddonCoupon | 
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the `AddonCoupon` (optional)
+    api_instance = addon_coupons_api.AddonCouponsApi(api_client)
+    addon_id = 1 # int | Id of the addon
+addon_coupon = AddonCoupon(
+        code="code_example",
+        percent=1,
+        max_uses=1,
+        expires_at=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        bound_user_id=1,
+    ) # AddonCoupon | 
+_with = [
+        "addon",
+    ] # [str] | The relations you want to fetch with the `AddonCoupon` (optional)
 
     try:
         # Create an addon coupon
         api_response = api_instance.create_addon_coupon(addon_id, addon_coupon, _with=_with)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling AddonCouponsApi->create_addon_coupon: %s\n" % e)
-    
 ```
 
 ## Documentation for API Endpoints
@@ -169,7 +178,6 @@ Class | Method | HTTP request | Description
  - [ErrorResponse](docs/ErrorResponse.md)
  - [Money](docs/Money.md)
  - [NewAddonPurchase](docs/NewAddonPurchase.md)
- - [NewAddonVersion](docs/NewAddonVersion.md)
  - [OrderItem](docs/OrderItem.md)
  - [PermissionGroup](docs/PermissionGroup.md)
  - [PermissionGroupListResponse](docs/PermissionGroupListResponse.md)
@@ -183,6 +191,7 @@ Class | Method | HTTP request | Description
  - [UserBadgeLegend](docs/UserBadgeLegend.md)
  - [UserBan](docs/UserBan.md)
  - [UserBanListResponse](docs/UserBanListResponse.md)
+ - [UserBanProperties](docs/UserBanProperties.md)
  - [UserResponse](docs/UserResponse.md)
 
 
@@ -198,4 +207,23 @@ Class | Method | HTTP request | Description
 
 
 
+
+## Notes for Large OpenAPI documents
+If the OpenAPI document is large, imports in gmodstore-sdk.apis and gmodstore-sdk.models may fail with a
+RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
+
+Solution 1:
+Use specific imports for apis and models like:
+- `from gmodstore-sdk.api.default_api import DefaultApi`
+- `from gmodstore-sdk.model.pet import Pet`
+
+Solution 2:
+Before importing the package, adjust the maximum recursion limit as shown below:
+```
+import sys
+sys.setrecursionlimit(1500)
+import gmodstore-sdk
+from gmodstore-sdk.apis import *
+from gmodstore-sdk.models import *
+```
 

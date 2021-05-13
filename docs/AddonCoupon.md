@@ -1,5 +1,6 @@
 # AddonCoupon
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -8,7 +9,7 @@ Name | Type | Description | Notes
 **percent** | **float** |  | 
 **max_uses** | **int** |  | 
 **expires_at** | **datetime** | A future date less than 2 weeks from today | 
-**bound_user_id** | **int** |  | [optional] 
+**bound_user_id** | **int, none_type** |  | [optional] 
 **created_at** | **datetime** |  | [optional] [readonly] 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **addon** | [**Addon**](Addon.md) |  | [optional] 

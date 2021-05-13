@@ -1,5 +1,3 @@
-# coding: utf-8
-
 # flake8: noqa
 
 """
@@ -12,91 +10,18 @@
 """
 
 
-from __future__ import absolute_import
-
 __version__ = "1.3.0"
-
-# import apis into sdk package
-from gmodstore-sdk.api.addon_coupons_api import AddonCouponsApi
-from gmodstore-sdk.api.addon_purchases_api import AddonPurchasesApi
-from gmodstore-sdk.api.addon_reviews_api import AddonReviewsApi
-from gmodstore-sdk.api.addon_stats_api import AddonStatsApi
-from gmodstore-sdk.api.addon_versions_api import AddonVersionsApi
-from gmodstore-sdk.api.addons_api import AddonsApi
-from gmodstore-sdk.api.advent_calendar_api import AdventCalendarApi
-from gmodstore-sdk.api.current_api_key_api import CurrentAPIKeyApi
-from gmodstore-sdk.api.permission_groups_api import PermissionGroupsApi
-from gmodstore-sdk.api.team_addons_api import TeamAddonsApi
-from gmodstore-sdk.api.team_users_api import TeamUsersApi
-from gmodstore-sdk.api.teams_api import TeamsApi
-from gmodstore-sdk.api.user_addons_api import UserAddonsApi
-from gmodstore-sdk.api.user_badges_api import UserBadgesApi
-from gmodstore-sdk.api.user_bans_api import UserBansApi
-from gmodstore-sdk.api.user_purchases_api import UserPurchasesApi
-from gmodstore-sdk.api.user_teams_api import UserTeamsApi
-from gmodstore-sdk.api.users_api import UsersApi
 
 # import ApiClient
 from gmodstore-sdk.api_client import ApiClient
+
+# import Configuration
 from gmodstore-sdk.configuration import Configuration
+
+# import exceptions
 from gmodstore-sdk.exceptions import OpenApiException
+from gmodstore-sdk.exceptions import ApiAttributeError
 from gmodstore-sdk.exceptions import ApiTypeError
 from gmodstore-sdk.exceptions import ApiValueError
 from gmodstore-sdk.exceptions import ApiKeyError
-from gmodstore-sdk.exceptions import ApiAttributeError
 from gmodstore-sdk.exceptions import ApiException
-# import models into sdk package
-from gmodstore-sdk.models.addon import Addon
-from gmodstore-sdk.models.addon_coupon import AddonCoupon
-from gmodstore-sdk.models.addon_coupon_list_response import AddonCouponListResponse
-from gmodstore-sdk.models.addon_coupon_response import AddonCouponResponse
-from gmodstore-sdk.models.addon_download import AddonDownload
-from gmodstore-sdk.models.addon_download_response import AddonDownloadResponse
-from gmodstore-sdk.models.addon_images import AddonImages
-from gmodstore-sdk.models.addon_list_response import AddonListResponse
-from gmodstore-sdk.models.addon_list_response1 import AddonListResponse1
-from gmodstore-sdk.models.addon_price import AddonPrice
-from gmodstore-sdk.models.addon_purchase import AddonPurchase
-from gmodstore-sdk.models.addon_purchase_list_response import AddonPurchaseListResponse
-from gmodstore-sdk.models.addon_purchase_response import AddonPurchaseResponse
-from gmodstore-sdk.models.addon_response import AddonResponse
-from gmodstore-sdk.models.addon_review import AddonReview
-from gmodstore-sdk.models.addon_review_list_response import AddonReviewListResponse
-from gmodstore-sdk.models.addon_review_response import AddonReviewResponse
-from gmodstore-sdk.models.addon_stats import AddonStats
-from gmodstore-sdk.models.addon_stats_list_response import AddonStatsListResponse
-from gmodstore-sdk.models.addon_stats_revenue import AddonStatsRevenue
-from gmodstore-sdk.models.addon_stats_revenue_current import AddonStatsRevenueCurrent
-from gmodstore-sdk.models.addon_stats_sales import AddonStatsSales
-from gmodstore-sdk.models.addon_stats_sales_current import AddonStatsSalesCurrent
-from gmodstore-sdk.models.addon_stats_views import AddonStatsViews
-from gmodstore-sdk.models.addon_stats_views_current import AddonStatsViewsCurrent
-from gmodstore-sdk.models.addon_version import AddonVersion
-from gmodstore-sdk.models.addon_version_list_response import AddonVersionListResponse
-from gmodstore-sdk.models.addon_version_release_type import AddonVersionReleaseType
-from gmodstore-sdk.models.addon_version_response import AddonVersionResponse
-from gmodstore-sdk.models.advent_calendar_stats import AdventCalendarStats
-from gmodstore-sdk.models.advent_calendar_stats_response import AdventCalendarStatsResponse
-from gmodstore-sdk.models.api_key import ApiKey
-from gmodstore-sdk.models.badge_list_response import BadgeListResponse
-from gmodstore-sdk.models.badge_response import BadgeResponse
-from gmodstore-sdk.models.error import Error
-from gmodstore-sdk.models.error_response import ErrorResponse
-from gmodstore-sdk.models.money import Money
-from gmodstore-sdk.models.new_addon_purchase import NewAddonPurchase
-from gmodstore-sdk.models.new_addon_version import NewAddonVersion
-from gmodstore-sdk.models.order_item import OrderItem
-from gmodstore-sdk.models.permission_group import PermissionGroup
-from gmodstore-sdk.models.permission_group_list_response import PermissionGroupListResponse
-from gmodstore-sdk.models.team import Team
-from gmodstore-sdk.models.team_list_response import TeamListResponse
-from gmodstore-sdk.models.team_response import TeamResponse
-from gmodstore-sdk.models.team_user import TeamUser
-from gmodstore-sdk.models.team_user_list_response import TeamUserListResponse
-from gmodstore-sdk.models.user import User
-from gmodstore-sdk.models.user_badge import UserBadge
-from gmodstore-sdk.models.user_badge_legend import UserBadgeLegend
-from gmodstore-sdk.models.user_ban import UserBan
-from gmodstore-sdk.models.user_ban_list_response import UserBanListResponse
-from gmodstore-sdk.models.user_response import UserResponse
-

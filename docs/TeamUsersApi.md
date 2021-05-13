@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **list_team_users**
-> TeamUserListResponse list_team_users(team_id, _with=_with)
+> TeamUserListResponse list_team_users(team_id)
 
 Fetch all the users in the given team
 
@@ -16,10 +16,11 @@ Fetch all the users in the given team
 
 * Bearer (API Key) Authentication (bearerAuth):
 ```python
-from __future__ import print_function
 import time
 import gmodstore-sdk
-from gmodstore-sdk.rest import ApiException
+from gmodstore-sdk.api import team_users_api
+from gmodstore-sdk.model.team_user_list_response import TeamUserListResponse
+from gmodstore-sdk.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -40,24 +41,37 @@ configuration = gmodstore-sdk.Configuration(
 # Enter a context with an instance of the API client
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = gmodstore-sdk.TeamUsersApi(api_client)
-    team_id = 56 # int | Id of the team
-_with = ['_with_example'] # list[str] | The relations you want to fetch with the `TeamUser` (optional)
+    api_instance = team_users_api.TeamUsersApi(api_client)
+    team_id = 1 # int | Id of the team
+    _with = [
+        "user",
+    ] # [str] | The relations you want to fetch with the `TeamUser` (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Fetch all the users in the given team
+        api_response = api_instance.list_team_users(team_id)
+        pprint(api_response)
+    except gmodstore-sdk.ApiException as e:
+        print("Exception when calling TeamUsersApi->list_team_users: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Fetch all the users in the given team
         api_response = api_instance.list_team_users(team_id, _with=_with)
         pprint(api_response)
-    except ApiException as e:
+    except gmodstore-sdk.ApiException as e:
         print("Exception when calling TeamUsersApi->list_team_users: %s\n" % e)
 ```
+
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **team_id** | **int**| Id of the team | 
- **_with** | [**list[str]**](str.md)| The relations you want to fetch with the &#x60;TeamUser&#x60; | [optional] 
+ **team_id** | **int**| Id of the team |
+ **_with** | **[str]**| The relations you want to fetch with the &#x60;TeamUser&#x60; | [optional]
 
 ### Return type
 
@@ -71,6 +85,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

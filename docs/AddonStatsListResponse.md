@@ -1,9 +1,10 @@
 # AddonStatsListResponse
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**list[AddonStats]**](AddonStats.md) |  | [optional] 
+**data** | [**[AddonStats]**](AddonStats.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
