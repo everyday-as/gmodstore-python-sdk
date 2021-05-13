@@ -21,7 +21,7 @@ from gmodstore-sdk.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from gmodstore-sdk.model.addon_list_response import AddonListResponse
+from gmodstore-sdk.model.api_key_response import ApiKeyResponse
 from gmodstore-sdk.model.error_response import ErrorResponse
 
 
@@ -73,7 +73,7 @@ class CurrentAPIKeyApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                AddonListResponse
+                ApiKeyResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -100,7 +100,7 @@ class CurrentAPIKeyApi(object):
 
         self.get_current_api_key = _Endpoint(
             settings={
-                'response_type': (AddonListResponse,),
+                'response_type': (ApiKeyResponse,),
                 'auth': [
                     'bearerAuth'
                 ],

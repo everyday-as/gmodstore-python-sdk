@@ -17,7 +17,6 @@ from gmodstore-sdk.model.addon_download import AddonDownload
 from gmodstore-sdk.model.addon_download_response import AddonDownloadResponse
 from gmodstore-sdk.model.addon_images import AddonImages
 from gmodstore-sdk.model.addon_list_response import AddonListResponse
-from gmodstore-sdk.model.addon_list_response1 import AddonListResponse1
 from gmodstore-sdk.model.addon_price import AddonPrice
 from gmodstore-sdk.model.addon_purchase import AddonPurchase
 from gmodstore-sdk.model.addon_purchase_list_response import AddonPurchaseListResponse
@@ -41,6 +40,7 @@ from gmodstore-sdk.model.addon_version_response import AddonVersionResponse
 from gmodstore-sdk.model.advent_calendar_stats import AdventCalendarStats
 from gmodstore-sdk.model.advent_calendar_stats_response import AdventCalendarStatsResponse
 from gmodstore-sdk.model.api_key import ApiKey
+from gmodstore-sdk.model.api_key_response import ApiKeyResponse
 from gmodstore-sdk.model.badge_list_response import BadgeListResponse
 from gmodstore-sdk.model.badge_response import BadgeResponse
 from gmodstore-sdk.model.error import Error

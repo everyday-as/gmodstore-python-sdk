@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_self_addons**
-> AddonListResponse1 list_self_addons()
+> AddonListResponse list_self_addons()
 
 Fetch all the addons that you have access to
 
@@ -109,8 +109,8 @@ Fetch all the addons that you have access to
 import time
 import gmodstore-sdk
 from gmodstore-sdk.api import addons_api
-from gmodstore-sdk.model.addon_list_response1 import AddonListResponse1
 from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.addon_list_response import AddonListResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddonListResponse1**](AddonListResponse1.md)
+[**AddonListResponse**](AddonListResponse.md)
 
 ### Authorization
 

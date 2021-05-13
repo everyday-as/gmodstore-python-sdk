@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_current_api_key**
-> AddonListResponse get_current_api_key()
+> ApiKeyResponse get_current_api_key()
 
 Get meta information about the current API key
 
@@ -20,7 +20,7 @@ import time
 import gmodstore-sdk
 from gmodstore-sdk.api import current_api_key_api
 from gmodstore-sdk.model.error_response import ErrorResponse
-from gmodstore-sdk.model.addon_list_response import AddonListResponse
+from gmodstore-sdk.model.api_key_response import ApiKeyResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddonListResponse**](AddonListResponse.md)
+[**ApiKeyResponse**](ApiKeyResponse.md)
 
 ### Authorization
 

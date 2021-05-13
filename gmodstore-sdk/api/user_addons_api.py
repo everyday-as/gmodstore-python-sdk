@@ -21,7 +21,7 @@ from gmodstore-sdk.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from gmodstore-sdk.model.addon_list_response1 import AddonListResponse1
+from gmodstore-sdk.model.addon_list_response import AddonListResponse
 from gmodstore-sdk.model.error_response import ErrorResponse
 
 
@@ -76,7 +76,7 @@ class UserAddonsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                AddonListResponse1
+                AddonListResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -105,7 +105,7 @@ class UserAddonsApi(object):
 
         self.list_user_addons = _Endpoint(
             settings={
-                'response_type': (AddonListResponse1,),
+                'response_type': (AddonListResponse,),
                 'auth': [
                     'bearerAuth'
                 ],
