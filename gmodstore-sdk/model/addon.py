@@ -29,10 +29,12 @@ from gmodstore-sdk.model_utils import (  # noqa: F401
 def lazy_import():
     from gmodstore-sdk.model.addon_images import AddonImages
     from gmodstore-sdk.model.addon_price import AddonPrice
+    from gmodstore-sdk.model.addon_stats import AddonStats
     from gmodstore-sdk.model.addon_version import AddonVersion
     from gmodstore-sdk.model.team import Team
     globals()['AddonImages'] = AddonImages
     globals()['AddonPrice'] = AddonPrice
+    globals()['AddonStats'] = AddonStats
     globals()['AddonVersion'] = AddonVersion
     globals()['Team'] = Team
 
@@ -91,12 +93,20 @@ class Addon(ModelNormal):
             'requirements': ([str],),  # noqa: E501
             'price': (AddonPrice,),  # noqa: E501
             'images': (AddonImages,),  # noqa: E501
+            'views': (int,),  # noqa: E501
+            'rating_avg': (str,),  # noqa: E501
+            'rating_count': (int,),  # noqa: E501
+            'purchases_count': (int,),  # noqa: E501
+            'dependent_addon': (int,),  # noqa: E501
+            'has_drm': (bool,),  # noqa: E501
+            'requires_chromium': (bool,),  # noqa: E501
             'slug': (str,),  # noqa: E501
             'route': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'latest_version': (AddonVersion,),  # noqa: E501
             'team': (Team,),  # noqa: E501
+            'stats': (AddonStats,),  # noqa: E501
         }
 
     @cached_property
@@ -113,12 +123,20 @@ class Addon(ModelNormal):
         'requirements': 'requirements',  # noqa: E501
         'price': 'price',  # noqa: E501
         'images': 'images',  # noqa: E501
+        'views': 'views',  # noqa: E501
+        'rating_avg': 'rating_avg',  # noqa: E501
+        'rating_count': 'rating_count',  # noqa: E501
+        'purchases_count': 'purchases_count',  # noqa: E501
+        'dependent_addon': 'dependent_addon',  # noqa: E501
+        'has_drm': 'has_drm',  # noqa: E501
+        'requires_chromium': 'requires_chromium',  # noqa: E501
         'slug': 'slug',  # noqa: E501
         'route': 'route',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'latest_version': 'latest_version',  # noqa: E501
         'team': 'team',  # noqa: E501
+        'stats': 'stats',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -175,12 +193,20 @@ class Addon(ModelNormal):
             requirements ([str]): [optional]  # noqa: E501
             price (AddonPrice): [optional]  # noqa: E501
             images (AddonImages): [optional]  # noqa: E501
+            views (int): [optional]  # noqa: E501
+            rating_avg (str): [optional]  # noqa: E501
+            rating_count (int): [optional]  # noqa: E501
+            purchases_count (int): [optional]  # noqa: E501
+            dependent_addon (int): [optional]  # noqa: E501
+            has_drm (bool): [optional]  # noqa: E501
+            requires_chromium (bool): [optional]  # noqa: E501
             slug (str): [optional]  # noqa: E501
             route (str): [optional]  # noqa: E501
             created_at (datetime): [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
             latest_version (AddonVersion): [optional]  # noqa: E501
             team (Team): [optional]  # noqa: E501
+            stats (AddonStats): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

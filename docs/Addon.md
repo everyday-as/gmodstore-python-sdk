@@ -12,12 +12,20 @@ Name | Type | Description | Notes
 **requirements** | **[str]** |  | [optional] 
 **price** | [**AddonPrice**](AddonPrice.md) |  | [optional] 
 **images** | [**AddonImages**](AddonImages.md) |  | [optional] 
+**views** | **int** |  | [optional] [readonly] 
+**rating_avg** | **str** |  | [optional] [readonly] 
+**rating_count** | **int** |  | [optional] [readonly] 
+**purchases_count** | **int** |  | [optional] [readonly] 
+**dependent_addon** | **int** |  | [optional] [readonly] 
+**has_drm** | **bool** |  | [optional] [readonly] 
+**requires_chromium** | **bool** |  | [optional] [readonly] 
 **slug** | **str** |  | [optional] [readonly] 
 **route** | **str** |  | [optional] [readonly] 
 **created_at** | **datetime** |  | [optional] [readonly] 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **latest_version** | [**AddonVersion**](AddonVersion.md) |  | [optional] 
 **team** | [**Team**](Team.md) |  | [optional] 
+**stats** | [**AddonStats**](AddonStats.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

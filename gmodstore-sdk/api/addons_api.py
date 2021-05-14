@@ -142,7 +142,8 @@ class AddonsApi(object):
                     ('_with',): {
 
                         "LATEST_VERSION": "latest_version",
-                        "TEAM": "team"
+                        "TEAM": "team",
+                        "STATS": "stats"
                     },
                 },
                 'openapi_types': {
@@ -269,7 +270,8 @@ class AddonsApi(object):
                     ('_with',): {
 
                         "LATEST_VERSION": "latest_version",
-                        "TEAM": "team"
+                        "TEAM": "team",
+                        "STATS": "stats"
                     },
                 },
                 'openapi_types': {
