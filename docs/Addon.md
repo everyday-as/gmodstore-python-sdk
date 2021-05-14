@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **rating_avg** | **str** |  | [optional] [readonly] 
 **rating_count** | **int** |  | [optional] [readonly] 
 **purchases_count** | **int** |  | [optional] [readonly] 
-**dependent_addon** | **int** |  | [optional] [readonly] 
+**dependent_addon** | **int, none_type** |  | [optional] [readonly] 
 **has_drm** | **bool** |  | [optional] [readonly] 
 **requires_chromium** | **bool** |  | [optional] [readonly] 
 **slug** | **str** |  | [optional] [readonly] 
