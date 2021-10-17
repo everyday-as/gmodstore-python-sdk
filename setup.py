@@ -11,7 +11,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "GmodStore SDK"
-VERSION = "1.4.1"
+VERSION = "1.4.2"
 # To install the library, run the following
 #
 # python setup.py install
