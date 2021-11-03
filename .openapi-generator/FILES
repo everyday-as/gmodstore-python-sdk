@@ -53,6 +53,8 @@ docs/PermissionGroup.md
 docs/PermissionGroupListResponse.md
 docs/PermissionGroupsApi.md
 docs/Team.md
+docs/TeamAddon.md
+docs/TeamAddonListResponse.md
 docs/TeamAddonsApi.md
 docs/TeamListResponse.md
 docs/TeamResponse.md
@@ -141,6 +143,8 @@ gmodstore-sdk/model/order_item.py
 gmodstore-sdk/model/permission_group.py
 gmodstore-sdk/model/permission_group_list_response.py
 gmodstore-sdk/model/team.py
+gmodstore-sdk/model/team_addon.py
+gmodstore-sdk/model/team_addon_list_response.py
 gmodstore-sdk/model/team_list_response.py
 gmodstore-sdk/model/team_response.py
 gmodstore-sdk/model/team_user.py
@@ -160,4 +164,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_team_addon.py
+test/test_team_addon_list_response.py
 tox.ini

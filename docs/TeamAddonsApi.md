@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **list_team_addons**
-> TeamUserListResponse list_team_addons(team_id)
+> TeamAddonListResponse list_team_addons(team_id)
 
 Fetch all the addons in the given team
 
@@ -19,8 +19,8 @@ Fetch all the addons in the given team
 import time
 import gmodstore-sdk
 from gmodstore-sdk.api import team_addons_api
-from gmodstore-sdk.model.team_user_list_response import TeamUserListResponse
 from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.team_addon_list_response import TeamAddonListResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TeamUserListResponse**](TeamUserListResponse.md)
+[**TeamAddonListResponse**](TeamAddonListResponse.md)
 
 ### Authorization
 

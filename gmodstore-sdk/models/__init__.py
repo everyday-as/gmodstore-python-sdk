@@ -51,6 +51,8 @@ from gmodstore-sdk.model.order_item import OrderItem
 from gmodstore-sdk.model.permission_group import PermissionGroup
 from gmodstore-sdk.model.permission_group_list_response import PermissionGroupListResponse
 from gmodstore-sdk.model.team import Team
+from gmodstore-sdk.model.team_addon import TeamAddon
+from gmodstore-sdk.model.team_addon_list_response import TeamAddonListResponse
 from gmodstore-sdk.model.team_list_response import TeamListResponse
 from gmodstore-sdk.model.team_response import TeamResponse
 from gmodstore-sdk.model.team_user import TeamUser

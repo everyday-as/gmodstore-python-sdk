@@ -22,7 +22,7 @@ from gmodstore-sdk.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from gmodstore-sdk.model.error_response import ErrorResponse
-from gmodstore-sdk.model.team_user_list_response import TeamUserListResponse
+from gmodstore-sdk.model.team_addon_list_response import TeamAddonListResponse
 
 
 class TeamAddonsApi(object):
@@ -75,7 +75,7 @@ class TeamAddonsApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                TeamUserListResponse
+                TeamAddonListResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -104,7 +104,7 @@ class TeamAddonsApi(object):
 
         self.list_team_addons = _Endpoint(
             settings={
-                'response_type': (TeamUserListResponse,),
+                'response_type': (TeamAddonListResponse,),
                 'auth': [
                     'bearerAuth'
                 ],
