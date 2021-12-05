@@ -40,78 +40,7 @@ class AddonVersionsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __create_addon_version(
-            self,
-            addon_id,
-            new_addon_version,
-            **kwargs
-        ):
-            """Create a new version for an addon  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.create_addon_version(addon_id, new_addon_version, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                addon_id (int): Id of the addon
-                new_addon_version (NewAddonVersion):
-
-            Keyword Args:
-                _with ([str]): The relations you want to fetch with the `AddonVersion`. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                AddonVersionResponse
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['addon_id'] = \
-                addon_id
-            kwargs['new_addon_version'] = \
-                new_addon_version
-            return self.call_with_http_info(**kwargs)
-
-        self.create_addon_version = _Endpoint(
+        self.create_addon_version_endpoint = _Endpoint(
             settings={
                 'response_type': (AddonVersionResponse,),
                 'auth': [
@@ -182,80 +111,9 @@ class AddonVersionsApi(object):
                     'multipart/form-data'
                 ]
             },
-            api_client=api_client,
-            callable=__create_addon_version
+            api_client=api_client
         )
-
-        def __download_addon_version(
-            self,
-            addon_id,
-            version_id,
-            **kwargs
-        ):
-            """Generate a download token for a specific version of an addon  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.download_addon_version(addon_id, version_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                addon_id (int): Id of the addon
-                version_id (int): Id of the version
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                AddonDownloadResponse
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['addon_id'] = \
-                addon_id
-            kwargs['version_id'] = \
-                version_id
-            return self.call_with_http_info(**kwargs)
-
-        self.download_addon_version = _Endpoint(
+        self.download_addon_version_endpoint = _Endpoint(
             settings={
                 'response_type': (AddonDownloadResponse,),
                 'auth': [
@@ -310,81 +168,9 @@ class AddonVersionsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__download_addon_version
+            api_client=api_client
         )
-
-        def __get_addon_version(
-            self,
-            addon_id,
-            version_id,
-            **kwargs
-        ):
-            """Fetch a specific version of an addon  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_addon_version(addon_id, version_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                addon_id (int): Id of the addon
-                version_id (int): Id of the version
-
-            Keyword Args:
-                _with ([str]): The relations you want to fetch with the `AddonVersion`. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                AddonVersionResponse
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['addon_id'] = \
-                addon_id
-            kwargs['version_id'] = \
-                version_id
-            return self.call_with_http_info(**kwargs)
-
-        self.get_addon_version = _Endpoint(
+        self.get_addon_version_endpoint = _Endpoint(
             settings={
                 'response_type': (AddonVersionResponse,),
                 'auth': [
@@ -454,77 +240,9 @@ class AddonVersionsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_addon_version
+            api_client=api_client
         )
-
-        def __list_addon_versions(
-            self,
-            addon_id,
-            **kwargs
-        ):
-            """Fetch all the versions of an addon  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.list_addon_versions(addon_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                addon_id (int): Id of the addon
-
-            Keyword Args:
-                _with ([str]): The relations you want to fetch with the `AddonVersion`. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                AddonVersionListResponse
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['addon_id'] = \
-                addon_id
-            return self.call_with_http_info(**kwargs)
-
-        self.list_addon_versions = _Endpoint(
+        self.list_addon_versions_endpoint = _Endpoint(
             settings={
                 'response_type': (AddonVersionListResponse,),
                 'auth': [
@@ -588,85 +306,9 @@ class AddonVersionsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__list_addon_versions
+            api_client=api_client
         )
-
-        def __update_addon_version(
-            self,
-            addon_id,
-            version_id,
-            addon_version,
-            **kwargs
-        ):
-            """Update a version of an addon  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.update_addon_version(addon_id, version_id, addon_version, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                addon_id (int): Id of the addon
-                version_id (int): Id of the version
-                addon_version (AddonVersion):
-
-            Keyword Args:
-                _with ([str]): The relations you want to fetch with the `AddonVersion`. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                AddonVersionResponse
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['addon_id'] = \
-                addon_id
-            kwargs['version_id'] = \
-                version_id
-            kwargs['addon_version'] = \
-                addon_version
-            return self.call_with_http_info(**kwargs)
-
-        self.update_addon_version = _Endpoint(
+        self.update_addon_version_endpoint = _Endpoint(
             settings={
                 'response_type': (AddonVersionResponse,),
                 'auth': [
@@ -743,6 +385,355 @@ class AddonVersionsApi(object):
                     'multipart/form-data'
                 ]
             },
-            api_client=api_client,
-            callable=__update_addon_version
+            api_client=api_client
         )
+
+    def create_addon_version(
+        self,
+        addon_id,
+        new_addon_version,
+        **kwargs
+    ):
+        """Create a new version for an addon  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_addon_version(addon_id, new_addon_version, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            addon_id (int): Id of the addon
+            new_addon_version (NewAddonVersion):
+
+        Keyword Args:
+            _with ([str]): The relations you want to fetch with the `AddonVersion`. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AddonVersionResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['addon_id'] = \
+            addon_id
+        kwargs['new_addon_version'] = \
+            new_addon_version
+        return self.create_addon_version_endpoint.call_with_http_info(**kwargs)
+
+    def download_addon_version(
+        self,
+        addon_id,
+        version_id,
+        **kwargs
+    ):
+        """Generate a download token for a specific version of an addon  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.download_addon_version(addon_id, version_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            addon_id (int): Id of the addon
+            version_id (int): Id of the version
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AddonDownloadResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['addon_id'] = \
+            addon_id
+        kwargs['version_id'] = \
+            version_id
+        return self.download_addon_version_endpoint.call_with_http_info(**kwargs)
+
+    def get_addon_version(
+        self,
+        addon_id,
+        version_id,
+        **kwargs
+    ):
+        """Fetch a specific version of an addon  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_addon_version(addon_id, version_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            addon_id (int): Id of the addon
+            version_id (int): Id of the version
+
+        Keyword Args:
+            _with ([str]): The relations you want to fetch with the `AddonVersion`. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AddonVersionResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['addon_id'] = \
+            addon_id
+        kwargs['version_id'] = \
+            version_id
+        return self.get_addon_version_endpoint.call_with_http_info(**kwargs)
+
+    def list_addon_versions(
+        self,
+        addon_id,
+        **kwargs
+    ):
+        """Fetch all the versions of an addon  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_addon_versions(addon_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            addon_id (int): Id of the addon
+
+        Keyword Args:
+            _with ([str]): The relations you want to fetch with the `AddonVersion`. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AddonVersionListResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['addon_id'] = \
+            addon_id
+        return self.list_addon_versions_endpoint.call_with_http_info(**kwargs)
+
+    def update_addon_version(
+        self,
+        addon_id,
+        version_id,
+        addon_version,
+        **kwargs
+    ):
+        """Update a version of an addon  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_addon_version(addon_id, version_id, addon_version, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            addon_id (int): Id of the addon
+            version_id (int): Id of the version
+            addon_version (AddonVersion):
+
+        Keyword Args:
+            _with ([str]): The relations you want to fetch with the `AddonVersion`. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AddonVersionResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['addon_id'] = \
+            addon_id
+        kwargs['version_id'] = \
+            version_id
+        kwargs['addon_version'] = \
+            addon_version
+        return self.update_addon_version_endpoint.call_with_http_info(**kwargs)
+

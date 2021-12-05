@@ -18,6 +18,7 @@ Create a purchase for an addon
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -96,6 +97,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
@@ -112,6 +114,7 @@ Get a purchase of an addon by user
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -187,6 +190,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
@@ -203,6 +207,7 @@ Fetch all purchases of an addon
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -276,6 +281,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
@@ -292,6 +298,7 @@ Update a purchase for an addon
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -372,6 +379,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |

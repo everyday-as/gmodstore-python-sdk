@@ -19,6 +19,7 @@ Create a new version for an addon
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -100,6 +101,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
@@ -116,6 +118,7 @@ Generate a download token for a specific version of an addon
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -178,6 +181,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
@@ -194,6 +198,7 @@ Fetch a specific version of an addon
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -269,6 +274,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
@@ -285,6 +291,7 @@ Fetch all the versions of an addon
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -358,6 +365,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
@@ -374,6 +382,7 @@ Update a version of an addon
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -456,6 +465,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |

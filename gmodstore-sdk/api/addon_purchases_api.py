@@ -39,78 +39,7 @@ class AddonPurchasesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __create_addon_purchase(
-            self,
-            addon_id,
-            new_addon_purchase,
-            **kwargs
-        ):
-            """Create a purchase for an addon  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.create_addon_purchase(addon_id, new_addon_purchase, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                addon_id (int): Id of the addon
-                new_addon_purchase (NewAddonPurchase):
-
-            Keyword Args:
-                _with ([str]): The relations you want to fetch with the `AddonPurchase`. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                AddonPurchaseResponse
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['addon_id'] = \
-                addon_id
-            kwargs['new_addon_purchase'] = \
-                new_addon_purchase
-            return self.call_with_http_info(**kwargs)
-
-        self.create_addon_purchase = _Endpoint(
+        self.create_addon_purchase_endpoint = _Endpoint(
             settings={
                 'response_type': (AddonPurchaseResponse,),
                 'auth': [
@@ -183,81 +112,9 @@ class AddonPurchasesApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__create_addon_purchase
+            api_client=api_client
         )
-
-        def __get_addon_purchase(
-            self,
-            addon_id,
-            user_id,
-            **kwargs
-        ):
-            """Get a purchase of an addon by user  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_addon_purchase(addon_id, user_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                addon_id (int): Id of the addon
-                user_id (int): Id of the user
-
-            Keyword Args:
-                _with ([str]): The relations you want to fetch with the `AddonPurchase`. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                AddonPurchaseResponse
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['addon_id'] = \
-                addon_id
-            kwargs['user_id'] = \
-                user_id
-            return self.call_with_http_info(**kwargs)
-
-        self.get_addon_purchase = _Endpoint(
+        self.get_addon_purchase_endpoint = _Endpoint(
             settings={
                 'response_type': (AddonPurchaseResponse,),
                 'auth': [
@@ -329,77 +186,9 @@ class AddonPurchasesApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_addon_purchase
+            api_client=api_client
         )
-
-        def __list_addon_purchases(
-            self,
-            addon_id,
-            **kwargs
-        ):
-            """Fetch all purchases of an addon  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.list_addon_purchases(addon_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                addon_id (int): Id of the addon
-
-            Keyword Args:
-                _with ([str]): The relations you want to fetch with the `AddonPurchase`. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                AddonPurchaseListResponse
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['addon_id'] = \
-                addon_id
-            return self.call_with_http_info(**kwargs)
-
-        self.list_addon_purchases = _Endpoint(
+        self.list_addon_purchases_endpoint = _Endpoint(
             settings={
                 'response_type': (AddonPurchaseListResponse,),
                 'auth': [
@@ -465,85 +254,9 @@ class AddonPurchasesApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__list_addon_purchases
+            api_client=api_client
         )
-
-        def __update_addon_purchase(
-            self,
-            addon_id,
-            user_id,
-            addon_purchase,
-            **kwargs
-        ):
-            """Update a purchase for an addon  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.update_addon_purchase(addon_id, user_id, addon_purchase, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                addon_id (int): Id of the addon
-                user_id (int): Id of the user
-                addon_purchase (AddonPurchase):
-
-            Keyword Args:
-                _with ([str]): The relations you want to fetch with the `AddonPurchase`. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                AddonPurchaseResponse
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['addon_id'] = \
-                addon_id
-            kwargs['user_id'] = \
-                user_id
-            kwargs['addon_purchase'] = \
-                addon_purchase
-            return self.call_with_http_info(**kwargs)
-
-        self.update_addon_purchase = _Endpoint(
+        self.update_addon_purchase_endpoint = _Endpoint(
             settings={
                 'response_type': (AddonPurchaseResponse,),
                 'auth': [
@@ -622,6 +335,286 @@ class AddonPurchasesApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__update_addon_purchase
+            api_client=api_client
         )
+
+    def create_addon_purchase(
+        self,
+        addon_id,
+        new_addon_purchase,
+        **kwargs
+    ):
+        """Create a purchase for an addon  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_addon_purchase(addon_id, new_addon_purchase, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            addon_id (int): Id of the addon
+            new_addon_purchase (NewAddonPurchase):
+
+        Keyword Args:
+            _with ([str]): The relations you want to fetch with the `AddonPurchase`. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AddonPurchaseResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['addon_id'] = \
+            addon_id
+        kwargs['new_addon_purchase'] = \
+            new_addon_purchase
+        return self.create_addon_purchase_endpoint.call_with_http_info(**kwargs)
+
+    def get_addon_purchase(
+        self,
+        addon_id,
+        user_id,
+        **kwargs
+    ):
+        """Get a purchase of an addon by user  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_addon_purchase(addon_id, user_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            addon_id (int): Id of the addon
+            user_id (int): Id of the user
+
+        Keyword Args:
+            _with ([str]): The relations you want to fetch with the `AddonPurchase`. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AddonPurchaseResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['addon_id'] = \
+            addon_id
+        kwargs['user_id'] = \
+            user_id
+        return self.get_addon_purchase_endpoint.call_with_http_info(**kwargs)
+
+    def list_addon_purchases(
+        self,
+        addon_id,
+        **kwargs
+    ):
+        """Fetch all purchases of an addon  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_addon_purchases(addon_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            addon_id (int): Id of the addon
+
+        Keyword Args:
+            _with ([str]): The relations you want to fetch with the `AddonPurchase`. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AddonPurchaseListResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['addon_id'] = \
+            addon_id
+        return self.list_addon_purchases_endpoint.call_with_http_info(**kwargs)
+
+    def update_addon_purchase(
+        self,
+        addon_id,
+        user_id,
+        addon_purchase,
+        **kwargs
+    ):
+        """Update a purchase for an addon  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_addon_purchase(addon_id, user_id, addon_purchase, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            addon_id (int): Id of the addon
+            user_id (int): Id of the user
+            addon_purchase (AddonPurchase):
+
+        Keyword Args:
+            _with ([str]): The relations you want to fetch with the `AddonPurchase`. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AddonPurchaseResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['addon_id'] = \
+            addon_id
+        kwargs['user_id'] = \
+            user_id
+        kwargs['addon_purchase'] = \
+            addon_purchase
+        return self.update_addon_purchase_endpoint.call_with_http_info(**kwargs)
+

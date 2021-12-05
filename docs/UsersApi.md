@@ -16,6 +16,7 @@ Fetches the current user (API Key Owner)
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -79,6 +80,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
@@ -95,6 +97,7 @@ Fetch a single user
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -168,6 +171,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |

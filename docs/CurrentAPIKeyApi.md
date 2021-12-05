@@ -15,6 +15,7 @@ Get meta information about the current API key
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -78,6 +79,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |

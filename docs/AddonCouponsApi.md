@@ -19,6 +19,7 @@ Create an addon coupon
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -101,6 +102,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
@@ -117,6 +119,7 @@ Destroy an addon's coupon
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -177,6 +180,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
@@ -193,6 +197,7 @@ Fetch an addon's coupon
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -268,6 +273,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
@@ -284,6 +290,7 @@ Fetch all the coupons for an addon
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -357,6 +364,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
@@ -373,6 +381,7 @@ Update an addon's coupon
 ### Example
 
 * Bearer (API Key) Authentication (bearerAuth):
+
 ```python
 import time
 import gmodstore-sdk
@@ -457,6 +466,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |

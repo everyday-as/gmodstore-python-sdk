@@ -38,78 +38,7 @@ class AddonCouponsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __create_addon_coupon(
-            self,
-            addon_id,
-            addon_coupon,
-            **kwargs
-        ):
-            """Create an addon coupon  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.create_addon_coupon(addon_id, addon_coupon, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                addon_id (int): Id of the addon
-                addon_coupon (AddonCoupon):
-
-            Keyword Args:
-                _with ([str]): The relations you want to fetch with the `AddonCoupon`. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                AddonCouponResponse
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['addon_id'] = \
-                addon_id
-            kwargs['addon_coupon'] = \
-                addon_coupon
-            return self.call_with_http_info(**kwargs)
-
-        self.create_addon_coupon = _Endpoint(
+        self.create_addon_coupon_endpoint = _Endpoint(
             settings={
                 'response_type': (AddonCouponResponse,),
                 'auth': [
@@ -181,80 +110,9 @@ class AddonCouponsApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__create_addon_coupon
+            api_client=api_client
         )
-
-        def __delete_addon_coupon(
-            self,
-            addon_id,
-            coupon_id,
-            **kwargs
-        ):
-            """Destroy an addon's coupon  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.delete_addon_coupon(addon_id, coupon_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                addon_id (int): Id of the addon
-                coupon_id (int): Id of the coupon
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['addon_id'] = \
-                addon_id
-            kwargs['coupon_id'] = \
-                coupon_id
-            return self.call_with_http_info(**kwargs)
-
-        self.delete_addon_coupon = _Endpoint(
+        self.delete_addon_coupon_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
@@ -309,81 +167,9 @@ class AddonCouponsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__delete_addon_coupon
+            api_client=api_client
         )
-
-        def __get_addon_coupon(
-            self,
-            addon_id,
-            coupon_id,
-            **kwargs
-        ):
-            """Fetch an addon's coupon  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_addon_coupon(addon_id, coupon_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                addon_id (int): Id of the addon
-                coupon_id (int): Id of the coupon
-
-            Keyword Args:
-                _with ([str]): The relations you want to fetch with the `AddonCoupon`. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                AddonCouponResponse
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['addon_id'] = \
-                addon_id
-            kwargs['coupon_id'] = \
-                coupon_id
-            return self.call_with_http_info(**kwargs)
-
-        self.get_addon_coupon = _Endpoint(
+        self.get_addon_coupon_endpoint = _Endpoint(
             settings={
                 'response_type': (AddonCouponResponse,),
                 'auth': [
@@ -454,77 +240,9 @@ class AddonCouponsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_addon_coupon
+            api_client=api_client
         )
-
-        def __list_addon_coupons(
-            self,
-            addon_id,
-            **kwargs
-        ):
-            """Fetch all the coupons for an addon  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.list_addon_coupons(addon_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                addon_id (int): Id of the addon
-
-            Keyword Args:
-                _with ([str]): The relations you want to fetch with the `AddonCoupon`. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                AddonCouponListResponse
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['addon_id'] = \
-                addon_id
-            return self.call_with_http_info(**kwargs)
-
-        self.list_addon_coupons = _Endpoint(
+        self.list_addon_coupons_endpoint = _Endpoint(
             settings={
                 'response_type': (AddonCouponListResponse,),
                 'auth': [
@@ -589,85 +307,9 @@ class AddonCouponsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__list_addon_coupons
+            api_client=api_client
         )
-
-        def __update_addon_coupon(
-            self,
-            addon_id,
-            coupon_id,
-            addon_coupon,
-            **kwargs
-        ):
-            """Update an addon's coupon  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.update_addon_coupon(addon_id, coupon_id, addon_coupon, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                addon_id (int): Id of the addon
-                coupon_id (int): Id of the coupon
-                addon_coupon (AddonCoupon):
-
-            Keyword Args:
-                _with ([str]): The relations you want to fetch with the `AddonCoupon`. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                AddonCouponResponse
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['addon_id'] = \
-                addon_id
-            kwargs['coupon_id'] = \
-                coupon_id
-            kwargs['addon_coupon'] = \
-                addon_coupon
-            return self.call_with_http_info(**kwargs)
-
-        self.update_addon_coupon = _Endpoint(
+        self.update_addon_coupon_endpoint = _Endpoint(
             settings={
                 'response_type': (AddonCouponResponse,),
                 'auth': [
@@ -745,6 +387,355 @@ class AddonCouponsApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__update_addon_coupon
+            api_client=api_client
         )
+
+    def create_addon_coupon(
+        self,
+        addon_id,
+        addon_coupon,
+        **kwargs
+    ):
+        """Create an addon coupon  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_addon_coupon(addon_id, addon_coupon, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            addon_id (int): Id of the addon
+            addon_coupon (AddonCoupon):
+
+        Keyword Args:
+            _with ([str]): The relations you want to fetch with the `AddonCoupon`. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AddonCouponResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['addon_id'] = \
+            addon_id
+        kwargs['addon_coupon'] = \
+            addon_coupon
+        return self.create_addon_coupon_endpoint.call_with_http_info(**kwargs)
+
+    def delete_addon_coupon(
+        self,
+        addon_id,
+        coupon_id,
+        **kwargs
+    ):
+        """Destroy an addon's coupon  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_addon_coupon(addon_id, coupon_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            addon_id (int): Id of the addon
+            coupon_id (int): Id of the coupon
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['addon_id'] = \
+            addon_id
+        kwargs['coupon_id'] = \
+            coupon_id
+        return self.delete_addon_coupon_endpoint.call_with_http_info(**kwargs)
+
+    def get_addon_coupon(
+        self,
+        addon_id,
+        coupon_id,
+        **kwargs
+    ):
+        """Fetch an addon's coupon  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_addon_coupon(addon_id, coupon_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            addon_id (int): Id of the addon
+            coupon_id (int): Id of the coupon
+
+        Keyword Args:
+            _with ([str]): The relations you want to fetch with the `AddonCoupon`. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AddonCouponResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['addon_id'] = \
+            addon_id
+        kwargs['coupon_id'] = \
+            coupon_id
+        return self.get_addon_coupon_endpoint.call_with_http_info(**kwargs)
+
+    def list_addon_coupons(
+        self,
+        addon_id,
+        **kwargs
+    ):
+        """Fetch all the coupons for an addon  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_addon_coupons(addon_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            addon_id (int): Id of the addon
+
+        Keyword Args:
+            _with ([str]): The relations you want to fetch with the `AddonCoupon`. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AddonCouponListResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['addon_id'] = \
+            addon_id
+        return self.list_addon_coupons_endpoint.call_with_http_info(**kwargs)
+
+    def update_addon_coupon(
+        self,
+        addon_id,
+        coupon_id,
+        addon_coupon,
+        **kwargs
+    ):
+        """Update an addon's coupon  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_addon_coupon(addon_id, coupon_id, addon_coupon, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            addon_id (int): Id of the addon
+            coupon_id (int): Id of the coupon
+            addon_coupon (AddonCoupon):
+
+        Keyword Args:
+            _with ([str]): The relations you want to fetch with the `AddonCoupon`. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AddonCouponResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['addon_id'] = \
+            addon_id
+        kwargs['coupon_id'] = \
+            coupon_id
+        kwargs['addon_coupon'] = \
+            addon_coupon
+        return self.update_addon_coupon_endpoint.call_with_http_info(**kwargs)
+
