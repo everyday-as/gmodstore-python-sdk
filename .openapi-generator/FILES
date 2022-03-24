@@ -164,5 +164,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_addon_stats_response.py
 tox.ini

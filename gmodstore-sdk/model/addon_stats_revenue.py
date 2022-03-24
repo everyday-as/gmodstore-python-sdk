@@ -31,9 +31,7 @@ from gmodstore-sdk.exceptions import ApiAttributeError
 
 def lazy_import():
     from gmodstore-sdk.model.addon_stats_revenue_current import AddonStatsRevenueCurrent
-    from gmodstore-sdk.model.money import Money
     globals()['AddonStatsRevenueCurrent'] = AddonStatsRevenueCurrent
-    globals()['Money'] = Money
 
 
 class AddonStatsRevenue(ModelNormal):
@@ -91,7 +89,7 @@ class AddonStatsRevenue(ModelNormal):
         return {
             'current': (AddonStatsRevenueCurrent,),  # noqa: E501
             'previous': (AddonStatsRevenueCurrent,),  # noqa: E501
-            'total': (Money,),  # noqa: E501
+            'total': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -106,6 +104,7 @@ class AddonStatsRevenue(ModelNormal):
     }
 
     read_only_vars = {
+        'total',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -148,7 +147,7 @@ class AddonStatsRevenue(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             current (AddonStatsRevenueCurrent): [optional]  # noqa: E501
             previous (AddonStatsRevenueCurrent): [optional]  # noqa: E501
-            total (Money): [optional]  # noqa: E501
+            total (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,7 +231,7 @@ class AddonStatsRevenue(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             current (AddonStatsRevenueCurrent): [optional]  # noqa: E501
             previous (AddonStatsRevenueCurrent): [optional]  # noqa: E501
-            total (Money): [optional]  # noqa: E501
+            total (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

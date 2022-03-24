@@ -88,6 +88,7 @@ class AddonStatsSales(ModelNormal):
         lazy_import()
         return {
             'current': (AddonStatsSalesCurrent,),  # noqa: E501
+            'total': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -97,6 +98,7 @@ class AddonStatsSales(ModelNormal):
 
     attribute_map = {
         'current': 'current',  # noqa: E501
+        'total': 'total',  # noqa: E501
     }
 
     read_only_vars = {
@@ -141,6 +143,7 @@ class AddonStatsSales(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             current (AddonStatsSalesCurrent): [optional]  # noqa: E501
+            total (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,6 +226,7 @@ class AddonStatsSales(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             current (AddonStatsSalesCurrent): [optional]  # noqa: E501
+            total (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

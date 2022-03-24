@@ -89,6 +89,7 @@ class AddonStatsViews(ModelNormal):
         return {
             'current': (AddonStatsViewsCurrent,),  # noqa: E501
             'previous': (AddonStatsViewsCurrent,),  # noqa: E501
+            'total': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -99,6 +100,7 @@ class AddonStatsViews(ModelNormal):
     attribute_map = {
         'current': 'current',  # noqa: E501
         'previous': 'previous',  # noqa: E501
+        'total': 'total',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,6 +146,7 @@ class AddonStatsViews(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             current (AddonStatsViewsCurrent): [optional]  # noqa: E501
             previous (AddonStatsViewsCurrent): [optional]  # noqa: E501
+            total (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,6 +230,7 @@ class AddonStatsViews(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             current (AddonStatsViewsCurrent): [optional]  # noqa: E501
             previous (AddonStatsViewsCurrent): [optional]  # noqa: E501
+            total (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
