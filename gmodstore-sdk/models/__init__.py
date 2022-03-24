@@ -26,7 +26,7 @@ from gmodstore-sdk.model.addon_review import AddonReview
 from gmodstore-sdk.model.addon_review_list_response import AddonReviewListResponse
 from gmodstore-sdk.model.addon_review_response import AddonReviewResponse
 from gmodstore-sdk.model.addon_stats import AddonStats
-from gmodstore-sdk.model.addon_stats_list_response import AddonStatsListResponse
+from gmodstore-sdk.model.addon_stats_response import AddonStatsResponse
 from gmodstore-sdk.model.addon_stats_revenue import AddonStatsRevenue
 from gmodstore-sdk.model.addon_stats_revenue_current import AddonStatsRevenueCurrent
 from gmodstore-sdk.model.addon_stats_sales import AddonStatsSales

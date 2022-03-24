@@ -21,7 +21,7 @@ from gmodstore-sdk.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from gmodstore-sdk.model.addon_stats_list_response import AddonStatsListResponse
+from gmodstore-sdk.model.addon_stats_response import AddonStatsResponse
 from gmodstore-sdk.model.error_response import ErrorResponse
 
 
@@ -38,7 +38,7 @@ class AddonStatsApi(object):
         self.api_client = api_client
         self.get_addon_stats_endpoint = _Endpoint(
             settings={
-                'response_type': (AddonStatsListResponse,),
+                'response_type': (AddonStatsResponse,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -126,7 +126,7 @@ class AddonStatsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            AddonStatsListResponse
+            AddonStatsResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

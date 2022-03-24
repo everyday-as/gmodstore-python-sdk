@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_addon_stats**
-> AddonStatsListResponse get_addon_stats(addon_id)
+> AddonStatsResponse get_addon_stats(addon_id)
 
 Fetch all the stats for an addon
 
@@ -20,8 +20,8 @@ Fetch all the stats for an addon
 import time
 import gmodstore-sdk
 from gmodstore-sdk.api import addon_stats_api
-from gmodstore-sdk.model.addon_stats_list_response import AddonStatsListResponse
 from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.addon_stats_response import AddonStatsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddonStatsListResponse**](AddonStatsListResponse.md)
+[**AddonStatsResponse**](AddonStatsResponse.md)
 
 ### Authorization
 

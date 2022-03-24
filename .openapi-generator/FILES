@@ -23,7 +23,7 @@ docs/AddonReviewResponse.md
 docs/AddonReviewsApi.md
 docs/AddonStats.md
 docs/AddonStatsApi.md
-docs/AddonStatsListResponse.md
+docs/AddonStatsResponse.md
 docs/AddonStatsRevenue.md
 docs/AddonStatsRevenueCurrent.md
 docs/AddonStatsSales.md
@@ -118,7 +118,7 @@ gmodstore-sdk/model/addon_review.py
 gmodstore-sdk/model/addon_review_list_response.py
 gmodstore-sdk/model/addon_review_response.py
 gmodstore-sdk/model/addon_stats.py
-gmodstore-sdk/model/addon_stats_list_response.py
+gmodstore-sdk/model/addon_stats_response.py
 gmodstore-sdk/model/addon_stats_revenue.py
 gmodstore-sdk/model/addon_stats_revenue_current.py
 gmodstore-sdk/model/addon_stats_sales.py
@@ -164,4 +164,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_addon_stats_response.py
 tox.ini
