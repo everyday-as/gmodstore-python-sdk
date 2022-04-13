@@ -1,77 +1,61 @@
 # gmodstore-sdk.UsersApi
 
-All URIs are relative to *https://api.gmodstore.com/v2*
+All URIs are relative to *https://www.gmodstore.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_self_user**](UsersApi.md#get_self_user) | **GET** /users/me | Fetches the current user (API Key Owner)
-[**get_user**](UsersApi.md#get_user) | **GET** /users/{user_id} | Fetch a single user
+[**get_me**](UsersApi.md#get_me) | **GET** /api/v3/me | Fetch the current authenticated user and their access token
+[**get_user**](UsersApi.md#get_user) | **GET** /api/v3/users/{user} | Fetch the specified user
+[**get_users**](UsersApi.md#get_users) | **GET** /api/v3/users/batch | Fetch a batch of users by id
 
 
-# **get_self_user**
-> UserResponse get_self_user()
+# **get_me**
+> GetMeResponse get_me()
 
-Fetches the current user (API Key Owner)
+Fetch the current authenticated user and their access token
 
 ### Example
 
-* Bearer (API Key) Authentication (bearerAuth):
 
 ```python
 import time
 import gmodstore-sdk
 from gmodstore-sdk.api import users_api
-from gmodstore-sdk.model.error_response import ErrorResponse
-from gmodstore-sdk.model.user_response import UserResponse
+from gmodstore-sdk.model.error import Error
+from gmodstore-sdk.model.get_me_response import GetMeResponse
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.gmodstore.com/v2
+# Defining the host is optional and defaults to https://www.gmodstore.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gmodstore-sdk.Configuration(
-    host = "https://api.gmodstore.com/v2"
+    host = "https://www.gmodstore.com"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (API Key): bearerAuth
-configuration = gmodstore-sdk.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
 
 # Enter a context with an instance of the API client
-with gmodstore-sdk.ApiClient(configuration) as api_client:
+with gmodstore-sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = users_api.UsersApi(api_client)
-    _with = [
-        "group",
-    ] # [str] | The relations you want to fetch with the `User` (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
+    # example, this endpoint has no required or optional parameters
     try:
-        # Fetches the current user (API Key Owner)
-        api_response = api_instance.get_self_user(_with=_with)
+        # Fetch the current authenticated user and their access token
+        api_response = api_instance.get_me()
         pprint(api_response)
     except gmodstore-sdk.ApiException as e:
-        print("Exception when calling UsersApi->get_self_user: %s\n" % e)
+        print("Exception when calling UsersApi->get_me: %s\n" % e)
 ```
 
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **_with** | **[str]**| The relations you want to fetch with the &#x60;User&#x60; | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**UserResponse**](UserResponse.md)
+[**GetMeResponse**](GetMeResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -83,32 +67,34 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
-**429** | Too many requests |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset - The UNIX timestamp at which your rate limit quota will reset. <br>  |
-**0** | Something went wrong |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
+**200** | Successful response containing the authenticated user and their access token |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**404** | The requested resource does not exist |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**400** | Improperly formatted request passed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**401** | The passed bearer token is missing or invalid |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**403** | The passed bearer token does not have the right scopes |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user**
-> UserResponse get_user(user_id)
+> GetUserResponse get_user(user)
 
-Fetch a single user
+Fetch the specified user
 
 ### Example
 
-* Bearer (API Key) Authentication (bearerAuth):
+* Bearer (Personal Access Token) Authentication (PersonalAccessToken):
 
 ```python
 import time
 import gmodstore-sdk
 from gmodstore-sdk.api import users_api
-from gmodstore-sdk.model.error_response import ErrorResponse
-from gmodstore-sdk.model.user_response import UserResponse
+from gmodstore-sdk.model.error import Error
+from gmodstore-sdk.model.get_user_response import GetUserResponse
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.gmodstore.com/v2
+# Defining the host is optional and defaults to https://www.gmodstore.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gmodstore-sdk.Configuration(
-    host = "https://api.gmodstore.com/v2"
+    host = "https://www.gmodstore.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -116,7 +102,7 @@ configuration = gmodstore-sdk.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (API Key): bearerAuth
+# Configure Bearer authorization (Personal Access Token): PersonalAccessToken
 configuration = gmodstore-sdk.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -125,24 +111,12 @@ configuration = gmodstore-sdk.Configuration(
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = users_api.UsersApi(api_client)
-    user_id = 1 # int | Id of the user
-    _with = [
-        "group",
-    ] # [str] | The relations you want to fetch with the `User` (optional)
+    user = "user_example" # str | 
 
     # example passing only required values which don't have defaults set
     try:
-        # Fetch a single user
-        api_response = api_instance.get_user(user_id)
-        pprint(api_response)
-    except gmodstore-sdk.ApiException as e:
-        print("Exception when calling UsersApi->get_user: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Fetch a single user
-        api_response = api_instance.get_user(user_id, _with=_with)
+        # Fetch the specified user
+        api_response = api_instance.get_user(user)
         pprint(api_response)
     except gmodstore-sdk.ApiException as e:
         print("Exception when calling UsersApi->get_user: %s\n" % e)
@@ -153,16 +127,15 @@ with gmodstore-sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| Id of the user |
- **_with** | **[str]**| The relations you want to fetch with the &#x60;User&#x60; | [optional]
+ **user** | **str**|  |
 
 ### Return type
 
-[**UserResponse**](UserResponse.md)
+[**GetUserResponse**](GetUserResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+[PersonalAccessToken](../README.md#PersonalAccessToken)
 
 ### HTTP request headers
 
@@ -174,9 +147,93 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
-**429** | Too many requests |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset - The UNIX timestamp at which your rate limit quota will reset. <br>  |
-**0** | Something went wrong |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
+**200** | Successful response containing a single user |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**404** | The requested resource does not exist |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**400** | Improperly formatted request passed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**401** | The passed bearer token is missing or invalid |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**403** | The passed bearer token does not have the right scopes |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_users**
+> GetUsersResponse get_users(ids)
+
+Fetch a batch of users by id
+
+### Example
+
+* Bearer (Personal Access Token) Authentication (PersonalAccessToken):
+
+```python
+import time
+import gmodstore-sdk
+from gmodstore-sdk.api import users_api
+from gmodstore-sdk.model.error import Error
+from gmodstore-sdk.model.get_users_response import GetUsersResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://www.gmodstore.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gmodstore-sdk.Configuration(
+    host = "https://www.gmodstore.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (Personal Access Token): PersonalAccessToken
+configuration = gmodstore-sdk.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with gmodstore-sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = users_api.UsersApi(api_client)
+    ids = [
+        "ids[]_example",
+    ] # [str] | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Fetch a batch of users by id
+        api_response = api_instance.get_users(ids)
+        pprint(api_response)
+    except gmodstore-sdk.ApiException as e:
+        print("Exception when calling UsersApi->get_users: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ids** | **[str]**|  |
+
+### Return type
+
+[**GetUsersResponse**](GetUsersResponse.md)
+
+### Authorization
+
+[PersonalAccessToken](../README.md#PersonalAccessToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response containing the requested batch of users |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**404** | The requested resource does not exist |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**400** | Improperly formatted request passed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**401** | The passed bearer token is missing or invalid |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**403** | The passed bearer token does not have the right scopes |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

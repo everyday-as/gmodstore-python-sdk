@@ -1,35 +1,35 @@
 # gmodstore-sdk.UserBadgesApi
 
-All URIs are relative to *https://api.gmodstore.com/v2*
+All URIs are relative to *https://www.gmodstore.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_user_badge**](UserBadgesApi.md#create_user_badge) | **POST** /users/{user_id}/badges | Give a user a badge
-[**delete_user_badge**](UserBadgesApi.md#delete_user_badge) | **DELETE** /users/{user_id}/badges/{badge_id} | Destroy a users&#39;s badge
-[**list_user_badges**](UserBadgesApi.md#list_user_badges) | **GET** /users/{user_id}/badges | Fetch all the badges a user has
+[**create_user_badge**](UserBadgesApi.md#create_user_badge) | **POST** /api/v3/users/{user}/badges | Attach a badge to a user
+[**delete_user_badge**](UserBadgesApi.md#delete_user_badge) | **DELETE** /api/v3/users/{user}/badges/{badge} | Detach a badge from a user
+[**list_user_badges**](UserBadgesApi.md#list_user_badges) | **GET** /api/v3/users/{user}/badges | List all the specified user&#39;s badges
 
 
 # **create_user_badge**
-> BadgeResponse create_user_badge(user_id, user_badge)
+> CreateUserBadgeResponse create_user_badge(user)
 
-Give a user a badge
+Attach a badge to a user
 
 ### Example
 
-* Bearer (API Key) Authentication (bearerAuth):
+* Bearer (Personal Access Token) Authentication (PersonalAccessToken):
 
 ```python
 import time
 import gmodstore-sdk
 from gmodstore-sdk.api import user_badges_api
-from gmodstore-sdk.model.badge_response import BadgeResponse
-from gmodstore-sdk.model.user_badge import UserBadge
-from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.error import Error
+from gmodstore-sdk.model.create_user_badge_response import CreateUserBadgeResponse
+from gmodstore-sdk.model.new_user_badge_payload import NewUserBadgePayload
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.gmodstore.com/v2
+# Defining the host is optional and defaults to https://www.gmodstore.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gmodstore-sdk.Configuration(
-    host = "https://api.gmodstore.com/v2"
+    host = "https://www.gmodstore.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -37,7 +37,7 @@ configuration = gmodstore-sdk.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (API Key): bearerAuth
+# Configure Bearer authorization (Personal Access Token): PersonalAccessToken
 configuration = gmodstore-sdk.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -46,15 +46,24 @@ configuration = gmodstore-sdk.Configuration(
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = user_badges_api.UserBadgesApi(api_client)
-    user_id = 1 # int | Id of the user
-    user_badge = UserBadge(
-        badge="badge_example",
-    ) # UserBadge | 
+    user = "user_example" # str | 
+    new_user_badge_payload = NewUserBadgePayload(
+        badge_id="2fa",
+    ) # NewUserBadgePayload |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Give a user a badge
-        api_response = api_instance.create_user_badge(user_id, user_badge)
+        # Attach a badge to a user
+        api_response = api_instance.create_user_badge(user)
+        pprint(api_response)
+    except gmodstore-sdk.ApiException as e:
+        print("Exception when calling UserBadgesApi->create_user_badge: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Attach a badge to a user
+        api_response = api_instance.create_user_badge(user, new_user_badge_payload=new_user_badge_payload)
         pprint(api_response)
     except gmodstore-sdk.ApiException as e:
         print("Exception when calling UserBadgesApi->create_user_badge: %s\n" % e)
@@ -65,16 +74,16 @@ with gmodstore-sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| Id of the user |
- **user_badge** | [**UserBadge**](UserBadge.md)|  |
+ **user** | **str**|  |
+ **new_user_badge_payload** | [**NewUserBadgePayload**](NewUserBadgePayload.md)|  | [optional]
 
 ### Return type
 
-[**BadgeResponse**](BadgeResponse.md)
+[**CreateUserBadgeResponse**](CreateUserBadgeResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+[PersonalAccessToken](../README.md#PersonalAccessToken)
 
 ### HTTP request headers
 
@@ -86,31 +95,34 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
-**429** | Too many requests |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset - The UNIX timestamp at which your rate limit quota will reset. <br>  |
-**0** | Something went wrong |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
+**201** | Successful response containing the newly created user badge |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**400** | Improperly formatted request passed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**401** | The passed bearer token is missing or invalid |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**403** | The passed bearer token does not have the right scopes |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**404** | The requested resource does not exist |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_user_badge**
-> delete_user_badge(user_id, badge_id)
+> DeleteUserBadgeResponse delete_user_badge(user, badge)
 
-Destroy a users's badge
+Detach a badge from a user
 
 ### Example
 
-* Bearer (API Key) Authentication (bearerAuth):
+* Bearer (Personal Access Token) Authentication (PersonalAccessToken):
 
 ```python
 import time
 import gmodstore-sdk
 from gmodstore-sdk.api import user_badges_api
-from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.error import Error
+from gmodstore-sdk.model.delete_user_badge_response import DeleteUserBadgeResponse
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.gmodstore.com/v2
+# Defining the host is optional and defaults to https://www.gmodstore.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gmodstore-sdk.Configuration(
-    host = "https://api.gmodstore.com/v2"
+    host = "https://www.gmodstore.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -118,7 +130,7 @@ configuration = gmodstore-sdk.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (API Key): bearerAuth
+# Configure Bearer authorization (Personal Access Token): PersonalAccessToken
 configuration = gmodstore-sdk.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -127,13 +139,14 @@ configuration = gmodstore-sdk.Configuration(
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = user_badges_api.UserBadgesApi(api_client)
-    user_id = 1 # int | Id of the user
-    badge_id = "badge_id_example" # str | Id of the badge
+    user = "user_example" # str | 
+    badge = "badge_example" # str | 
 
     # example passing only required values which don't have defaults set
     try:
-        # Destroy a users's badge
-        api_instance.delete_user_badge(user_id, badge_id)
+        # Detach a badge from a user
+        api_response = api_instance.delete_user_badge(user, badge)
+        pprint(api_response)
     except gmodstore-sdk.ApiException as e:
         print("Exception when calling UserBadgesApi->delete_user_badge: %s\n" % e)
 ```
@@ -143,16 +156,16 @@ with gmodstore-sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| Id of the user |
- **badge_id** | **str**| Id of the badge |
+ **user** | **str**|  |
+ **badge** | **str**|  |
 
 ### Return type
 
-void (empty response body)
+[**DeleteUserBadgeResponse**](DeleteUserBadgeResponse.md)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+[PersonalAccessToken](../README.md#PersonalAccessToken)
 
 ### HTTP request headers
 
@@ -164,31 +177,33 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
-**0** | Something went wrong |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
+**200** | Successful response containing the user badge that was just deleted |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**400** | Improperly formatted request passed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**401** | The passed bearer token is missing or invalid |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**403** | The passed bearer token does not have the right scopes |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**404** | The requested resource does not exist |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_user_badges**
-> BadgeListResponse list_user_badges(user_id)
+> bool, date, datetime, dict, float, int, list, str, none_type list_user_badges(user)
 
-Fetch all the badges a user has
+List all the specified user's badges
 
 ### Example
 
-* Bearer (API Key) Authentication (bearerAuth):
+* Bearer (Personal Access Token) Authentication (PersonalAccessToken):
 
 ```python
 import time
 import gmodstore-sdk
 from gmodstore-sdk.api import user_badges_api
-from gmodstore-sdk.model.badge_list_response import BadgeListResponse
-from gmodstore-sdk.model.error_response import ErrorResponse
+from gmodstore-sdk.model.error import Error
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.gmodstore.com/v2
+# Defining the host is optional and defaults to https://www.gmodstore.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gmodstore-sdk.Configuration(
-    host = "https://api.gmodstore.com/v2"
+    host = "https://www.gmodstore.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -196,7 +211,7 @@ configuration = gmodstore-sdk.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (API Key): bearerAuth
+# Configure Bearer authorization (Personal Access Token): PersonalAccessToken
 configuration = gmodstore-sdk.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -205,12 +220,23 @@ configuration = gmodstore-sdk.Configuration(
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = user_badges_api.UserBadgesApi(api_client)
-    user_id = 1 # int | Id of the user
+    user = "user_example" # str | 
+    per_page = 24 # int, none_type |  (optional) if omitted the server will use the default value of 24
+    cursor = "cursor_example" # str | The cursor from which to return paginated results starting after (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Fetch all the badges a user has
-        api_response = api_instance.list_user_badges(user_id)
+        # List all the specified user's badges
+        api_response = api_instance.list_user_badges(user)
+        pprint(api_response)
+    except gmodstore-sdk.ApiException as e:
+        print("Exception when calling UserBadgesApi->list_user_badges: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # List all the specified user's badges
+        api_response = api_instance.list_user_badges(user, per_page=per_page, cursor=cursor)
         pprint(api_response)
     except gmodstore-sdk.ApiException as e:
         print("Exception when calling UserBadgesApi->list_user_badges: %s\n" % e)
@@ -221,15 +247,17 @@ with gmodstore-sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| Id of the user |
+ **user** | **str**|  |
+ **per_page** | **int, none_type**|  | [optional] if omitted the server will use the default value of 24
+ **cursor** | **str**| The cursor from which to return paginated results starting after | [optional]
 
 ### Return type
 
-[**BadgeListResponse**](BadgeListResponse.md)
+**bool, date, datetime, dict, float, int, list, str, none_type**
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+[PersonalAccessToken](../README.md#PersonalAccessToken)
 
 ### HTTP request headers
 
@@ -241,9 +269,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
-**429** | Too many requests |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset - The UNIX timestamp at which your rate limit quota will reset. <br>  |
-**0** | Something went wrong |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
+**200** | Successful response containing a list of user badges |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**400** | Improperly formatted request passed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**401** | The passed bearer token is missing or invalid |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**403** | The passed bearer token does not have the right scopes |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**404** | The requested resource does not exist |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
