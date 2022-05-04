@@ -29,4 +29,3 @@ from gmodstore-sdk.api.user_product_purchases_api import UserProductPurchasesApi
 from gmodstore-sdk.api.user_products_api import UserProductsApi
 from gmodstore-sdk.api.user_teams_api import UserTeamsApi
 from gmodstore-sdk.api.users_api import UsersApi
-from gmodstore-sdk.api.default_api import DefaultApi

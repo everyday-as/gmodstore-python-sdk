@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "3.0.0"
+__version__ = "3.1.0"
 
 # import ApiClient
 from gmodstore-sdk.api_client import ApiClient
