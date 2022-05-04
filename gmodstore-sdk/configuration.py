@@ -371,7 +371,6 @@ class Configuration(object):
             auth['PersonalAccessToken'] = {
                 'type': 'bearer',
                 'in': 'header',
-                'format': 'Personal Access Token',
                 'key': 'Authorization',
                 'value': 'Bearer ' + self.access_token
             }

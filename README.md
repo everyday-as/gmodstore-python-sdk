@@ -77,7 +77,7 @@ configuration = gmodstore-sdk.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Personal Access Token): PersonalAccessToken
+# Configure Bearer authorization: PersonalAccessToken
 configuration = gmodstore-sdk.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -153,6 +153,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**get_me**](docs/UsersApi.md#get_me) | **GET** /api/v3/me | Fetch the current authenticated user and their access token
 *UsersApi* | [**get_user**](docs/UsersApi.md#get_user) | **GET** /api/v3/users/{user} | Fetch the specified user
 *UsersApi* | [**get_users**](docs/UsersApi.md#get_users) | **GET** /api/v3/users/batch | Fetch a batch of users by id
+*UsersApi* | [**list_users**](docs/UsersApi.md#list_users) | **GET** /api/v3/users | List all users
 *DefaultApi* | [**delete_product_version**](docs/DefaultApi.md#delete_product_version) | **DELETE** /api/v3/products/{product}/versions/{version} | Delete the specified version for a product
 
 
@@ -216,6 +217,7 @@ Class | Method | HTTP request | Description
  - [ProductVersionFilter](docs/ProductVersionFilter.md)
  - [Team](docs/Team.md)
  - [TeamUser](docs/TeamUser.md)
+ - [TwoFactorNonce](docs/TwoFactorNonce.md)
  - [UpdatePermissionGroupPayload](docs/UpdatePermissionGroupPayload.md)
  - [UpdatePermissionGroupResponse](docs/UpdatePermissionGroupResponse.md)
  - [UpdatePersonalAccessTokenResponse](docs/UpdatePersonalAccessTokenResponse.md)
@@ -231,6 +233,7 @@ Class | Method | HTTP request | Description
  - [UserBadge](docs/UserBadge.md)
  - [UserBan](docs/UserBan.md)
  - [UserBanFilter](docs/UserBanFilter.md)
+ - [UserFilter](docs/UserFilter.md)
  - [ValidationErrors](docs/ValidationErrors.md)
 
 
@@ -239,7 +242,7 @@ Class | Method | HTTP request | Description
 
 ## PersonalAccessToken
 
-- **Type**: Bearer authentication (Personal Access Token)
+- **Type**: Bearer authentication
 
 
 ## Author

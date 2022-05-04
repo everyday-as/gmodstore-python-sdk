@@ -70,6 +70,7 @@ docs/Team.md
 docs/TeamUser.md
 docs/TeamUsersApi.md
 docs/TeamsApi.md
+docs/TwoFactorNonce.md
 docs/UpdatePermissionGroupPayload.md
 docs/UpdatePermissionGroupResponse.md
 docs/UpdatePersonalAccessTokenResponse.md
@@ -87,6 +88,7 @@ docs/UserBadgesApi.md
 docs/UserBan.md
 docs/UserBanFilter.md
 docs/UserBansApi.md
+docs/UserFilter.md
 docs/UserProductPurchasesApi.md
 docs/UserProductsApi.md
 docs/UserTeamsApi.md
@@ -174,6 +176,7 @@ gmodstore-sdk/model/product_version.py
 gmodstore-sdk/model/product_version_filter.py
 gmodstore-sdk/model/team.py
 gmodstore-sdk/model/team_user.py
+gmodstore-sdk/model/two_factor_nonce.py
 gmodstore-sdk/model/update_permission_group_payload.py
 gmodstore-sdk/model/update_permission_group_response.py
 gmodstore-sdk/model/update_personal_access_token_response.py
@@ -189,6 +192,7 @@ gmodstore-sdk/model/user.py
 gmodstore-sdk/model/user_badge.py
 gmodstore-sdk/model/user_ban.py
 gmodstore-sdk/model/user_ban_filter.py
+gmodstore-sdk/model/user_filter.py
 gmodstore-sdk/model/validation_errors.py
 gmodstore-sdk/model_utils.py
 gmodstore-sdk/models/__init__.py
@@ -198,4 +202,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_two_factor_nonce.py
+test/test_user_filter.py
 tox.ini

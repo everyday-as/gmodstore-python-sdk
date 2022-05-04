@@ -67,6 +67,7 @@ from gmodstore-sdk.model.product_version import ProductVersion
 from gmodstore-sdk.model.product_version_filter import ProductVersionFilter
 from gmodstore-sdk.model.team import Team
 from gmodstore-sdk.model.team_user import TeamUser
+from gmodstore-sdk.model.two_factor_nonce import TwoFactorNonce
 from gmodstore-sdk.model.update_permission_group_payload import UpdatePermissionGroupPayload
 from gmodstore-sdk.model.update_permission_group_response import UpdatePermissionGroupResponse
 from gmodstore-sdk.model.update_personal_access_token_response import UpdatePersonalAccessTokenResponse
@@ -82,4 +83,5 @@ from gmodstore-sdk.model.user import User
 from gmodstore-sdk.model.user_badge import UserBadge
 from gmodstore-sdk.model.user_ban import UserBan
 from gmodstore-sdk.model.user_ban_filter import UserBanFilter
+from gmodstore-sdk.model.user_filter import UserFilter
 from gmodstore-sdk.model.validation_errors import ValidationErrors

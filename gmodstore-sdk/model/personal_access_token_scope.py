@@ -54,6 +54,8 @@ class PersonalAccessTokenScope(ModelSimple):
         ('value',): {
             'PERMISSION-GROUPS:READ': "permission-groups:read",
             'PERMISSION-GROUPS:WRITE': "permission-groups:write",
+            'PERSONAL-ACCESS-TOKENS:READ': "personal-access-tokens:read",
+            'PERSONAL-ACCESS-TOKENS:WRITE': "personal-access-tokens:write",
             'TEAMS:READ': "teams:read",
             'TEAMS:WRITE': "teams:write",
             'TEAM-USERS:READ': "team-users:read",
@@ -127,10 +129,10 @@ class PersonalAccessTokenScope(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["permission-groups:read", "permission-groups:write", "teams:read", "teams:write", "team-users:read", "team-users:write", "products:read", "products:write", "product-coupons:read", "product-coupons:write", "product-purchases:read", "product-purchases:write", "product-reviews:read", "product-reviews:write", "product-versions:read", "product-versions:write", "product-versions:download", "users:read", "users:write", "user-badges:read", "user-badges:write", "user-bans:read", "user-purchases:read", "*", ]  # noqa: E501
+            args[0] (str):, must be one of ["permission-groups:read", "permission-groups:write", "personal-access-tokens:read", "personal-access-tokens:write", "teams:read", "teams:write", "team-users:read", "team-users:write", "products:read", "products:write", "product-coupons:read", "product-coupons:write", "product-purchases:read", "product-purchases:write", "product-reviews:read", "product-reviews:write", "product-versions:read", "product-versions:write", "product-versions:download", "users:read", "users:write", "user-badges:read", "user-badges:write", "user-bans:read", "user-purchases:read", "*", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["permission-groups:read", "permission-groups:write", "teams:read", "teams:write", "team-users:read", "team-users:write", "products:read", "products:write", "product-coupons:read", "product-coupons:write", "product-purchases:read", "product-purchases:write", "product-reviews:read", "product-reviews:write", "product-versions:read", "product-versions:write", "product-versions:download", "users:read", "users:write", "user-badges:read", "user-badges:write", "user-bans:read", "user-purchases:read", "*", ]  # noqa: E501
+            value (str):, must be one of ["permission-groups:read", "permission-groups:write", "personal-access-tokens:read", "personal-access-tokens:write", "teams:read", "teams:write", "team-users:read", "team-users:write", "products:read", "products:write", "product-coupons:read", "product-coupons:write", "product-purchases:read", "product-purchases:write", "product-reviews:read", "product-reviews:write", "product-versions:read", "product-versions:write", "product-versions:download", "users:read", "users:write", "user-badges:read", "user-badges:write", "user-bans:read", "user-purchases:read", "*", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -217,10 +219,10 @@ class PersonalAccessTokenScope(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["permission-groups:read", "permission-groups:write", "teams:read", "teams:write", "team-users:read", "team-users:write", "products:read", "products:write", "product-coupons:read", "product-coupons:write", "product-purchases:read", "product-purchases:write", "product-reviews:read", "product-reviews:write", "product-versions:read", "product-versions:write", "product-versions:download", "users:read", "users:write", "user-badges:read", "user-badges:write", "user-bans:read", "user-purchases:read", "*", ]  # noqa: E501
+            args[0] (str):, must be one of ["permission-groups:read", "permission-groups:write", "personal-access-tokens:read", "personal-access-tokens:write", "teams:read", "teams:write", "team-users:read", "team-users:write", "products:read", "products:write", "product-coupons:read", "product-coupons:write", "product-purchases:read", "product-purchases:write", "product-reviews:read", "product-reviews:write", "product-versions:read", "product-versions:write", "product-versions:download", "users:read", "users:write", "user-badges:read", "user-badges:write", "user-bans:read", "user-purchases:read", "*", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["permission-groups:read", "permission-groups:write", "teams:read", "teams:write", "team-users:read", "team-users:write", "products:read", "products:write", "product-coupons:read", "product-coupons:write", "product-purchases:read", "product-purchases:write", "product-reviews:read", "product-reviews:write", "product-versions:read", "product-versions:write", "product-versions:download", "users:read", "users:write", "user-badges:read", "user-badges:write", "user-bans:read", "user-purchases:read", "*", ]  # noqa: E501
+            value (str):, must be one of ["permission-groups:read", "permission-groups:write", "personal-access-tokens:read", "personal-access-tokens:write", "teams:read", "teams:write", "team-users:read", "team-users:write", "products:read", "products:write", "product-coupons:read", "product-coupons:write", "product-purchases:read", "product-purchases:write", "product-reviews:read", "product-reviews:write", "product-versions:read", "product-versions:write", "product-versions:download", "users:read", "users:write", "user-badges:read", "user-badges:write", "user-bans:read", "user-purchases:read", "*", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

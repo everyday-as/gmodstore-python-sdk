@@ -18,7 +18,7 @@ Create a new personal access token for the current user
 
 ### Example
 
-* Bearer (Personal Access Token) Authentication (PersonalAccessToken):
+* Bearer Authentication (PersonalAccessToken):
 
 ```python
 import time
@@ -39,7 +39,7 @@ configuration = gmodstore-sdk.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Personal Access Token): PersonalAccessToken
+# Configure Bearer authorization: PersonalAccessToken
 configuration = gmodstore-sdk.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -105,7 +105,7 @@ Delete the specified personal access token
 
 ### Example
 
-* Bearer (Personal Access Token) Authentication (PersonalAccessToken):
+* Bearer Authentication (PersonalAccessToken):
 
 ```python
 import time
@@ -125,7 +125,7 @@ configuration = gmodstore-sdk.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Personal Access Token): PersonalAccessToken
+# Configure Bearer authorization: PersonalAccessToken
 configuration = gmodstore-sdk.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -185,7 +185,7 @@ Get a personal access token belonging to the current user
 
 ### Example
 
-* Bearer (Personal Access Token) Authentication (PersonalAccessToken):
+* Bearer Authentication (PersonalAccessToken):
 
 ```python
 import time
@@ -205,7 +205,7 @@ configuration = gmodstore-sdk.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Personal Access Token): PersonalAccessToken
+# Configure Bearer authorization: PersonalAccessToken
 configuration = gmodstore-sdk.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -265,7 +265,7 @@ List all the current user's personal access tokens
 
 ### Example
 
-* Bearer (Personal Access Token) Authentication (PersonalAccessToken):
+* Bearer Authentication (PersonalAccessToken):
 
 ```python
 import time
@@ -284,7 +284,7 @@ configuration = gmodstore-sdk.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Personal Access Token): PersonalAccessToken
+# Configure Bearer authorization: PersonalAccessToken
 configuration = gmodstore-sdk.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -346,7 +346,7 @@ Update a personal access token
 
 ### Example
 
-* Bearer (Personal Access Token) Authentication (PersonalAccessToken):
+* Bearer Authentication (PersonalAccessToken):
 
 ```python
 import time
@@ -366,7 +366,7 @@ configuration = gmodstore-sdk.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Personal Access Token): PersonalAccessToken
+# Configure Bearer authorization: PersonalAccessToken
 configuration = gmodstore-sdk.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )

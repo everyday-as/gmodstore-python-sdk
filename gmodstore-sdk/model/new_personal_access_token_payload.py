@@ -58,6 +58,8 @@ class NewPersonalAccessTokenPayload(ModelNormal):
         ('abilities',): {
             'PERMISSION-GROUPS:READ': "permission-groups:read",
             'PERMISSION-GROUPS:WRITE': "permission-groups:write",
+            'PERSONAL-ACCESS-TOKENS:READ': "personal-access-tokens:read",
+            'PERSONAL-ACCESS-TOKENS:WRITE': "personal-access-tokens:write",
             'TEAMS:READ': "teams:read",
             'TEAMS:WRITE': "teams:write",
             'TEAM-USERS:READ': "team-users:read",

@@ -15,7 +15,7 @@ Show the specified review for a product
 
 ### Example
 
-* Bearer (Personal Access Token) Authentication (PersonalAccessToken):
+* Bearer Authentication (PersonalAccessToken):
 
 ```python
 import time
@@ -36,7 +36,7 @@ configuration = gmodstore-sdk.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Personal Access Token): PersonalAccessToken
+# Configure Bearer authorization: PersonalAccessToken
 configuration = gmodstore-sdk.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -111,7 +111,7 @@ List all reviews for a product
 
 ### Example
 
-* Bearer (Personal Access Token) Authentication (PersonalAccessToken):
+* Bearer Authentication (PersonalAccessToken):
 
 ```python
 import time
@@ -131,7 +131,7 @@ configuration = gmodstore-sdk.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Personal Access Token): PersonalAccessToken
+# Configure Bearer authorization: PersonalAccessToken
 configuration = gmodstore-sdk.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
