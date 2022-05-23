@@ -1,31 +1,32 @@
 # gmodstore-sdk.TeamUsersApi
 
-All URIs are relative to *https://www.gmodstore.com*
+All URIs are relative to *https://api.gmodstore.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list_team_users**](TeamUsersApi.md#list_team_users) | **GET** /api/v3/teams/{team}/users | List all users in a team
+[**list_team_users**](TeamUsersApi.md#list_team_users) | **GET** /teams/{team_id}/users | Fetch all the users in the given team
 
 
 # **list_team_users**
-> bool, date, datetime, dict, float, int, list, str, none_type list_team_users(team)
+> TeamUserListResponse list_team_users(team_id)
 
-List all users in a team
+Fetch all the users in the given team
 
 ### Example
 
-* Bearer Authentication (PersonalAccessToken):
+* Bearer (API Key) Authentication (bearerAuth):
 
 ```python
 import time
 import gmodstore-sdk
 from gmodstore-sdk.api import team_users_api
-from gmodstore-sdk.model.error import Error
+from gmodstore-sdk.model.team_user_list_response import TeamUserListResponse
+from gmodstore-sdk.model.error_response import ErrorResponse
 from pprint import pprint
-# Defining the host is optional and defaults to https://www.gmodstore.com
+# Defining the host is optional and defaults to https://api.gmodstore.com/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gmodstore-sdk.Configuration(
-    host = "https://www.gmodstore.com"
+    host = "https://api.gmodstore.com/v2"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -33,7 +34,7 @@ configuration = gmodstore-sdk.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization: PersonalAccessToken
+# Configure Bearer authorization (API Key): bearerAuth
 configuration = gmodstore-sdk.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -42,14 +43,15 @@ configuration = gmodstore-sdk.Configuration(
 with gmodstore-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = team_users_api.TeamUsersApi(api_client)
-    team = "team_example" # str | 
-    per_page = 24 # int |  (optional) if omitted the server will use the default value of 24
-    cursor = "cursor_example" # str | The cursor from which to return paginated results starting after (optional)
+    team_id = 1 # int | Id of the team
+    _with = [
+        "user",
+    ] # [str] | The relations you want to fetch with the `TeamUser` (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # List all users in a team
-        api_response = api_instance.list_team_users(team)
+        # Fetch all the users in the given team
+        api_response = api_instance.list_team_users(team_id)
         pprint(api_response)
     except gmodstore-sdk.ApiException as e:
         print("Exception when calling TeamUsersApi->list_team_users: %s\n" % e)
@@ -57,8 +59,8 @@ with gmodstore-sdk.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # List all users in a team
-        api_response = api_instance.list_team_users(team, per_page=per_page, cursor=cursor)
+        # Fetch all the users in the given team
+        api_response = api_instance.list_team_users(team_id, _with=_with)
         pprint(api_response)
     except gmodstore-sdk.ApiException as e:
         print("Exception when calling TeamUsersApi->list_team_users: %s\n" % e)
@@ -69,17 +71,16 @@ with gmodstore-sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **team** | **str**|  |
- **per_page** | **int**|  | [optional] if omitted the server will use the default value of 24
- **cursor** | **str**| The cursor from which to return paginated results starting after | [optional]
+ **team_id** | **int**| Id of the team |
+ **_with** | **[str]**| The relations you want to fetch with the &#x60;TeamUser&#x60; | [optional]
 
 ### Return type
 
-**bool, date, datetime, dict, float, int, list, str, none_type**
+[**TeamUserListResponse**](TeamUserListResponse.md)
 
 ### Authorization
 
-[PersonalAccessToken](../README.md#PersonalAccessToken)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -91,10 +92,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful response containing a list of team users |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-**400** | Improperly formatted request passed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-**401** | The passed bearer token is missing or invalid |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-**403** | The passed bearer token does not have the right scopes |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**200** | Successfully processed the request. |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
+**429** | Too many requests |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset - The UNIX timestamp at which your rate limit quota will reset. <br>  |
+**0** | Something went wrong |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
